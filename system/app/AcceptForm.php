@@ -40,4 +40,9 @@ class AcceptForm extends PostController
 		
 	}
 	
+	public function addProduto()
+	{
+		
+	}
+	
 }

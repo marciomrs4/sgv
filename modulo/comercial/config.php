@@ -1,7 +1,7 @@
 <?php
 $config = array();
 
-$config['moduloName'] = 'Comercial';
+$config['moduloName'] = 'Vendas';
 
 
 

@@ -13,7 +13,7 @@
 
 		<div class="panel panel-primary">
 			<div class="panel-heading panel-title">
-				Intranet stay - Login
+				SGV - Login
 			</div>
 			<div class="panel-body well">
 				<div class="row">
@@ -33,7 +33,7 @@
 					</div>
 					<div class="col-sm-6 col-sm-offset-1">
 						<div class="panel-body">
-							<img src="../../img/logo-stay.JPG" class="img-responsive img-rounded" alt="Logotipo">
+							<img src="../../img/logo-restaurante.png" class="img-responsive img-rounded" alt="Logotipo">
 						</div>
 					</div>
 				</div>
