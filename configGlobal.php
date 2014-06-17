@@ -6,11 +6,11 @@ date_default_timezone_set('America/Sao_Paulo');
 
 $configGlobal = array();
 
-$configGlobal['projectName'] = 'Stay';
-$configGlobal['systemName'] = '..:: Intranet Stay ::..';
-$configGlobal['comercial'] = 'Comercial';
+$configGlobal['projectName'] = 'SGV';
+$configGlobal['systemName'] = '..:: SGV -  Sistema de Gestão de Vendas::..';
+$configGlobal['comercial'] = 'Vendas';
 $configGlobal['administracao'] = 'Administração';
 
-$configGlobal['tituloRodape'] = '..:: Intranet stay ::..';
+$configGlobal['tituloRodape'] = '..:: SGV -  Sistema de Gestão de Vendas ::..';
 
 ?>

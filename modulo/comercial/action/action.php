@@ -2,18 +2,18 @@
 require_once '../../../bootstrap.php';
 
 
-use system\app\AcceptForm as Form;
+use system\app\AcceptForm as Post;
 use system\core\FormController;
 
-$form = new Form();
+$post = new Post();
 
 try {
 	
-	$form->setPost($_POST);
+	$post->setPost($_POST);
 
-	$form->cadastrarComercial();
+	$post->addProduto();
 	
-	$form->clearPost();
+	$post->clearPost();
 	
 } catch (Exception $e) {
 
@@ -39,7 +39,6 @@ $form->setModulo($_SESSION['moduloTemp'])
 	 ->setValue($_SESSION['valueTemp']);
 
 }
-
 
 
 header('location: '.$_SERVER['HTTP_REFERER']);
