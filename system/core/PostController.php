@@ -27,7 +27,7 @@ abstract class PostController
 		return $this;
 	}
 	
-	public function getpost($post)
+	public function getPost($post)
 	{
 		return($this->post[$post]);
 	}

@@ -16,5 +16,19 @@ $controler = new FormController();
 $controler->setForm()
           ->getForm();
 
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+
+/* foreach ($_SESSION['itens_pedido'] as $key => $array){
+	
+	echo 'Chave: ',$key,
+		 ' Pro_codigo: ', $array['pro_codigo'],
+		 ' Valor Unit: ', $array['valor'],
+		 ' Quantidade: ', $array['quantidade'],
+		' Total: ',$array['total'] ,'<br />';
+	
+}
+ */
 include '../../componente/rodape.php';
 ?>
