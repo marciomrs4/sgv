@@ -5,6 +5,7 @@
 	<div class="panel-body">
 	<?php 
 		use system\core\FormController;
+
 		use system\model\TbProduto;
 
 		$form = new FormController();
@@ -16,6 +17,7 @@
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-1">
+
 					<input type="text" name="ped_codigo" value="1"  class="form-control" id="inputEmail3"
 						placeholder="Pedido" readonly="readonly">
 				</div>
@@ -73,6 +75,7 @@
 		<h3 class="panel-title">Lista de Produtos</h3>
 	</div>
 	<div class="panel-body">
+
 		<form class="form-horizontal" action="action/finalizarPedido.php" method="post" role="form">
 			
 				<table class="table table-striped table-bordered table-condensed table-hover">
@@ -87,12 +90,14 @@
 					</thead>
 					<tbody>
 					
+
 					<?php 
 
 					if(isset($_SESSION['itens_pedido']))
 					{
 					
 					foreach ($_SESSION['itens_pedido'] as $key => $array): ?>
+
 						<tr>
 							<td class="col-md-1">
 							
@@ -102,7 +107,11 @@
 										Opções <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu" role="menu">
+
 										<li><a href="action/actionRemoveItem.php?idItem=<?php echo($key); ?>"><span class="glyphicon glyphicon-remove"></span>
+
+										<li><a href="#"><span class="glyphicon glyphicon-remove"></span>
+
 												Remover</a>
 										</li>
 									</ul>
@@ -110,6 +119,7 @@
 								
 							</td>
 							
+
 							<td><?php 
 
 							$tbProduto = new TbProduto();
@@ -125,7 +135,7 @@
 					<?php endforeach; 
 					}
 					?>	
-						
+
 					</tbody>
 				</table>
 			
