@@ -8,4 +8,6 @@ $Controller = new Form();
 $Controller->setForm('../../forms/login')->getForm();
 //$Controller->setForm()->getForm();
 
+//session_destroy();
+
 ?>

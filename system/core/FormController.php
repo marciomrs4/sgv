@@ -6,7 +6,10 @@ class FormController
 {
 	
 	protected $form;
-	public $dirForm = 'forms/';
+	
+	public $dirForm = 'forms';
+	
+	static $directory_separator = DIRECTORY_SEPARATOR;
 	
 	protected $session;
 	
@@ -17,7 +20,8 @@ class FormController
 	
 	public function __construct()
 	{	
-		$this->setModulo()->setAction();
+		$this->setModulo()
+			 ->setAction();
 	}
 	
 	public function setModulo($modulo=null)
@@ -64,9 +68,13 @@ class FormController
 	public function setForm($form = null)
 	{
 		if($form == null){
-			 	$this->form = strtolower($this->dirForm.$this->action.'.php');
+			 	$this->form = strtolower($this->dirForm.self::$directory_separator.$this->action.'.php');
+			 	
+			 	$this->form = str_replace('\\',DIRECTORY_SEPARATOR, $this->form);
+			 	
 		}else{
 			$this->form = strtolower($form.'.php');
+			$this->form = str_replace('\\',DIRECTORY_SEPARATOR, $this->form);
 		}
 		
 		return $this;
@@ -108,14 +116,6 @@ class FormController
 		unset($_SESSION['message']);
 	}
 	
-	private function validateSet($var)
-	{
-		if(isset($var)){
-			return $var;
-		}else{
-			return null;
-		}
-	}
 	
 	private function satinizePath($path)
 	{
