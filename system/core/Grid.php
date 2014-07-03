@@ -65,7 +65,7 @@ class Grid
 	 * @param array $dados
 	 * @author
 	 */
-	public function __construct($cabecalho = NULL,$dados = NULL)
+	public function __construct($cabecalho = NULL, $dados = NULL)
 	{
 		$this->setDados($dados);
 		$this->setCabecalho($cabecalho);

@@ -13,7 +13,7 @@ try {
 		->cadastrarAdmin();
 	$post->clearPost();
 	
-} catch (Exception $e) {
+} catch (Exception $e) { 	
 
 	$form = new FormController();
 	$form->setModulo($_SESSION['moduloTemp'])

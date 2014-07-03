@@ -1,5 +1,4 @@
 <?php
-
 namespace system\app;
 
 use Respect\Validation\Validator as v;

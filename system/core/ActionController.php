@@ -7,7 +7,7 @@ class ActionController
 	protected $urlModulo;
 	protected $urlAction;
 	protected $urlValue;
-	
+
 	
 	protected $controler = 'FrontControler.php';
 	

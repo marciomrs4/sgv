@@ -109,9 +109,6 @@
 									<ul class="dropdown-menu" role="menu">
 
 										<li><a href="action/actionRemoveItem.php?idItem=<?php echo($key); ?>"><span class="glyphicon glyphicon-remove"></span>
-
-										<li><a href="#"><span class="glyphicon glyphicon-remove"></span>
-
 												Remover</a>
 										</li>
 									</ul>

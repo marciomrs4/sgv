@@ -18,7 +18,6 @@ try {
 	->setAction($_SESSION['actionTemp'])
 	->setValue($_SESSION['valueTemp']);
 	
-	$post->clearPost();
 	
 } catch (Exception $e) {
 

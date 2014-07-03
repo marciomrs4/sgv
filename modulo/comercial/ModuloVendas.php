@@ -14,11 +14,11 @@
 						<div class="btn-group">
 							<a href="<?php 
 							use system\core\ActionController as L;
+							
 							L::actionUrl()->setProjecName($configGlobal['projectName'])
 							->setUrlModulo($config['moduloName'])
 							->setUrlAction('Cadastrar/NovoPedido')
 							->getUrl();
-
 							?>" type="button" class="btn btn-primary">
 								<span class="glyphicon glyphicon-plus"></span> Novo
 							</a>
@@ -32,7 +32,7 @@
 						</a>
 						</div>
 					</li>
-
+					
 				</ul>
 			</div>
 		</div>

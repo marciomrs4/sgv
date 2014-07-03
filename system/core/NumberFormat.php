@@ -1,5 +1,4 @@
 <?php
-
 namespace system\core;
 
 class NumberFormat

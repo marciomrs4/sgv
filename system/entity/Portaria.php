@@ -5,7 +5,7 @@ namespace system\entity;
 class Portaria
 {
 	protected $name;
-	
+		
 	public function setName($name)
 	{
 		if(is_array($name)){
