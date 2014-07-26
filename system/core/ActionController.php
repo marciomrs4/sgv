@@ -7,7 +7,7 @@ class ActionController
 	protected $urlModulo;
 	protected $urlAction;
 	protected $urlValue;
-
+	
 	
 	protected $controler = 'FrontControler.php';
 	
@@ -15,42 +15,56 @@ class ActionController
 	
 	public static function actionUrl()
 	{
-		$action = new ActionController();
-		return $action;
+        return  new ActionController();
 	}
 	
 	public function setProjecName($projectName)
 	{
-		$this->projectName = strtolower($projectName);
+		$this->projectName = '/'.strtolower($projectName).'/'.$this->controler;
 		return $this;
 	}
 
 	public function setUrlModulo($urlModulo)
 	{
-		$this->urlModulo = strtolower($urlModulo);
+		$this->urlModulo = '?urlModulo='.strtolower($urlModulo);
 		return $this;
 	}
 	
 	public function setUrlAction($urlAction)
 	{
-		$this->urlAction = strtolower($urlAction);
+		$this->urlAction = '&urlAction='.strtolower($urlAction);
 		return $this;
 	}
 	
-	public function setValue($urlValue)
+	public function setValue($urlValue=null)
 	{
-		settype($urlValue, 'int');
-		$this->urlValue = $urlValue;
+	    if($urlValue){
+	        settype($urlValue, 'int');	        
+	    }
+
+		$this->urlValue = '&urlValue='.$urlValue;
 		return $this;
+	}
+	
+	private function __get($propName)
+	{
+	    return $this->$propName;
 	}
 	
 	public function getUrl()
 	{
-		echo '/',$this->projectName,'/',
+/* 		echo '/',$this->projectName,'/',
 				 $this->controler,'?
 				 urlModulo=',$this->urlModulo,
 			   '&urlAction=',$this->urlAction,'
 				&urlValue=',$this->urlValue;
+ */		
+	  return $this->__get('projectName').
+		     $this->__get('urlModulo').
+		     $this->__get('urlAction').
+		     $this->__get('urlValue');
+		     
+		
 	}
 	
 }

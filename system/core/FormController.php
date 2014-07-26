@@ -1,5 +1,4 @@
 <?php
-
 namespace system\core;
 
 class FormController
@@ -73,40 +72,6 @@ class FormController
 		
 	}
 	
-	public function validadeForm($formName)
-	{
-		if(!isset($_SESSION[$formName])){
-			//$_SESSION[$formName] == null;
-		}
-		return $this;	
-	}
-	
-	public function showErros()
-	{
-		if(isset($_SESSION['erro']) or isset($_SESSION['erros'])){
-		echo '<div class="alert alert-danger">';
-			echo $_SESSION['erro'],'<br />';
-			foreach ($_SESSION['erros'] as $erro){
-				if($erro){
-					echo $erro,'<br />';
-				}
-			}
-		echo '</div>';
-		}
-	}
-
-	public function showMessages()
-	{
-		
-		if(isset($_SESSION['message'])){
-			echo '<div class="alert alert-success">',
-				$_SESSION['message'],
-			'</div>';
-		
-		}
-
-		unset($_SESSION['message']);
-	}
 	
 	private function validateSet($var)
 	{

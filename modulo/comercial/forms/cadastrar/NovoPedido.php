@@ -3,14 +3,16 @@
 		<h3 class="panel-title">Novo</h3>
 	</div>
 	<div class="panel-body">
-	<?php 
-		use system\core\FormController;
-
+	<?php
 		use system\model\TbProduto;
+		use system\model\TbPedido;
 
-		$form = new FormController();
+		$form = new system\core\Error();
 		$form->validadeForm('cadastrar/doca')
-			 ->showErros();
+			 ->showErrors();
+		
+		$tbPedido = new TbPedido();
+		
 		?>
 		<form class="form-horizontal" method="post" action="action/addProduct.php">
 
@@ -18,13 +20,15 @@
 				<label for="inputEmail3" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-1">
 
-					<input type="text" name="ped_codigo" value="1"  class="form-control" id="inputEmail3"
+					<input type="text" name="ped_codigo" value="<?php echo $tbPedido->getPedNumber(); ?>"  class="form-control" id="inputEmail3"
 						placeholder="Pedido" readonly="readonly">
 				</div>
 			
 				<label for="inputEmail3" class="col-sm-1 control-label">Cliente:</label>
 				<div class="col-sm-2">
-					<input type="text" name="ped_cliente" class="form-control" id="inputEmail3"
+					<input type="text" name="ped_cliente" value="<?php $name = (isset($_SESSION['pedido']['ped_cliente']) ? $_SESSION['pedido']['ped_cliente'] : null);
+																	echo $name;
+																	 ?>" class="form-control" id="inputEmail3"
 						placeholder="Cliente">
 				</div>
 			</div>
@@ -77,7 +81,7 @@
 	<div class="panel-body">
 
 		<form class="form-horizontal" action="action/finalizarPedido.php" method="post" role="form">
-			
+			<input type="hidden" name="ped_cliente" value="<?php echo($name); ?>">
 				<table class="table table-striped table-bordered table-condensed table-hover">
 					<thead>
 						<tr class="info">
@@ -96,6 +100,8 @@
 					if(isset($_SESSION['itens_pedido']))
 					{
 					
+					$total_geral = 0;
+					
 					foreach ($_SESSION['itens_pedido'] as $key => $array): ?>
 
 						<tr>
@@ -106,12 +112,14 @@
 										data-toggle="dropdown">
 										Opções <span class="caret"></span>
 									</button>
+									
 									<ul class="dropdown-menu" role="menu">
 
 										<li><a href="action/actionRemoveItem.php?idItem=<?php echo($key); ?>"><span class="glyphicon glyphicon-remove"></span>
 												Remover</a>
 										</li>
 									</ul>
+									
 								</div>
 								
 							</td>
@@ -129,10 +137,28 @@
 							<td>R$ <?php echo($array['total']); ?></td>							
 						</tr>
 						
-					<?php endforeach; 
-					}
+					<?php 
+					$total_geral += system\core\NumberFormat::builder()->numberDataBase($array['total']);
+					
+					endforeach; 
+					
 					?>	
-
+						<tr>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+								<strong>Total do Pedido</strong>
+							</td>
+							<td>
+								<strong><?php echo 'R$ ',system\core\NumberFormat::builder()->numberClient($total_geral); ?></strong>
+								<input type="hidden" name="ped_valor_total" value="<?php echo($total_geral); ?>">
+							</td>
+						</tr>
+					<?php } ?>
 					</tbody>
 				</table>
 			
@@ -148,6 +174,8 @@
 						<span class="glyphicon glyphicon-floppy-saved"></span> Limpar
 					</button>
 				</div>
+				
+				
 			</div>
 			
 		</form>

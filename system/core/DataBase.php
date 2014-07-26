@@ -22,8 +22,9 @@ abstract class DataBase
 			$this->conexao = new \PDO($this->tipobanco.':host='.$this->server.';dbname='.$this->database,$this->user,$this->password,array(\PDO::ATTR_PERSISTENT => true));
 			$this->conexao->setAttribute(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_EXCEPTION);
 		}
-		catch (\PDOException $e){
-			error_log("Erro ao tentar conectar no banco de dados \n",3,"c:\Error_log.$this->database");
+		catch (\PDOException $e)
+		{
+			error_log("Erro ao tentar conectar no banco de dados",3,"c:\Error_log_novo_ocomon");
 			throw new \PDOException("ERRO: {$e->getMessage()} COD: {$e->getCode()} Arquivo {$e->getFile()}");
 		}
 	}

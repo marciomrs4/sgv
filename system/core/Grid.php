@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-class Grid
+class Grid implements IGrid
 {
 
 	/**
@@ -42,7 +42,7 @@ class Grid
 	 * @example dados que devem ser mostrados na tabela
 	 * dados = tabeladedados
 	 */
-	public $dados;
+	private $dados;
 
 	/**
 	 * Descrição ...
@@ -51,13 +51,15 @@ class Grid
 	 * cabecalho = titulodascolunas
 	 */
 			
-	public $cabecalho;
+	private $cabecalho;
 
+	private $function = array();
 	
-	public $function;
-	
-	public $columnNumber;
+	private $columnNumber;
 
+	private $option;
+	
+	
 	/**
 	 *
 	 * Enter description here ...
@@ -67,19 +69,23 @@ class Grid
 	 */
 	public function __construct($cabecalho = NULL, $dados = NULL)
 	{
-		$this->setDados($dados);
-		$this->setCabecalho($cabecalho);
+		$this->setDados($dados)
+			 ->setCabecalho($cabecalho);
 	}
 
 	public function setDados($dados)
 	{
 		$this->dados = $dados;
+		return $this;
 	}
 	
 	public function setCabecalho($cabecalho)
 	{
 		$this->cabecalho = $cabecalho;
+		return $this;
 	}
+	
+	
 	
 	/**
 	 *
@@ -88,94 +94,130 @@ class Grid
 	 * construtor
 	 */
 	
-	private function criaCabecalho()
+	private function criarCabecalho()
 	{
 
 		echo("<table class='{$this->css}' id='{$this->id}'>
 				<thead>
-					<tr class='info'>");				
+					<tr class='active'>");				
 				foreach ($this->cabecalho as $cabecalho):
 					echo("<th><a href='#'>{$cabecalho}</a></th>");
 				endforeach;
 				
 				echo("</tr>");
-		 echo("</thead>");
+		 echo("</thead>
+		 	<tbody>");
+		 
+		 return $this;
 	}
 
 
-	public function setFunctionColumn($function, $columnNumber)
+	public function addFunctionColumn($function, $columnNumber)
 	{
-		$this->function = $function;
-		$this->columnNumber = $columnNumber;
+		$this->function[$columnNumber] = $function;
+		$this->columnNumber[$columnNumber] = $columnNumber;
+		
+		return $this;
 	}
 	
-	public function getFunctionColumn($column,$count)
+	private function getFunctionColumn($column, $columnNumber)
 	{
-		$function = $this->function;
+		$function = '';
+		
+		if(array_key_exists($columnNumber, $this->function)){
+			$function = $this->function[$columnNumber];
+		}
 		
 		if(function_exists($function)){
-				
-			if($this->columnNumber == $count){
-				
+			if($this->columnNumber[$columnNumber] == $columnNumber){		
 				return $function($column);
 			}else{
 				return $column;
 			}
 		}else{
-				
 			return $column;
 		}
+		
 	}
+	
 	
 	/**
 	 *
 	 * Enter description here ...
 	 * @example Metodo que cria a tabela com os dados iformados no contrutor
 	 */
-	private function criaTabela()
+	private function criarTabela()
 	{
-		$linha = 0;
 		
-		foreach ($this->dados as $campo)
-		{
+		$enableOption = 0;
+		
+		foreach ($this->dados as $campo){
 			
-			$this->coluna = count($campo) / 2;
-			echo("<tr>");			
-					
-			for($x = $this->colunaoculta; $x < $this->coluna ; $x++)
-			{
-				if($this->columnNumber == $x){
-				echo("<td>{$this->getFunctionColumn($campo[$x],$x)}</td>");
-				}
-				echo("<td>{$campo[$x]}</td>");
+			#Recria o array de forma númerica
+			$campo 	 = array_values($campo);
+			#Conta quantas colunas eu tenho em cada linha
+			$colunas = count($campo);
+			
+			#Serve para mostrar o Option se for uma instancia de IOption
+			if($this->option[0] instanceof IOption){
+				$enableOption = 1;				
 			}
-			$linha++;
+
+						
+			echo("<tr>");			
+			
+			for($x = $this->colunaoculta; $x < $colunas ; $x++){
+			    
+    				if($enableOption == 1){
+
+   				    	echo '<td class="col-md-1">
+								<div class="btn-group">
+	           						<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+	               						Opções <span class="caret"></span>
+	           						</button>
+	             				<ul class="dropdown-menu" role="menu">';    				    	
+					             foreach ($this->option as $option){
+				    				  	echo $option->createOption($campo[0]);
+					             }
+
+    					   echo'</ul>
+	          					</div>';
+							'</td>';
+    					  #Serve para mostrar o Option Apenas uma vez
+    					  $enableOption = 0;
+			    }
+
+				
+				echo("<td>
+						{$this->getFunctionColumn($campo[$x],$x)}
+					</td>");
+			}
+			
 			echo('</tr>');
 		}
-		echo('</table>');
+		
+		echo('</tbody>
+			</table>');
 	}
 	
-	public function addOption(Option $option)
+	public function addOption(IOption $option)
 	{
-		//$option->
+	   $this->option[] = $option;
+	   return $this;
 	}
 
-	/**
-	 *
-	 * Enter description here ...
-	 * @param int $campo
-	 * @example Criar as colunas de link com o ID que deve ser a primeira posicao
-	 * do array informado no array dados no construtor
-	 */
 	
 	/**
 	 * @example Metodo que mostra a tabela na tela, chamando todos
 	 * os metodos anteriores
 	 */
-	public function show()
+	public function show($show=true)
 	{
-			self::criaCabecalho();
-			self::criaTabela();
+		if($show){
+			$this->criarCabecalho()
+			->criarTabela();			
+		}
+
 	}
 }
 ?>

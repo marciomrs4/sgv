@@ -11,12 +11,13 @@ try {
 	
 	$post->setPost($_POST);
 
-	$post->addProduct();
+	$post->createPedido()
+		 ->addProduct();
 	
 	$form = new FormController();
 	$form->setModulo($_SESSION['moduloTemp'])
-	->setAction($_SESSION['actionTemp'])
-	->setValue($_SESSION['valueTemp']);
+		 ->setAction($_SESSION['actionTemp'])
+		 ->setValue($_SESSION['valueTemp']);
 	
 	
 } catch (Exception $e) {

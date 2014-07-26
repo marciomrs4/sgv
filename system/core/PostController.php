@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-abstract class PostController
+abstract class PostController extends DataBase
 {
 		
 	protected $post;
@@ -27,7 +27,7 @@ abstract class PostController
 		return $this;
 	}
 	
-	public function getPost($post)
+	public function getpost($post)
 	{
 		return($this->post[$post]);
 	}
@@ -37,6 +37,8 @@ abstract class PostController
 		foreach ($get as $chaves => $valor){break 1;}
 		
 		$this->post[$getname] = $valor;
+		
+		return $this;
 	}
 	
 	public function getValueGet($getname)
