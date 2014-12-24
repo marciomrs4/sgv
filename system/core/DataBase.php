@@ -3,8 +3,9 @@ namespace system\core;
 
 abstract class DataBase
 {
-	private $user = 'marcio.santos';
-	private $password = 'q1w2e3mrs5';
+
+	private $user = '';
+	private $password = '';
 	private $tipobanco = 'mysql';
 	private $database = 'sgv';
 	private $server =  'localhost';
