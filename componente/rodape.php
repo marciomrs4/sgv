@@ -35,15 +35,13 @@
 
 	</div>
 
-
-
-
 	<script src="../../js/jquery.js"></script>
 	<script src="../../js/bootstrap.js"></script>
 	<script src="../../js/jquery.dataTables.js"></script>	
 	<script src="../../js/my-data-table.js"></script>
-	<script src="../../js/my-alert.js"></script>	
-			
+	<script src="../../js/my-alert.js"></script>
+	<script src="../../js/my-createitempedido.js"></script>
+	<script src="../../js/jquery.validate.js"></script>		
 		
 </body>
 </html>

@@ -12,9 +12,9 @@ $_SESSION['modulo']= $modulo;
 
 $_SESSION['action'] = $action;
 
-$_SESSION[$modulo.'/'.$action] = $action;
-
 $_SESSION['value'] = $value;
+
+$_SESSION[$modulo.'/'.$action] = $value;
 
 $_SESSION['moduloTemp'] = $modulo;
 $_SESSION['actionTemp'] = $action;

@@ -20,8 +20,8 @@ class TbPedido extends DataBase
 	{
 		$query = ("INSERT INTO tb_pedido
 					(ped_numero, ped_cliente,
-					usu_codigo, ped_valor_total, stp_codigo)
-					VALUES(?, ?, ?, ?, ?)");
+					usu_codigo, ped_valor_total, stp_codigo, uve_codigo)
+					VALUES(?, ?, ?, ?, ?, ?)");
 		try {
 			
 			$stmt = $this->conexao->prepare($query);
@@ -33,7 +33,8 @@ class TbPedido extends DataBase
 			$stmt->bindParam(3, $dados['usu_codigo'],\PDO::PARAM_INT);
 			$stmt->bindParam(4, $dados['ped_valor_total'],\PDO::PARAM_STR);
 			$stmt->bindParam(5, $dados['stp_codigo'],\PDO::PARAM_INT);															
-			
+			$stmt->bindParam(6, $dados['uve_codigo'],\PDO::PARAM_INT);
+						
 			$stmt->execute();
 			
 			return $this->conexao->lastInsertId();
@@ -43,6 +44,28 @@ class TbPedido extends DataBase
 		}
 
 		
+	}
+	
+	public function updateValorTotal($dados)
+	{
+		$query = ("UPDATE tb_pedido
+					SET ped_valor_total = ?
+					WHERE ped_codigo = ?");
+		
+		try {
+			
+			$stmt = $this->conexao->prepare($query);
+			
+			$stmt->bindParam(1,$dados['ped_valor_total'],\PDO::PARAM_INT);
+			$stmt->bindParam(2,$dados['ped_codigo'],\PDO::PARAM_INT);			
+			
+			$stmt->execute();
+			
+			return $stmt;
+			
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
 	}
 	
 	public function getPedNumber()
@@ -59,9 +82,31 @@ class TbPedido extends DataBase
 			
 			return $number[0] + 1;
 			
-		} catch (\Exception $e) {
-			throw new \Exception($e->getMessage());
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
 		}
+	}
+	
+	public function getPedidoInformacao($ped_codigo)
+	{
+		$query = ("SELECT * FROM tb_pedido 
+					WHERE ped_codigo = ?");
+		
+		try {
+				
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1, $ped_codigo, \PDO::PARAM_INT);
+			
+			$stmt->execute();
+				
+			return $stmt->fetch(\PDO::FETCH_ASSOC);
+				
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
+		}
+		
+		
 	}
 	
 }

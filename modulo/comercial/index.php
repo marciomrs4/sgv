@@ -10,11 +10,17 @@ include '../../modulo/comercial/ModuloVendas.php';
 
 use system\core\FormController;
 
-
 $controler = new FormController();
+
+/* echo '<pre>';
+print_r($_SESSION);
+echo '</pre>'; */
 
 $controler->setForm()
           ->getForm();
+
+
+
 
 include '../../componente/rodape.php';
 ?>

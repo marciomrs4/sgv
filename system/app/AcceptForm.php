@@ -8,6 +8,8 @@ use system\model\TbPedido;
 use Respect\Validation\Validator;
 use system\core\NumberFormat;
 use system\model\TbVendasProdutos;
+use system\model\TbItemPedido;
+use system\model\TbProduto;
 
 class AcceptForm extends PostController
 {
@@ -94,7 +96,7 @@ class AcceptForm extends PostController
 	
 	public function finalizarPedido()
 	{
-		if(!isset($_SESSION['itens_pedido'])){
+		if(empty($_SESSION['itens_pedido'])){
 			throw new \Exception('Não há itens no Pedido');
 		}
 
@@ -109,21 +111,23 @@ class AcceptForm extends PostController
 			$this->post['usu_codigo'] = 1; //User da sessao
 			$this->post['ped_valor_total']; //Valor total já vem do form
 			$this->post['stp_codigo'] = 1; // Status do pedido
-			
+			$this->post['uve_codigo'] = 1; //Unidade de venda
 			
 
 			$this->post['ped_codigo'] = $tbPedido->save($this->post); //Codigo do produto
 			
-			$tbVendasProduto = new TbVendasProdutos();
+			$tbProduto = new TbProduto();
+			
+			$tbItemPedido = new TbItemPedido();
 			
 			foreach ($_SESSION['itens_pedido'] as $key => $array){
 
-				 $this->post['vpr_titulo_produto'] = 'Descricao do Item: '.$array['pro_codigo']; //Codigo do Produto
+				 $this->post['vpr_titulo_produto'] = $tbProduto->getDescriptionProduct($array['pro_codigo']); //Descricao do produto / Codigo do Produto
 				 $this->post['vpr_valor_unitario'] = NumberFormat::builder()->numberDataBase($array['valor']); //Valdor Unitario,
 				 $this->post['vpr_quantidade'] = $array['quantidade']; //Quantidade do item no pedido,
 				 $this->post['vpr_valor_total'] = NumberFormat::builder()->numberDataBase($array['total']);//valor total do item no pedido
 	
-				 $tbVendasProduto->save($this->post);
+				 $tbItemPedido->save($this->post);
 				 
 			}
 			

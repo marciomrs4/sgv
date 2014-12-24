@@ -12,7 +12,6 @@
 			 ->showErrors();
 		
 		$tbPedido = new TbPedido();
-		
 		?>
 		<form class="form-horizontal" method="post" action="action/addProduct.php">
 
@@ -38,11 +37,11 @@
 				<label for="" class="col-sm-1 control-label">Produto:</label>
 				<div class="col-sm-2">
 					<select class="form-control" name="pro_codigo">
-						<option value="1">Escondidinho de Carne Seca</option>
-						<option value="2">Escondidinho de Frango</option>			
-						<option value="3">Escondidinho de Carne</option>
-						<option value="4">Escondidinho de Carne Moída</option>
-						<option value="5">Escondidinho de Camarão</option>
+						<?php 
+							$tbProduto = new TbProduto();
+							foreach ($tbProduto->listProductScreenSale() as $campo): ?>
+						<option value="<?php echo($campo['pro_codigo']); ?>"><?php echo($campo['pro_titulo']); ?></option>
+						<?php endforeach;?>
 					</select>
 				</div>
 			
@@ -126,10 +125,8 @@
 							
 
 							<td><?php 
-
-							$tbProduto = new TbProduto();
 							
-							echo $tbProduto->getProductTitle($key);
+							echo $tbProduto->getDescriptionProduct($key);
 							
 							?></td>
 							<td>R$ <?php echo $array['valor']; ?></td>

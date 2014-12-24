@@ -72,7 +72,7 @@ class FormController
 			 	$this->form = str_replace('\\',DIRECTORY_SEPARATOR, $this->form);
 			 	
 		}else{
-			$this->form = strtolower($form.'.php');
+			$this->form = $form.'.php';
 			$this->form = str_replace('\\',DIRECTORY_SEPARATOR, $this->form);
 		}
 		

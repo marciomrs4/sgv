@@ -10,21 +10,41 @@
 
 				<ul class="nav nav-pills">
 					
-					<li class="dropdown">
+										<li class="dropdown">
 						<div class="btn-group">
-							<a href="<?php 
-							use system\core\ActionController as L;
+							<button type="button" class="btn btn-primary">
+								<span class="glyphicon glyphicon-plus"></span> Novo
+							</button>
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="caret"></span> <span class="sr-only">Toggle
+									Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<?php 
+								use system\core\ActionController as L;
 							
 							echo L::actionUrl()->setProjecName($configGlobal['projectName'])
 												->setUrlModulo($config['moduloName'])
 												->setUrlAction('Cadastrar/NovoPedido')
 												->getUrl();
-							?>" type="button" class="btn btn-primary">
-								<span class="glyphicon glyphicon-plus"></span> Novo
-							</a>
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Novo Pedido
+									</a>
+								<li><a href="<?php 
+							echo L::actionUrl()->setProjecName($configGlobal['projectName'])
+												->setUrlModulo($config['moduloName'])
+												->setUrlAction('Cadastrar/NovoPedidoToque')
+												->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Novo Pedido (toque)
+									</a>									
+								</li>
+							</ul>
 						</div>
 					</li>
 					
+										
 					<li class="dropdown">
 						<div class="btn-group">
 						<a href="Pesquisar.php" class="btn btn-primary pull-right">

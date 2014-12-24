@@ -4,23 +4,22 @@ require_once '../../../bootstrap.php';
 
 use system\app\AcceptForm as Post;
 use system\core\FormController;
+use system\app\AcceptFormPedidoToque;
 
-$post = new Post();
 
-try {
-
-	$_SESSION['carne'] = $_POST;
+try { 
 	
-	$post->setPost($_POST);
 
-	$post->createPedido()
-		 ->addProduct();
-	
-	$form = new FormController();
-	$form->setModulo($_SESSION['moduloTemp'])
-		 ->setAction($_SESSION['actionTemp'])
-		 ->setValue($_SESSION['valueTemp']);
-	
+$post = new AcceptFormPedidoToque();
+
+ 	$_SESSION['valueTemp'] = $post->setpost($_POST)->createPedido();
+
+
+$form = new FormController();
+$form->setModulo($_SESSION['moduloTemp'])
+	 ->setAction('alterar/resultadoPedidoToque')
+	 ->setValue($_SESSION['valueTemp']);
+ 	
 	
 } catch (Exception $e) {
 
@@ -46,6 +45,5 @@ $form->setModulo($_SESSION['moduloTemp'])
 	 ->setValue($_SESSION['valueTemp']);
 
 }
-
 
 header('location: '.$_SERVER['HTTP_REFERER']);
