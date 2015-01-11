@@ -4,8 +4,8 @@ namespace system\core;
 abstract class DataBase
 {
 
-	private $user = '';
-	private $password = '';
+	private $user = 'root';
+	private $password = 'q1w2e3mrs';
 	private $tipobanco = 'mysql';
 	private $database = 'sgv';
 	private $server =  'localhost';
