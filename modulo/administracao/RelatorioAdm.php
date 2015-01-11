@@ -7,7 +7,7 @@ include_once 'config.php';
 
 include '../../modulo/administracao/ModuloAdministracao.php';
 ?>
-
+<!-- 
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Pesquisar</h3>
@@ -225,7 +225,7 @@ include '../../modulo/administracao/ModuloAdministracao.php';
 		</div>
 
 
-
+ -->
 
 <?php 
 include '../../componente/rodape.php';
