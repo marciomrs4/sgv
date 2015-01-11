@@ -22,7 +22,7 @@ use system\core\NumberFormat;
 				<div class="col-sm-2">
 					<input type="text" name="ped_cliente" value="" class="form-control" placeholder="Cliente">
 				</div>
-				
+								
 			<label for="" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-2">
 					<input type="text" name="" value="<?php echo $tbPedido->getPedNumber(); ?>" class="form-control" readonly="readonly">
@@ -42,14 +42,6 @@ use system\core\NumberFormat;
   		</div>
 		<?php endforeach; ?>
 		  		  		  
-
-<!-- 		<div class="form-group">
-    		<div class="col-md-2 col-md-offset-1">
-			<label for="" class="control-label">Total:</label>
-      			<input type="text" size="7"  id="totalpedido" readonly="readonly">
-    		</div>
-  		</div> -->
-		
 		<div class="form-group">	
 			<div class="col-md-2 col-md-offset-1">
 			     <button id="button2id" name="button2id" class="btn btn-primary">
@@ -57,7 +49,7 @@ use system\core\NumberFormat;
 			     </button>
 			</div>
 		</div>
-			  
+					  
 		</form>
 
 	</div>

@@ -82,10 +82,14 @@
 										Relatorio Um
 										</a>
 										</li>
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
-										Another action</a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
-										Something else here</a></li>
+								<li><a href="qtdepedidospordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Qtde. de pedidos por Data de venda</a></li>
+								<li><a href="valordevendapordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Valor. de venda por Data de venda</a></li>
+								<li><a href="qtdpedidoportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Qtde. de pedidos por tipo de produto</a></li>										
+								<li><a href="valordepedidosportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Valor. de pedidos por tipo de produto</a></li>																				
 							</ul>
 						</div>
 					</li>

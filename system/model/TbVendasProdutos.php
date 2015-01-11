@@ -5,6 +5,8 @@ namespace system\model;
 use system\core\DataBase;
 class TbVendasProdutos extends DataBase
 {
+	private $tablename = '';
+	
 	/**
 	 * 
 	 * @param unknown $dados
@@ -48,7 +50,7 @@ class TbVendasProdutos extends DataBase
 	{
 
 		try {
-			$stmt = $this->conexao->prepare("select * from tb_itens_pedido");
+			$stmt = $this->conexao->prepare("select * from tb_vendas_produtos");
 			
 			$stmt->execute();
 			
