@@ -86,7 +86,7 @@
 						<tr class="info">
 							<th>#</th>
 							<th>Produto</th>
-							<th>Valor Unitário</th>
+							<th>Valor UnitÃ¡rio</th>
 							<th>Quantidade</th>
 							<th>Total</th>							
 						</tr>
@@ -109,7 +109,7 @@
 								<div class="btn-group">
 									<button type="button" class="btn btn-default btn-xs dropdown-toggle"
 										data-toggle="dropdown">
-										Opções <span class="caret"></span>
+										OpÃ§Ãµes <span class="caret"></span>
 									</button>
 									
 									<ul class="dropdown-menu" role="menu">
