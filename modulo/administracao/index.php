@@ -12,5 +12,9 @@ use system\core\FormController;
 $formControler = new FormController();
 $formControler->setForm()->getForm();
 
+
+
+
+
 include '../../componente/rodape.php';
 ?>

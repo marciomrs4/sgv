@@ -65,5 +65,28 @@ class TbItemPedido extends DataBase
 		}
 		
 	}
-	
+
+	public function getListarItensPedido($ped_codigo)
+	{
+		$query = ("SELECT vpr_codigo, vpr_titulo_produto, vpr_valor_unitario,
+						  vpr_quantidade, vpr_valor_total
+				   FROM tb_itens_pedido
+				   WHERE ped_codigo = ?;");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1, $ped_codigo, \PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
+		}
+
+	}
+
 }

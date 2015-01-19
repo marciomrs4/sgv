@@ -6,7 +6,7 @@
 			</div>
 			<div class="panel-body">
 
-				<!-- Painel de ações -->
+				<!-- Painel de aï¿½ï¿½es -->
 
 				<ul class="nav nav-pills">
 				
@@ -58,7 +58,7 @@
 									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('/formdefault')->getUrl();
 									?>"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										listar Usuários
+										listar Usuï¿½rios
 									</a>
 										</li>
 							</ul>
@@ -68,7 +68,7 @@
 					<li class="dropdown">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">
-								<span class="glyphicon glyphicon-list-alt"></span> Relatório
+								<span class="glyphicon glyphicon-list-alt"></span> Relatorio
 							</button>
 							<button type="button" class="btn btn-primary dropdown-toggle"
 								data-toggle="dropdown">
@@ -77,9 +77,9 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="RelatorioAdm.php"><span class="glyphicon glyphicon-list-alt">
+									<a href="PainelBusca.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										Relatorio Um
+										Buscar Pedido
 										</a>
 										</li>
 								<li><a href="qtdepedidospordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
@@ -97,4 +97,4 @@
 			</div>
 		</div>
 				
-		<!-- Fim Painel de ações / Painel do Modulo-->
+		<!-- Fim Painel de aï¿½ï¿½es / Painel do Modulo-->

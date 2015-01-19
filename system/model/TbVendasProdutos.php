@@ -50,7 +50,7 @@ class TbVendasProdutos extends DataBase
 	{
 
 		try {
-			$stmt = $this->conexao->prepare("select * from tb_vendas_produtos");
+			$stmt = $this->conexao->prepare("select * from tb_itens_pedido");
 			
 			$stmt->execute();
 			
