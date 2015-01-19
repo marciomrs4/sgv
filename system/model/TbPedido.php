@@ -108,5 +108,32 @@ class TbPedido extends DataBase
 		
 		
 	}
-	
+
+	public function getListarPedido($ped_codigo)
+	{
+		$query = ("select ped_codigo, ped_numero, ped_cliente,
+						  usu_codigo, ped_data_venda, ped_valor_total,
+						 (SELECT stp_descricao FROM tb_status_pedido WHERE stp_codigo = PED.stp_codigo) as stp_codigo,
+    			         (SELECT uve_nome FROM tb_unidade_venda WHERE uve_codigo = PED.uve_codigo) AS uve_codigo
+					from tb_pedido AS PED
+					where ped_codigo = ?;
+				 ");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1, $ped_codigo, \PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
+		}
+
+
+	}
+
 }
