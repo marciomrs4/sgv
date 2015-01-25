@@ -55,7 +55,7 @@ class FormController
 		if(file_exists($this->form)){
 			include_once $this->form;			
 		}elseif($_SESSION['action']) {
-			echo 'Arquivo não encontrado';
+			echo 'Arquivo nao encontrado';
 		}
 
 		unset($_SESSION['action'], $_SESSION['modulo'],

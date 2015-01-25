@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Novo</h3>
+		<h3 class="panel-title">Novo Pedido</h3>
 	</div>
 	<div class="panel-body">
 	<?php
@@ -8,9 +8,11 @@
 		use system\model\TbPedido;
 use system\core\NumberFormat;
 		$form = new system\core\Error();
-		$form->validadeForm('cadastrar/doca')
+		$form->validadeForm('cadastrar/novopedidotoque')
 			 ->showErrors();
-		
+
+		$form->showMessages();
+
 		$tbPedido = new TbPedido();
 		$tbProduto = new TbProduto();
 		

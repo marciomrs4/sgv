@@ -74,14 +74,20 @@ abstract class PostController extends DataBase
 		
 		return($Array);
 	}
-	
-	public function clearPost($message = 'Cadastrado com sucesso !')
+
+	/**
+	 * @param string $message
+	 * @param null $rota
+     */
+	public function clearPost($message = 'Cadastrado com sucesso !', $rota = null)
 	{
 		unset($_SESSION['action']);
 
 		$_SESSION['message'] = $message;
 
-		header('location: '.$_SERVER['HTTP_REFERER']);			
+		$rota = ($rota == null) ? $_SERVER['HTTP_REFERER'] : $rota;
+
+		header("location: $rota");
 	}
 	
 	

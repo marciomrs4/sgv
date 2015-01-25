@@ -20,23 +20,24 @@ class AcceptFormPedidoToque extends PostController
 		$tbItemPedido = new TbItemPedido();
 		
 		$totalPedido = 0;
-		$dados;
+		$dados = array();
 		
 		try {
-			
+
+			$dados['ped_cliente'] = filter_var($this->post['ped_cliente'],FILTER_SANITIZE_STRING);
+
 			$this->validateCreatePedidoToque();
 			
 		
 			try{
 			
 				$this->conexao->beginTransaction();
-				
-				$dados['ped_cliente'] = filter_var($this->post['ped_cliente'],FILTER_SANITIZE_STRING);
-					
-					unset($this->post['ped_cliente']); // = $_SESSION['pedido']['ped_cliente'];
+
+
+				unset($this->post['ped_cliente']); // = $_SESSION['pedido']['ped_cliente'];
 	
 				$dados['usu_codigo'] = 1; //User da sessao
-				$dados['ped_valor_total'] = $totalPedido; //Valor total j· vem do form
+				$dados['ped_valor_total'] = $totalPedido; //Valor total jÔøΩ vem do form
 				$dados['stp_codigo'] = 1; // Status do pedido
 				$dados['ped_numero'] = $tbPedido->getPedNumber();
 				$dados['uve_codigo'] = 1;
@@ -103,14 +104,14 @@ class AcceptFormPedidoToque extends PostController
 			echo 'Campo: ',$campo, ' Valor: ',$valor,'<br>';
 			
 			#Verficando cada valor se foi preenchido
-			if($valor == ''){
+			if(($valor == '') or ($valor == 0)){
 				$TotalCampo++;
 			}
 			
 		}
 		#Verificando se a quantidade de campos vazios e o mesmo de itens enviados
 		if($TotalCampo == $QtdItens){
-			throw new \Exception('… necess·rio informar ao menos um item');
+			throw new \Exception(utf8_decode('√â necess√°rio informar um valor diferente de zero em ao menos um item'));
 		}
 		
 	}

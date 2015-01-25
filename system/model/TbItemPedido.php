@@ -44,10 +44,16 @@ class TbItemPedido extends DataBase
 		
 		
 	}
-	
+
+	/**
+	 * @param $ped_codigo
+	 * @return array
+	 * Usado para tela de impressao de pedidos
+	 */
 	public function getItensPedido($ped_codigo)
 	{
-		$query = ("SELECT * FROM tb_itens_pedido
+		$query = ("SELECT vpr_titulo_produto, vpr_valor_unitario, vpr_quantidade, vpr_valor_total
+					FROM tb_itens_pedido
 					WHERE ped_codigo = ?");
 		
 		try {

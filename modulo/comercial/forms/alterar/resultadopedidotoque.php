@@ -11,15 +11,23 @@
 		
 			$tbItemPedido = new TbItemPedido();
 			
-			echo 'Numero do Pedido:', $_SESSION['value'];
+			echo 'Numero do Pedido: ', $_SESSION['value'],' - ';
 			
-			echo '<pre>';
-				print_r($tbPedido->getPedidoInformacao($_SESSION['value']));			
-			echo '</pre>';
-			
-			echo '<pre>';
-				print_r($tbItemPedido->getItensPedido($_SESSION['value']));
-			echo '</pre>';
+
+				$DadosPedido = $tbPedido->getPedidoInformacao($_SESSION['value']);
+
+				echo 'Data do pedido: ',$DadosPedido['ped_data_venda'],' - ',
+				     'Valor Total: ',$DadosPedido['ped_valor_total'],' - ',
+					 'Cliente: ',$DadosPedido['ped_cliente'],'<br><br>';
+
+				$DadosItensPedido = $tbItemPedido->getItensPedido($_SESSION['value']);
+
+				foreach($DadosItensPedido as $linha){
+					echo 'Produto: ',$linha['vpr_titulo_produto'],' - ',
+						 'Valor UN: ',$linha['vpr_valor_unitario'],' - ',
+					 	 'Quantidade: ',$linha['vpr_quantidade'],' - ',
+						 'Valor Total: ',$linha['vpr_valor_total'],'<br>';
+				}
 		
 		?>
 	</div>

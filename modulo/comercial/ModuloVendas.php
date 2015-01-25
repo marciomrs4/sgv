@@ -6,7 +6,7 @@
 			</div>
 			<div class="panel-body">
 
-				<!-- Painel de ações -->
+				<!-- Painel de aï¿½ï¿½es -->
 
 				<ul class="nav nav-pills">
 					
@@ -40,6 +40,10 @@
 										Novo Pedido (toque)
 									</a>									
 								</li>
+								<li><a href="PedidoToqueNovaAba.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
+										Novo Pedido (toque) Nova Aba
+									</a>
+								</li>
 							</ul>
 						</div>
 					</li>
@@ -57,4 +61,4 @@
 			</div>
 		</div>
 				
-		<!-- Fim Painel de ações / Painel do Modulo-->
+		<!-- Fim Painel de aï¿½ï¿½es / Painel do Modulo-->

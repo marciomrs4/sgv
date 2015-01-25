@@ -17,13 +17,17 @@ $dados = '';
 
 $Grid = new Grid();
 
-$Grid->setDados($tbRelatorio->valordepedidosportipoproduto());
-$Grid->setCabecalho(array('Valor Total','Data Venda','Descricao do Produto'));
+$Grid->setDados($tbRelatorio->listarValorVendaByUnidadeVendaData());
+$Grid->setCabecalho(array('Unidade de Venda','Data Venda','Valor Total'));
 
+$Grid->addFunctionColumn(function ($var){
+	$data = explode('-',$var);
+	return $data['2'].'/'.$data['1'].'/'.$data['0'];
+},1);
 
 $Grid->addFunctionColumn(function ($var){
 			return('R$ '.number_format($var,2,',','.'));
-},0);
+},2);
 
 $Grid->show();
 

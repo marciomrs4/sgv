@@ -82,14 +82,14 @@
 										Buscar Pedido
 										</a>
 										</li>
-								<li><a href="qtdepedidospordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Qtde. de pedidos por Data de venda</a></li>
+								<li><a href="listarValorVendaPorProduto.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pesquisa de valor de venda por produto</a></li>
 								<li><a href="valordevendapordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Valor. de venda por Data de venda</a></li>
-								<li><a href="qtdpedidoportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Qtde. de pedidos por tipo de produto</a></li>										
-								<li><a href="valordepedidosportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Valor. de pedidos por tipo de produto</a></li>																				
+								<li><a href="listarPedidoPorUnidadeVenda.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pequisa de pedidos por unidade de venda</a></li>
+								<li><a href="listarValorVendaByUnidadeVendaData.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pesquisa de valor de venda por unidade de venda e data de venda</a></li>
 							</ul>
 						</div>
 					</li>
