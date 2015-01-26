@@ -109,7 +109,7 @@
 								<div class="btn-group">
 									<button type="button" class="btn btn-default btn-xs dropdown-toggle"
 										data-toggle="dropdown">
-										Opções <span class="caret"></span>
+										Escolher <span class="caret"></span>
 									</button>
 									
 									<ul class="dropdown-menu" role="menu">

@@ -17,11 +17,12 @@ try {
 		$post->clearPost("Lista limpa com sucesso");
 		return false;		
 	}
-		
-	$post->finalizarPedido();
+
+	$_SESSION['ped_codigo'] = $post->finalizarPedido();
  	unset($_SESSION['pedido']);
 	unset($_SESSION['itens_pedido']);
-	$post->clearPost();
+
+ 	$post->clearPost('Pedido Efetuado com sucesso!','../PainelBusca.php');
 
 	
 } catch (Exception $e) {
@@ -33,8 +34,8 @@ if(method_exists($e,'getMainMessage')){
 	
 	$_SESSION['erros'] = $e->findMessages(array(
 			'string' => 'Este campo deve conter um Texto {{input}}',
-			'email'  => 'O valor {{name}} não é um email valido',
-			'notEmpty' => 'O valor {{input}} não pode ser vazio',
+			'email'  => 'O valor {{name}} nï¿½o ï¿½ um email valido',
+			'notEmpty' => 'O valor {{input}} nï¿½o pode ser vazio',
 			'alnum' => 'o valor {{input}} tem ser alfanumerico'
 	));
 
@@ -47,7 +48,5 @@ $form->setModulo($_SESSION['moduloTemp'])
 	 ->setAction($_SESSION['actionTemp'])
 	 ->setValue($_SESSION['valueTemp']);
 
+	header('location: '.$_SERVER['HTTP_REFERER']);
 }
-
-
-header('location: '.$_SERVER['HTTP_REFERER']);

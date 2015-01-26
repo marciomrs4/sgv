@@ -20,7 +20,7 @@ class AcceptForm extends PostController
 			
  			v::string()->notEmpty()
 					   ->setName('Doca')
-					   ->setTemplate('O campo {{name}} é obrigatório')
+					   ->setTemplate('O campo {{name}} ï¿½ obrigatï¿½rio')
 					   ->assert($this->post['doca']);
 
 			try {
@@ -50,7 +50,7 @@ class AcceptForm extends PostController
 		try{
 		v::string()->notEmpty()
 				   ->setName('Cliente')
-				   ->setTemplate('O campo {{name}} é obrigatório')
+				   ->setTemplate('O campo {{name}} ï¿½ obrigatï¿½rio')
 				   ->assert($this->post['ped_cliente']);
 		}catch (\Exception $e)
 		{
@@ -61,7 +61,7 @@ class AcceptForm extends PostController
 			
 				$_SESSION['erros'] = $e->findMessages(array(
 						'string' => 'Este campo deve conter um Texto {{input}}',
-						'notEmpty' => 'O valor {{input}} não pode ser vazio'
+						'notEmpty' => 'O valor {{input}} nï¿½o pode ser vazio'
 				));
 			}
 					
@@ -97,7 +97,7 @@ class AcceptForm extends PostController
 	public function finalizarPedido()
 	{
 		if(empty($_SESSION['itens_pedido'])){
-			throw new \Exception('Não há itens no Pedido');
+			throw new \Exception('Nï¿½o hï¿½ itens no Pedido');
 		}
 
  		try {
@@ -109,7 +109,7 @@ class AcceptForm extends PostController
 			$this->post['ped_numero'] = $tbPedido->getPedNumber();
 			$this->post['ped_cliente']; // = $_SESSION['pedido']['ped_cliente']; 
 			$this->post['usu_codigo'] = 1; //User da sessao
-			$this->post['ped_valor_total']; //Valor total já vem do form
+			$this->post['ped_valor_total']; //Valor total jï¿½ vem do form
 			$this->post['stp_codigo'] = 1; // Status do pedido
 			$this->post['uve_codigo'] = 1; //Unidade de venda
 			
@@ -132,6 +132,8 @@ class AcceptForm extends PostController
 			}
 			
 			$this->conexao->commit();
+
+			return $this->post['ped_codigo'];
 			
  		} catch (\Exception $e) {
  			$this->conexao->rollBack();

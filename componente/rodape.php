@@ -1,4 +1,4 @@
-<!-- Inicio Rodapé -->
+<!-- Inicio Rodapï¿½ -->
 		<footer>
 			<nav class="navbar navbar-default navbar-fixed-bottom"
 				role="navigation">
@@ -17,7 +17,7 @@
 				</div>
 				<div class="nav navbar-right collapse navbar-collapse" id="este">
 					<button class="btn btn-default btn-lg">
-						<span class="glyphicon glyphicon-user"></span> Usuário
+						<span class="glyphicon glyphicon-user"></span> Usu&aacute;rio
 					</button>
 				</div>
 
@@ -41,7 +41,8 @@
 	<script src="../../js/my-data-table.js"></script>
 	<script src="../../js/my-alert.js"></script>
 	<script src="../../js/my-createitempedido.js"></script>
-	<script src="../../js/jquery.validate.js"></script>		
-		
+	<script src="../../js/jquery.validate.js"></script>
+	<script src="../../js/my-printer.js"></script>
+
 </body>
 </html>

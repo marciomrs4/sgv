@@ -14,6 +14,7 @@ $post = new AcceptFormPedidoToque();
 
  	$_SESSION['valueTemp'] = $post->setpost($_POST)->createPedido();
 
+	$post->clearPost("Pedido {$_SESSION['valueTemp']} Criado com sucesso");
 
 $form = new FormController();
 $form->setModulo($_SESSION['moduloTemp'])
@@ -30,8 +31,8 @@ if(method_exists($e,'getMainMessage')){
 	
 	$_SESSION['erros'] = $e->findMessages(array(
 			'string' => 'Este campo deve conter um Texto {{input}}',
-			'email'  => 'O valor {{name}} não é um email valido',
-			'notEmpty' => 'O valor {{input}} não pode ser vazio',
+			'email'  => 'O valor {{name}} nï¿½o ï¿½ um email valido',
+			'notEmpty' => 'O valor {{input}} nï¿½o pode ser vazio',
 			'alnum' => 'o valor {{input}} tem ser alfanumerico'
 	));
 

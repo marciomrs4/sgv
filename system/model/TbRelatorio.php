@@ -5,13 +5,21 @@ namespace system\model;
 use system\core\DataBase;
 class TbRelatorio extends DataBase
 {
-	
-	public function qtdepedidospordatavenda($dados)
+
+	/**
+	 * @param $dados
+	 * @return array
+	 * @throws \Exception
+	 * Pesquisa de valor de venda por produto
+	 **************************************
+	 */
+	public function listarValorVendaPorProduto()
 	{
-		$query = ("Select count(tb_pedido.ped_codigo), 
-					tb_pedido.ped_data_venda 
-					from tb_pedido 
-					order by tb_pedido.ped_data_venda");
+		$query = ("Select b.ped_codigo, b.vpr_titulo_produto, sum(a.ped_valor_total)
+					from sgv.tb_pedido a, sgv.tb_itens_pedido b
+					where a.ped_codigo = b.ped_codigo
+					group by b.vpr_titulo_produto
+					order by 3 desc");
 		
 		try {
 			
@@ -50,13 +58,24 @@ class TbRelatorio extends DataBase
 	
 	
 	}
-	
-	public function qtdpedidoportipoproduto()
+
+	/**
+	 * @return array
+	 * @throws \Exception
+	 * Pesquisa de valor de venda por unidade de venda e data de venda
+	 */
+	public function listarValorVendaByUnidadeVendaData()
 	{
-		$query = ("Select count(tb_pedido.ped_codigo), tb_pedido.ped_data_venda, tb_vendas_produtos.vpr_titulo_produto 
-					from tb_pedido, tb_vendas_produtos 
-					where tb_pedido.ped_codigo=tb_vendas_produtos.ped_codigo 
-					order by tb_pedido.ped_data_venda, tb_vendas_produtos.vpr_titulo_produto");
+		$query = ("select  b.uve_nome,
+					date(a.ped_data_venda),
+					sum(a.ped_valor_total)
+					from sgv.tb_pedido a ,
+					sgv.tb_unidade_venda b
+					where a.uve_codigo = b.uve_codigo
+					group by b.uve_nome,
+					date(a.ped_data_venda)
+					order by b.uve_nome,
+					date(a.ped_data_venda);");
 	
 		try {
 	
@@ -72,14 +91,24 @@ class TbRelatorio extends DataBase
 	
 	
 	}
-	
-	
-	public function valordepedidosportipoproduto()
+
+	/**
+	 * @return array
+	 * @throws \Exception
+	 * Pequisa de pedidos por unidade de venda
+	 ***************************************
+	 */
+	public function listarPedidoPorUnidadeVenda()
 	{
-		$query = ("Select sum(tb_pedido.ped_valor_total), tb_pedido.ped_data_venda, tb_vendas_produtos.vpr_titulo_produto 
-					from tb_pedido, tb_vendas_produtos 
-					where tb_pedido.ped_codigo=tb_vendas_produtos.ped_codigo 
-					order by tb_pedido.ped_data_venda, tb_vendas_produtos.vpr_titulo_produto");
+		$query = ("select c.uve_nome,
+					a.ped_codigo,
+						a.vpr_titulo_produto,
+						a.vpr_quantidade,
+						b.ped_valor_total
+					from sgv.tb_itens_pedido a ,
+						sgv.tb_pedido b,
+						sgv.tb_unidade_venda c
+					where a.ped_codigo = b.ped_codigo;");
 	
 		try {
 	

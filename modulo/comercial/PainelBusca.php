@@ -5,12 +5,20 @@ include_once 'config.php';
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprincipal.php';
 
-include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/ModuloAdministracao.php';
+include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/comercial/ModuloVendas.php';
 
+
+$formController = new \system\core\FormController();
+$formController->setForm()->getForm();
+
+
+if(($_SESSION['ped_codigo']) or ($_POST['ped_codigo']) or ($_GET['start'])){
+
+    $ped_codigo = ($_POST['ped_codigo'] == '') ? $_SESSION['ped_codigo'] : $_POST['ped_codigo'];
 
 include_once "forms/BuscarPainelBusca.php";
 
-$ped_codigo = $_POST['ped_codigo'];
+    unset($_SESSION['ped_codigo']);
 
 $tbPedido = new \system\model\TbPedido();
 
@@ -24,9 +32,8 @@ $gridPedido->id = null;
 $gridPedido->setDados($tbPedido->getListarPedido($ped_codigo))
            ->setCabecalho(array('Numero','Cliente','Usuario','Data','Valor Total','Status','Unidade Venda'))
            ->addFunctionColumn(function ($var) use ($Number){
-               return 'R$ '.$Number->numberClient($var);},5)
+                return 'R$ '.$Number->numberClient($var);},5)
            ->show();
-
 
 $gridListaItens = new \system\core\Grid();
 
@@ -41,6 +48,7 @@ $gridListaItens->setCabecalho(array('Descricao','Valor Uni','Quantidade','Valor 
                 ->addFunctionColumn(function($var) use ($Number){
                     return 'R$ '.$Number->numberClient($var);},4)
                 ->show();
+}
 
 
 include '../../componente/rodape.php';

@@ -19,14 +19,14 @@ class TbPedido extends DataBase
 	public function save($dados)
 	{
 		$query = ("INSERT INTO tb_pedido
-					(ped_numero, ped_cliente,
-					usu_codigo, ped_valor_total, stp_codigo, uve_codigo)
+					(ped_numero, ped_cliente, usu_codigo,
+					 ped_valor_total, stp_codigo, uve_codigo)
 					VALUES(?, ?, ?, ?, ?, ?)");
 		try {
 			
 			$stmt = $this->conexao->prepare($query);
 			
-			$cliente = mb_convert_encoding($dados['ped_cliente'],'UTF-8');
+			$cliente = $dados['ped_cliente'];
 			
 			$stmt->bindParam(1, $dados['ped_numero'],\PDO::PARAM_INT);
 			$stmt->bindParam(2, $cliente);
@@ -86,10 +86,17 @@ class TbPedido extends DataBase
 			throw new \PDOException($e->getMessage());
 		}
 	}
-	
+
+	/**
+	 * @param $ped_codigo
+	 * @return mixed
+	 * Usado para gerar informacoes para impressao na tela
+	 * de resultado do pedido por toque
+	 */
 	public function getPedidoInformacao($ped_codigo)
 	{
-		$query = ("SELECT * FROM tb_pedido 
+		$query = ("SELECT ped_data_venda, ped_valor_total, ped_cliente
+ 					FROM tb_pedido
 					WHERE ped_codigo = ?");
 		
 		try {

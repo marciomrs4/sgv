@@ -21,23 +21,33 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="<?php 
-								use system\core\ActionController as A;
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('alterar/docaalterar')->setValue(rand(1,100))->getUrl();
-								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo
+								<li>
+									<a href="<?php
+									use system\core\ActionController as A;
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipoproduto')->setValue(rand(1,100))->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Tipo Produto
 									</a>
+								</li>
+								<li>
+									<a href="<?php
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/produto')->setValue(rand(1,100))->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Produto
+									</a>
+								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 2
 									</a>									
 								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
-									</a>								
+									</a>
+								</li>
 							</ul>
 						</div>
 					</li>
@@ -82,14 +92,14 @@
 										Buscar Pedido
 										</a>
 										</li>
-								<li><a href="qtdepedidospordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Qtde. de pedidos por Data de venda</a></li>
+								<li><a href="listarValorVendaPorProduto.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pesquisa de valor de venda por produto</a></li>
 								<li><a href="valordevendapordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Valor. de venda por Data de venda</a></li>
-								<li><a href="qtdpedidoportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Qtde. de pedidos por tipo de produto</a></li>										
-								<li><a href="valordepedidosportipoproduto.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Valor. de pedidos por tipo de produto</a></li>																				
+								<li><a href="listarPedidoPorUnidadeVenda.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pequisa de pedidos por unidade de venda</a></li>
+								<li><a href="listarValorVendaByUnidadeVendaData.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pesquisa de valor de venda por unidade de venda e data de venda</a></li>
 							</ul>
 						</div>
 					</li>
