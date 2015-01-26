@@ -21,23 +21,33 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="<?php 
-								use system\core\ActionController as A;
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('alterar/docaalterar')->setValue(rand(1,100))->getUrl();
-								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo
+								<li>
+									<a href="<?php
+									use system\core\ActionController as A;
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipoproduto')->setValue(rand(1,100))->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Tipo Produto
 									</a>
+								</li>
+								<li>
+									<a href="<?php
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/produto')->setValue(rand(1,100))->getUrl();
+								?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Produto
+									</a>
+								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 2
 									</a>									
 								</li>
 								<li><a href="<?php 
-								A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
-									</a>								
+									</a>
+								</li>
 							</ul>
 						</div>
 					</li>

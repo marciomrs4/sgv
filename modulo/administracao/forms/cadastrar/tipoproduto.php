@@ -1,15 +1,25 @@
+<?php
+/**
+ * Formulario de tipo de produto
+ *
+tb_tipo_produto
+tpr_codigo
+tpr_descricao
+ */
+
+?>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Novo 3</h3>
+		<h3 class="panel-title">Novo: Tipo Produto</h3>
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal" method="post" action="" role="form">
 			
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-1 control-label">Doca 3:</label>
+				<label for="tpr_descricao" class="col-sm-1 control-label">Descrição:</label>
 				<div class="col-sm-4">
-					<input type="text" name="doca" value="" class="form-control" id="inputEmail3"
-						placeholder="Descricao">
+					<input type="text" name="tpr_descricao" value="" class="form-control" id="tpr_descricao"
+						placeholder="Descricao" required>
 				</div>
 			</div>
 			
