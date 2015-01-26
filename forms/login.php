@@ -20,8 +20,8 @@
 					<div class="col-sm-4 col-sm-offset-1">
 						<form class="form-horizontal" id="formlogin" method="post" role="form">
 							<div class="form-group">
-								<label for="inputUsuario">Usuário</label> <input type="text" name="usuario"
-									class="form-control" id="inputUsuario" placeholder="Usuário"><br>
+								<label for="inputUsuario">Usu&aacute;rio</label> <input type="text" name="usuario"
+									class="form-control" id="inputUsuario" placeholder="Usu&aacute;rio"><br>
 								<label for="inputSenha">Senha</label> <input type="password" name="senha"
 									class="form-control" id="inputSenha" placeholder="Senha"> <br>
 								<button type="submit" class="btn btn-primary">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div class="panel-heading panel-title">
-				 ..:: Tecnologia da Informação ::..
+				 ..:: Tecnologia ao seu favor ::..
 			</div>
 		</div>
 		

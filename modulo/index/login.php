@@ -1,13 +1,6 @@
 <?php
 include_once '../../bootstrap.php';
 
-sleep(2);
-
-echo 'Ola: ';
-
-//print_r($_POST);
-
-
 
 if($_POST['usuario'] == 'marcio' or $_POST['usuario'] == 'clay'){
 	echo "<script>

@@ -1,8 +1,11 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Pedido Criado com sucesso!</h3>
+
+				<input type="button" onclick="doPrinter()" value="Imprimir">
+
 	</div>
-	<div class="panel-body">
+	<div class="panel-body" id="print">
 		<?php 
 			use system\model\TbPedido;		
 			use system\model\TbItemPedido;

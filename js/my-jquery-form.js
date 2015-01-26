@@ -4,7 +4,7 @@ $(document).ready(function(){
 		
 		
 			var dados = $("#formlogin").serialize();
-		 
+
 			var icone = $('<img src="../../img/283.gif">');
 
 
@@ -23,7 +23,7 @@ $(document).ready(function(){
 					
 					complete: function()
 					{
-						alert('Complete');
+						//alert('Acesso concedido com sucesso!');
 				
 					},
 					
