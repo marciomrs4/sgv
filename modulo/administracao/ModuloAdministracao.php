@@ -21,9 +21,21 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
+
+								<li><a href="<?php
+
+									use system\core\ActionController as A;
+
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/unidadevenda')->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Unidade Venda
+									</a>
+								</li>
+
+
 								<li>
 									<a href="<?php
-									use system\core\ActionController as A;
+
 									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipoproduto')->setValue(rand(1,100))->getUrl();
 									?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Tipo Produto
@@ -36,13 +48,7 @@
 										Produto
 									</a>
 								</li>
-								<li><a href="<?php 
-								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca2')->getUrl();
-								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo 2
-									</a>									
-								</li>
-								<li><a href="<?php 
+								<li><a href="<?php
 								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Novo 3
@@ -64,11 +70,9 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="<?php 
-									A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('/formdefault')->getUrl();
-									?>"><span class="glyphicon glyphicon-list-alt">
+									<a href="listarUnidadeVenda.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										listar Usu�rios
+										listar Unidade de Venda
 									</a>
 										</li>
 							</ul>
