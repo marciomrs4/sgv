@@ -6,6 +6,8 @@
  * Time: 00:37
  */
 
+$tbUnidadeVenda = new \system\model\TbUnidadeVenda();
+
 ?>
 
 <div class="panel panel-default">
@@ -14,18 +16,15 @@
     </div>
     <div class="panel-body">
 
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" action="action/unidadevenda.php" method="post" role="form">
 
             <div class="form-group">
                 <label for="" class="col-sm-3 control-label">Selecione Unidade de Venda</label>
                 <div class="col-sm-2">
-                    <select class="form-control">
-                        <option></option>
-                        <option>allsjh</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select name="uve_codigo" class="form-control">
+                        <?php foreach($tbUnidadeVenda->listUnidadeVendaByName() as $dados): ?>
+                            <option value="<?php echo($dados['uve_codigo']); ?>"><?php echo($dados['uve_nome']);?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>

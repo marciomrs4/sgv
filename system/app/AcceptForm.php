@@ -111,7 +111,7 @@ class AcceptForm extends PostController
 			$this->post['usu_codigo'] = 1; //User da sessao
 			$this->post['ped_valor_total']; //Valor total j� vem do form
 			$this->post['stp_codigo'] = 1; // Status do pedido
-			$this->post['uve_codigo'] = 1; //Unidade de venda
+			$this->post['uve_codigo'] = $_SESSION['uve_codigo']; //Unidade de venda
 			
 
 			$this->post['ped_codigo'] = $tbPedido->save($this->post); //Codigo do produto

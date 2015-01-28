@@ -38,7 +38,7 @@ tpr_codigo
 
 
 			<div class="form-group">
-				<label for="pro_descricao" class="col-sm-1 control-label">Descrição:</label>
+				<label for="pro_descricao" class="col-sm-1 control-label">Descri&ccedil;&abreve;o:</label>
 				<div class="col-sm-4">
 					<input type="text" name="pro_descricao" value="" class="form-control" id="pro_descricao"
 						   placeholder="Descricao" required>
@@ -50,13 +50,11 @@ tpr_codigo
 				<div class="col-sm-2">
 					<select name="tpr_codigo" class="form-control" required>
 
-						<option></option>
-						<option>allsjh</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-
+						<?php
+						$tbTipoProduto = new \system\model\TbTipoProduto();
+						foreach($tbTipoProduto->listFormProduto() as $dados):?>
+							<option value="<?php echo($dados['tpr_codigo']);?>"><?php echo($dados['tpr_descricao']);?></option>
+						<?php endforeach; ?>
 					</select>
 				</div>
 			</div>

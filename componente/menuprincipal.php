@@ -37,7 +37,9 @@
 			<div class="nav navbar-right collapse navbar-collapse"
 				id="navbar-collapse-1">
 				<button class="btn btn-default btn-lg ">
-					<span class="glyphicon glyphicon-off"></span> Sair
+					<a href="/sgv/modulo/index/logout.php">
+						<span class="glyphicon glyphicon-off"></span> Sair
+					</a>
 				</button>
 			</div>
 		</nav>

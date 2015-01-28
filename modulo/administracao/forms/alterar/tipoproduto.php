@@ -7,6 +7,10 @@ tpr_codigo
 tpr_descricao
  */
 
+$tbTipoProduto = new \system\model\TbTipoProduto();
+
+$TipoProduto = $tbTipoProduto->getForm($_SESSION['administracao/alterar/tipoproduto']);
+
 ?>
 <div class="panel panel-default">
 	<div class="panel-heading">
@@ -18,8 +22,11 @@ tpr_descricao
 			<div class="form-group">
 				<label for="tpr_descricao" class="col-sm-1 control-label">Descri&ccedil;&abreve;o:</label>
 				<div class="col-sm-4">
-					<input type="text" name="tpr_descricao" value="" class="form-control" id="tpr_descricao"
+					<input type="text" name="tpr_descricao" value="<?php echo($TipoProduto['tpr_descricao']); ?>" class="form-control" id="tpr_descricao"
 						placeholder="Descricao" required>
+					<input type="hidden" name="tpr_codigo" value="<?php echo($TipoProduto['tpr_codigo']); ?>">
+
+
 				</div>
 			</div>
 			

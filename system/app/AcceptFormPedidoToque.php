@@ -40,7 +40,7 @@ class AcceptFormPedidoToque extends PostController
 				$dados['ped_valor_total'] = $totalPedido; //Valor total j� vem do form
 				$dados['stp_codigo'] = 1; // Status do pedido
 				$dados['ped_numero'] = $tbPedido->getPedNumber();
-				$dados['uve_codigo'] = 1;
+				$dados['uve_codigo'] = $_SESSION['uve_codigo'];
 				
 				$dados['ped_codigo'] = $tbPedido->save($dados); //grava o pedido no banco
 				
