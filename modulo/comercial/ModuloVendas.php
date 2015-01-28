@@ -51,7 +51,7 @@
 										
 					<li class="dropdown">
 						<div class="btn-group">
-						<a href="PainelBusca.php?start=1" class="btn btn-primary pull-right">
+						<a href="PainelBusca.php" class="btn btn-primary pull-right">
 							<span class="glyphicon glyphicon-search"></span> Pesquisar
 						</a>
 						</div>

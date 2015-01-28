@@ -13,6 +13,10 @@ include_once 'config.php';
 	</head>
 	<body>
 <?php
+#Classe que fica responsavel por mostrar mensagens de erros
+$erros = new \system\core\Error();
+$erros->showErrors();
+$erros->showMessages();
 
 
 $FormController = new \system\core\FormController();

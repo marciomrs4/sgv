@@ -13,16 +13,24 @@ use system\core\FormController;
 $ValidateUnidadeVenda = new \system\app\ValidadeUnidadeVenda();
 $ValidateUnidadeVenda->validateUnidadeVenda();
 
+#Classe que fica responsavel por mostrar mensagens de erros
+$erros = new \system\core\Error();
+$erros->showErrors();
+$erros->showMessages();
+
 $controler = new FormController();
 
 
- echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+/* echo '<pre>';
+	print_r($_SESSION);
+echo '</pre>'; */
 
 $controler->setForm()
           ->getForm();
 
+/* echo '<pre>';
+print_r($_SESSION);
+echo '</pre>'; */
 
 
 

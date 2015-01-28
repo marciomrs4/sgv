@@ -7,12 +7,17 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/comercial/ModuloVendas.php';
 
+/* echo '<pre>';
+ print_r($_SESSION);
+echo '</pre>'; */
 
-$formController = new \system\core\FormController();
-$formController->setForm()->getForm();
+#Classe que fica responsavel por mostrar mensagens de erros
+$erros = new \system\core\Error();
+$erros->showErrors();
+$erros->showMessages();
 
 
-if(($_SESSION['ped_codigo']) or ($_POST['ped_codigo']) or ($_GET['start'])){
+if((isset($_SESSION['ped_codigo']))  or (!isset($_SESSION['action']))){
 
     $ped_codigo = ($_POST['ped_codigo'] == '') ? $_SESSION['ped_codigo'] : $_POST['ped_codigo'];
 
@@ -50,6 +55,14 @@ $gridListaItens->setCabecalho(array('Descricao','Valor Uni','Quantidade','Valor 
                 ->show();
 }
 
+#Dinamicamente carrega o formulario
+$formController = new \system\core\FormController();
+$formController->setForm()->getForm();
+
+
+/* echo '<pre>';
+ print_r($_SESSION);
+echo '</pre>'; */
 
 include '../../componente/rodape.php';
 ?>

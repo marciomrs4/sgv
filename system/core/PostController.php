@@ -81,8 +81,6 @@ abstract class PostController extends DataBase
      */
 	public function clearPost($message = 'Cadastrado com sucesso !', $rota = null)
 	{
-		unset($_SESSION['action']);
-
 		$_SESSION['message'] = $message;
 
 		$rota = ($rota == null) ? $_SERVER['HTTP_REFERER'] : $rota;

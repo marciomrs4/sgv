@@ -8,8 +8,8 @@
 		use system\model\TbPedido;
 
 		$form = new system\core\Error();
-		$form->validadeForm('cadastrar/doca')
-			 ->showErrors();
+		$form->validadeForm('cadastrar/doca');
+
 		
 		$tbPedido = new TbPedido();
 		?>

@@ -14,6 +14,7 @@ try {
 	$clear = $post->getPost('clear');
 	if($clear){
 		unset($_SESSION['itens_pedido'],$_SESSION['pedido']['ped_cliente'],$_SESSION['pedido']['ped_codigo']);
+		$_SESSION['action'] = $_SESSION['actionTemp'];
 		$post->clearPost("Lista limpa com sucesso");
 		return false;		
 	}

@@ -6,12 +6,11 @@
 	<?php
 		use system\model\TbProduto;
 		use system\model\TbPedido;
-use system\core\NumberFormat;
+		use system\core\NumberFormat;
+		
 		$form = new system\core\Error();
-		$form->validadeForm('cadastrar/novopedidotoque')
-			 ->showErrors();
+		$form->validadeForm('cadastrar/novopedidotoque');
 
-		$form->showMessages();
 
 		$tbPedido = new TbPedido();
 		$tbProduto = new TbProduto();
