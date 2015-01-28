@@ -5,19 +5,30 @@ namespace system\model;
 use system\core\DataBase;
 class TbProduto extends DataBase
 {
-	
+	private $tablename = 'tb_produto';
+
 	public function save($dados)
 	{
 		try {
-			
-			$stmt = $this->conexao->prepare('SELECT * FROM tb_usuario LIMIT 5');
-			
+
+			$query = ("INSERT INTO $this->tablename
+						(pro_titulo, pro_valor,
+						 pro_descricao, tpr_codigo)
+						VALUES(?, ?, ?, ?)");
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1,$dados['pro_titulo'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['pro_valor'],\PDO::PARAM_STR);
+			$stmt->bindParam(3,$dados['pro_descricao'],\PDO::PARAM_STR);
+			$stmt->bindParam(4,$dados['tpr_codigo'],\PDO::PARAM_INT);
+
 			$stmt->execute();
 			
-			return $stmt;
+			return $this->conexao->lastInsertId();
 			
-		} catch (Exception $e) {
-			throw new \Exception();
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
 		}
 
 		
@@ -99,7 +110,7 @@ class TbProduto extends DataBase
 							 'Escondidinho de Frango' => '2',
 							 'Escondidinho de Carne' => '3',
 							 'Escondidinho de Carne Moida' => '4',
-							 'Escondidinho de Camarão' => '5'
+							 'Escondidinho de Camarï¿½o' => '5'
 							);
 		
 		$productTitle = array_search($idItem, $productList);

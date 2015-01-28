@@ -72,9 +72,15 @@
 								<li>
 									<a href="listarUnidadeVenda.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
-										listar Unidade de Venda
+										Listar Unidade de Venda
 									</a>
-										</li>
+								</li>
+								<li>
+									<a href="listarTipoProduto.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										Listar Tipo Produto
+									</a>
+								</li>
 							</ul>
 						</div>
 					</li>

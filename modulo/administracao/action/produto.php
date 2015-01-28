@@ -1,35 +1,45 @@
 <?php
+
 require_once '../../../bootstrap.php';
 
 
-use system\app\AcceptFormAdministracao as Post;
 use system\core\FormController;
 
-try {
-	
-	$post = new Post();
-	
-	$post->setPost($_POST)
-		->cadastrarAdmin();
-	$post->clearPost();
-	
-} catch (Exception $e) { 	
 
-	$form = new FormController();
-	$form->setModulo($_SESSION['moduloTemp'])
-	->setAction($_SESSION['actionTemp'])
-	->setValue($_SESSION['valueTemp']);
-	
-	$_SESSION['erro'] = $e->getMainMessage();
-	$_SESSION['erros'] = $e->findMessages(
-	array(
-		'string' => 'O campo {{name}} é obrigatorio',
-		'notEmpty' => 'O campo {{name}} não deve ser vazio',
-		'email' => 'O campo {{name}} deve ser um e-mail válido'
-	)
-	);
-	
+
+try {
+
+$post = new \system\app\AcceptFormProduto();
+
+$post->setPost($_POST)
+	 ->AcceptForm();
+
+$post->clearPost();
+
+} catch (Exception $e) {
+
+$_SESSION['erro'] = $e->getMessage();
+
+if(method_exists($e,'getMainMessage')){
+$_SESSION['erro'] =	$e->getMainMessage();
+
+$_SESSION['erros'] = $e->findMessages(array(
+'string' => 'Este campo deve conter um Texto {{input}}',
+'email'  => 'O valor {{name}} nï¿½o ï¿½ um email valido',
+'notEmpty' => 'O valor {{input}} nï¿½o pode ser vazio',
+'alnum' => 'o valor {{input}} tem ser alfanumerico'
+));
+
 }
 
 
+
+$form = new FormController();
+$form->setModulo($_SESSION['moduloTemp'])
+->setAction($_SESSION['actionTemp'])
+->setValue($_SESSION['valueTemp']);
+
 header('location: '.$_SERVER['HTTP_REFERER']);
+}
+
+

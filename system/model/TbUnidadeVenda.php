@@ -54,6 +54,28 @@ class TbUnidadeVenda extends DataBase
 		
 	}
 
+	#Utilizado para listar unidade de venda na tela de
+	#Selecionar unidade de venda
+	public function listUnidadeVendaByName()
+	{
+		$query = ("SELECT uve_codigo, uve_nome
+					FROM $this->tablename");
+
+		try {
+
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->execute();
+
+			return($stmt->fetchAll(\PDO::FETCH_ASSOC));
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
+
+	}
+
 	public function getUnidadeVendaForm($uve_codigo)
 	{
 		$query = ("SELECT uve_codigo, uve_nome, uve_logradouro

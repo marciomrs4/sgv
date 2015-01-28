@@ -10,12 +10,15 @@ include '../../modulo/comercial/ModuloVendas.php';
 
 use system\core\FormController;
 
+$ValidateUnidadeVenda = new \system\app\ValidadeUnidadeVenda();
+$ValidateUnidadeVenda->validateUnidadeVenda();
+
 $controler = new FormController();
 
 
-/* echo '<pre>';
+ echo '<pre>';
 print_r($_SESSION);
-echo '</pre>'; */
+echo '</pre>';
 
 $controler->setForm()
           ->getForm();
