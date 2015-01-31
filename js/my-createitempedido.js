@@ -1,9 +1,10 @@
+var $click = jQuery.noConflict();
 
-$(document).ready(function(){
+$click(document).ready(function(){
 
-	$('div.btn-info').click(function(){
+	$click('div.btn-info').click(function(){
 		
-	var	valor = $(this).next().val();
+	var	valor = $click(this).next().val();
 	
 	if(valor == ''){
 		valor = 0;
@@ -11,40 +12,40 @@ $(document).ready(function(){
 	
 	valor = parseInt(valor) + parseInt(1);
 	
-		$(this).next().val(valor);
+		$click(this).next().val(valor);
 	
 	});
 
 	
 	function submitForm(form){			
 		
-		$("#botaoSave").hide();
-		$(".botaoSave").css("visibility","visible");
+		$click("#botaoSave").hide();
+		$click(".botaoSave").css("visibility","visible");
 
 		form.submit();
 		
 		}
 		
-		$("#pedidotoque").validate({
-			/* REGRAS DE VALIDAÇÃO DO FORMULÁRIO */
+		$click("#pedidotoque").validate({
+			/* REGRAS DE VALIDAï¿½ï¿½O DO FORMULï¿½RIO */
 			
 			rules:{
 				16:{
-					required: true, /* Campo obrigatório */
-					minlength: 1    /* No mínimo 5 caracteres */
+					required: true, /* Campo obrigatï¿½rio */
+					minlength: 1    /* No mï¿½nimo 5 caracteres */
 				},
 				17:{
 					required: true
 				}
 			},
-			/* DEFINIÇÃO DAS MENSAGENS DE ERRO */
+			/* DEFINIï¿½ï¿½O DAS MENSAGENS DE ERRO */
 			messages:{
 				16:{
-					required: "Preencha o campo <u>" +problema+ "</u>",
-					minlength: "O campo <u>" +problema+ "</u> deve conter no mínimo 5 caracteres"
+					required: "Preencha o campo ",
+					minlength: "O campo deve conter no mï¿½nimo 5 caracteres"
 				},
 				17:{
-					required: "Campo Departamento é Obrigadorio"
+					required: "Campo Departamento ï¿½ Obrigadorio"
 				}
 			},
 			

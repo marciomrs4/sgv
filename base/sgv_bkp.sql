@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.16, for Win64 (x86)
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: sgv
 -- ------------------------------------------------------
--- Server version	5.5.16
+-- Server version	5.5.41-0+wheezy1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -105,7 +105,7 @@ CREATE TABLE `tb_produto` (
   PRIMARY KEY (`pro_codigo`),
   KEY `fk_tb_produto_tb_tipo_produto1_idx` (`tpr_codigo`),
   CONSTRAINT `fk_tipo_produto` FOREIGN KEY (`tpr_codigo`) REFERENCES `tb_tipo_produto` (`tpr_codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,7 +114,7 @@ CREATE TABLE `tb_produto` (
 
 LOCK TABLES `tb_produto` WRITE;
 /*!40000 ALTER TABLE `tb_produto` DISABLE KEYS */;
-INSERT INTO `tb_produto` VALUES (16,'Carne Moída',20.00,NULL,1),(17,'Frango',20.00,NULL,1),(18,'Carne Seca',20.00,NULL,1),(19,'Camarão',20.00,NULL,1),(20,'Calabreza',20.00,NULL,1),(21,'Banana',7.00,NULL,5),(22,'Coca Cola',5.00,NULL,2),(23,'Guarana',5.00,NULL,2),(24,'Coca Zero',5.00,NULL,2),(25,'Agua',3.00,NULL,3);
+INSERT INTO `tb_produto` VALUES (16,'Carne Moída',20.00,NULL,1),(17,'Frango',20.00,NULL,1),(18,'Carne Seca',20.00,NULL,1),(19,'Camarão',20.00,NULL,1),(20,'Calabreza',20.00,NULL,1),(21,'Banana',7.00,NULL,5),(22,'Coca Cola',5.00,NULL,2),(23,'Guarana',5.00,NULL,2),(24,'Coca Zero',5.00,NULL,2),(25,'Agua',3.00,NULL,3),(26,'Meu novo produto',1750.00,'Teste de gravaao',1),(27,'tete',17.00,'teste 2',1),(28,'data',17.00,'teste',1),(29,'data',1750.00,'teste',1),(30,'horario',1750.00,'teste',1),(31,'estabe',0.00,'teste',1);
 /*!40000 ALTER TABLE `tb_produto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-28 13:09:39
+-- Dump completed on 2015-01-29 19:21:40

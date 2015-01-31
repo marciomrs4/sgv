@@ -36,22 +36,22 @@
 								<li>
 									<a href="<?php
 
-									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipoproduto')->setValue(rand(1,100))->getUrl();
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipoproduto')->getUrl();
 									?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Tipo Produto
 									</a>
 								</li>
 								<li>
 									<a href="<?php
-								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/produto')->setValue(rand(1,100))->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/produto')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
 										Produto
 									</a>
 								</li>
 								<li><a href="<?php
-								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('Cadastrar/doca3')->getUrl();
+								echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/statuspedido')->getUrl();
 								?>"><span class="glyphicon glyphicon-list-alt"></span>
-										Novo 3
+										Status Pedido
 									</a>
 								</li>
 							</ul>
@@ -79,6 +79,18 @@
 									<a href="listarTipoProduto.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										Listar Tipo Produto
+									</a>
+								</li>
+								<li>
+									<a href="listarProduto.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										Listar Produto
+									</a>
+								</li>
+								<li>
+									<a href="listarStatusPedido.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										Listar Status Pedido
 									</a>
 								</li>
 							</ul>

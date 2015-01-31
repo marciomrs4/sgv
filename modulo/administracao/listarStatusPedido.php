@@ -16,21 +16,20 @@ $erros = new \system\core\Error();
 $erros->showErrors();
 $erros->showMessages();
 
-#Instancia do repositorio que armazena unidade de venda
-$tbUnidadeVenda = new \system\model\TbUnidadeVenda();
+#Instancia do repositorio que armazena de Status Pedido
+$tbStatusPedido = new \system\model\TbStatusPedido();
 
 #Classe que monta o grid
 $Grid = new Grid();
-
-$Grid->setDados($tbUnidadeVenda->listUnidadeVenda());
-$Grid->setCabecalho(array('','Unidade','Logradouro'));
+try {
+    $Grid->setDados($tbStatusPedido->listAll());
+}catch (Exception $e){
+    echo $e->getMessage();
+}
+$Grid->setCabecalho(array('','Descricao'));
 
 $Grid->colunaoculta = 1;
 
-#Classe que criar a url da acao do botao
-
-
-#Classe que cria o botao e recebe o $action
 
 
 #Classe grid que recebe o $option, onde se nao houve uma acao lista os dados
@@ -39,17 +38,22 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                             ->setUrl(\system\core\ActionController::actionUrl()
                                                                                     ->setProjecName($_SESSION['projeto'])
                                                                                     ->setUrlModulo('administracao')
-                                                                                    ->setUrlAction('alterar/unidadevenda')
+                                                                                    ->setUrlAction('alterar/statuspedido')
                                                                                     ->setValue()
-                                                                                    ->getUrl()))
-     ->show(!isset($_SESSION['action']));
+                                                                                    ->getUrl()));
+
+
+$Grid->addOption(\system\core\GridOption::newOption()->setIco('remove-circle')
+                                                        ->setName('Deletar')
+                                                        ->setUrl("action/statuspedido.php?stp_codigo"));
+
+$Grid->show(!isset($_SESSION['action']));
 
 #Form controle onde carrega dinamicamente os forms
 $FormController = new FormController();
 $FormController->setForm()->getForm();
 
-/*
-var_dump($_SESSION);*/
+/*var_dump($_SESSION);*/
 
 include '../../componente/rodape.php';
 ?>

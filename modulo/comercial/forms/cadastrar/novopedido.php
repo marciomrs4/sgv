@@ -37,6 +37,8 @@
 				<label for="" class="col-sm-1 control-label">Produto:</label>
 				<div class="col-sm-2">
 					<select class="form-control" name="pro_codigo">
+						<option>Selecione</option>
+
 						<?php 
 							$tbProduto = new TbProduto();
 							foreach ($tbProduto->listProductScreenSale() as $campo): ?>
@@ -47,7 +49,7 @@
 			
 				<label for="inputEmail3" class="col-sm-1 control-label">Valor:</label>
 				<div class="col-sm-1">
-					<input type="text" name="valor" value="15,00" class="form-control" id="inputEmail3"
+					<input type="text" name="valor" value="" class="form-control" id="valor"
 						placeholder="Valor">
 				</div>
 				

@@ -48,24 +48,31 @@ abstract class PostController extends DataBase
 
 	public function listarpost()
 	{
+		$post = '';
 		foreach ($this->post as $campo => $valor)
 		{
-			echo("
+			$post .= ("
 					[ Campo:<font color='blue'> ( {$campo} )</font>  ] 
 							- 
 				  	[ Valor:<font color='red'> ( {$valor} )</font>  ]
 				  <br />
 				");
 		}
+
+		return $post;
 	}
 
 	#Metodo para facilitar obter os nomes dos campos
 	public function criarCampos()
 	{
+		$post = '';
+
 		foreach ($this->post as $campo => $valor)
 		{
-			echo('$this->post[\''.$campo.'\']<br />');
+			$post .= ('$this->post[\''.$campo.'\']<br />');
 		}
+
+		return $post;
 	}
 
 	public function criarArray($post)

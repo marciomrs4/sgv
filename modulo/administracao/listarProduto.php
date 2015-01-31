@@ -16,22 +16,23 @@ $erros = new \system\core\Error();
 $erros->showErrors();
 $erros->showMessages();
 
-#Instancia do repositorio que armazena unidade de venda
-$tbUnidadeVenda = new \system\model\TbUnidadeVenda();
+#Instancia do repositorio que armazena de produto
+$tbProduto = new \system\model\TbProduto();
 
 #Classe que monta o grid
 $Grid = new Grid();
-
-$Grid->setDados($tbUnidadeVenda->listUnidadeVenda());
-$Grid->setCabecalho(array('','Unidade','Logradouro'));
+try {
+    $Grid->setDados($tbProduto->listAll());
+}catch (Exception $e){
+    echo $e->getMessage();
+}
+$Grid->setCabecalho(array('','Titulo','Valor','Descricao','Tipo de Produto'));
 
 $Grid->colunaoculta = 1;
 
-#Classe que criar a url da acao do botao
+$Number = new NumberFormat();
 
-
-#Classe que cria o botao e recebe o $action
-
+$Grid->addFunctionColumn(function($var) use ($Number){return('R$ '.$Number->numberClient($var));},2);
 
 #Classe grid que recebe o $option, onde se nao houve uma acao lista os dados
 $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
@@ -39,7 +40,7 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                             ->setUrl(\system\core\ActionController::actionUrl()
                                                                                     ->setProjecName($_SESSION['projeto'])
                                                                                     ->setUrlModulo('administracao')
-                                                                                    ->setUrlAction('alterar/unidadevenda')
+                                                                                    ->setUrlAction('alterar/produto')
                                                                                     ->setValue()
                                                                                     ->getUrl()))
      ->show(!isset($_SESSION['action']));
@@ -48,8 +49,7 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
 $FormController = new FormController();
 $FormController->setForm()->getForm();
 
-/*
-var_dump($_SESSION);*/
+/*var_dump($_SESSION);*/
 
 include '../../componente/rodape.php';
 ?>

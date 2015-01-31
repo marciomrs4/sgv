@@ -11,11 +11,17 @@ tpr_codigo
 
 
 */
+
+$tbProduto = new \system\model\TbProduto();
+
+$Produto = $tbProduto->getProdutoForm($_SESSION['administracao/alterar/produto']);
+
+
 ?>
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Novo: Produto</h3>
+		<h3 class="panel-title">Alterar: Produto</h3>
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal" method="post" action="action/produto.php" role="form">
@@ -23,15 +29,18 @@ tpr_codigo
 			<div class="form-group">
 				<label for="pro_titulo" class="col-sm-1 control-label">Titulo:</label>
 				<div class="col-sm-4">
-					<input type="text" name="pro_titulo" value="" class="form-control" id="pro_titulo"
+					<input type="text" name="pro_titulo" value="<?php echo($Produto['pro_titulo']); ?>" class="form-control" id="pro_titulo"
 						placeholder="Titulo" required>
+					<input type="hidden" name="pro_codigo" value="<?php echo($Produto['pro_codigo']); ?>">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label for="pro_valor" class="col-sm-1 control-label">Valor:</label>
 				<div class="col-sm-4">
-					<input type="text" name="pro_valor" value="" class="form-control real" id="pro_valor"
+					<input type="text" name="pro_valor" value="<?php
+					$Number =new \system\core\NumberFormat();
+					echo($Number->numberClient($Produto['pro_valor'])); ?>" class="form-control real" id="pro_valor"
 						   placeholder="Valor" required>
 				</div>
 			</div>
@@ -40,7 +49,7 @@ tpr_codigo
 			<div class="form-group">
 				<label for="pro_descricao" class="col-sm-1 control-label">Descri&ccedil;&abreve;o:</label>
 				<div class="col-sm-4">
-					<input type="text" name="pro_descricao" value="" class="form-control" id="pro_descricao"
+					<input type="text" name="pro_descricao" value="<?php echo($Produto['pro_descricao']); ?>" class="form-control" id="pro_descricao"
 						   placeholder="Descricao" required>
 				</div>
 			</div>
@@ -53,7 +62,8 @@ tpr_codigo
 						<?php
 						$tbTipoProduto = new \system\model\TbTipoProduto();
 						foreach($tbTipoProduto->listFormProduto() as $dados):?>
-							<option value="<?php echo($dados['tpr_codigo']);?>"><?php echo($dados['tpr_descricao']);?></option>
+								<?php if($dados['tpr_codigo'] == $Produto['tpr_codigo']){ $selected = 'selected'; } ?>
+							<option <?php echo($selected); unset($selected); ?> value="<?php echo($dados['tpr_codigo']);?>"><?php echo($dados['tpr_descricao']);?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>

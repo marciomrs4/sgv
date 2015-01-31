@@ -32,12 +32,15 @@
 
 	<script src="../../js/jquery.js"></script>
 	<script src="../../js/bootstrap.js"></script>
-	<script src="../../js/jquery.dataTables.js"></script>	
+	<script src="../../js/jquery.dataTables.js"></script>
+	<script src="../../js/maskMoney.min.js"></script>
+	<script src="../../js/my-maskMoney.js"></script>
 	<script src="../../js/my-data-table.js"></script>
 	<script src="../../js/my-alert.js"></script>
 	<script src="../../js/my-createitempedido.js"></script>
 	<script src="../../js/jquery.validate.js"></script>
 	<script src="../../js/my-printer.js"></script>
+	<script src="../../js/my-addvalorpedido.js"></script>
 
 </body>
 </html>

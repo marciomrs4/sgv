@@ -9,6 +9,12 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'modulo/administracao/
 
 use system\core\FormController;
 
+#mostra padra os erros
+$Erros = new \system\core\Error();
+$Erros->showErrors();
+$Erros->showMessages();
+
+
 $formControler = new FormController();
 $formControler->setForm()->getForm();
 

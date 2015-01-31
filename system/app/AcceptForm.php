@@ -20,7 +20,7 @@ class AcceptForm extends PostController
 			
  			v::string()->notEmpty()
 					   ->setName('Doca')
-					   ->setTemplate('O campo {{name}} é obrigatório')
+					   ->setTemplate('O campo {{name}} ï¿½ obrigatï¿½rio')
 					   ->assert($this->post['doca']);
 
 			try {
@@ -50,8 +50,19 @@ class AcceptForm extends PostController
 		try{
 		v::string()->notEmpty()
 				   ->setName('Cliente')
-				   ->setTemplate('O campo {{name}} é obrigatório')
+				   ->setTemplate('O campo {{name}} ï¿½ obrigatï¿½rio')
 				   ->assert($this->post['ped_cliente']);
+
+		v::notEmpty()->setName('Valor')
+					 ->setTemplate('O campo {{name}} Ã© obrigatorio')
+					 ->assert($this->post['valor']);
+
+		v::notEmpty()->int()
+					 ->setName('Quantidade')
+					 ->setTemplate('O campo {{name}} Ã© obrigatorio')
+					 ->assert($this->post['quantidade']);
+
+
 		}catch (\Exception $e)
 		{
 			throw new \Exception($e);
@@ -61,7 +72,7 @@ class AcceptForm extends PostController
 			
 				$_SESSION['erros'] = $e->findMessages(array(
 						'string' => 'Este campo deve conter um Texto {{input}}',
-						'notEmpty' => 'O valor {{input}} não pode ser vazio'
+						'notEmpty' => 'O valor {{input}} nï¿½o pode ser vazio'
 				));
 			}
 					
@@ -97,7 +108,7 @@ class AcceptForm extends PostController
 	public function finalizarPedido()
 	{
 		if(empty($_SESSION['itens_pedido'])){
-			throw new \Exception('Não há itens no Pedido');
+			throw new \Exception('Nï¿½o hï¿½ itens no Pedido');
 		}
 
  		try {
