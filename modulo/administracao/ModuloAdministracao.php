@@ -108,7 +108,7 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="PainelStatus.php"><span class="glyphicon glyphicon-list-alt"></span>
+								<li><a href="PainelStatus.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
 										Painel Status
 									</a>
 								</li>

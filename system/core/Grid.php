@@ -6,7 +6,7 @@ class Grid implements IGrid
 {
 
 	/**
-	 * Descrição ...
+	 * Descriï¿½ï¿½o ...
 	 * @var string
 	 * @example Inserir o nome da classe CSS para linha
 	 * csslinha1 = 'cssnome'
@@ -21,7 +21,7 @@ class Grid implements IGrid
 	public $id = 'table-bootstrap';
 	
 	/**
-	 * Descrição ...
+	 * Descriï¿½ï¿½o ...
 	 * @var bolean
 	 * @example Inserir valor boleano para poder aparecer o link
 	 * com javascript
@@ -30,14 +30,14 @@ class Grid implements IGrid
 	public $colunaoculta = 0;
 
 	/**
-	 * Descrição ...
+	 * Descriï¿½ï¿½o ...
 	 * @var bolean
 	 * @example Inserir valor boleano para poder aparecer o link
 	 * islink = true
 	 */
 	
 	/**
-	 * Descrição ...
+	 * Descriï¿½ï¿½o ...
 	 * @var array
 	 * @example dados que devem ser mostrados na tabela
 	 * dados = tabeladedados
@@ -45,7 +45,7 @@ class Grid implements IGrid
 	private $dados;
 
 	/**
-	 * Descrição ...
+	 * Descriï¿½ï¿½o ...
 	 * @var array
 	 * @example Nomes para o titulo de cada coluna
 	 * cabecalho = titulodascolunas
@@ -90,7 +90,7 @@ class Grid implements IGrid
 	/**
 	 *
 	 * Enter description here ...
-	 * @example Metodo que cria o cabeçalho baseado no array informado no
+	 * @example Metodo que cria o cabeï¿½alho baseado no array informado no
 	 * construtor
 	 */
 	
@@ -153,7 +153,7 @@ class Grid implements IGrid
 		
 		foreach ($this->dados as $campo){
 			
-			#Recria o array de forma númerica
+			#Recria o array de forma nï¿½merica
 			$campo 	 = array_values($campo);
 			#Conta quantas colunas eu tenho em cada linha
 			$colunas = count($campo);
@@ -173,7 +173,7 @@ class Grid implements IGrid
    				    	echo '<td class="col-md-1">
 								<div class="btn-group">
 	           						<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-	               						Opções <span class="caret"></span>
+	               						Op&ccedil;&odblac;es <span class="caret"></span>
 	           						</button>
 	             				<ul class="dropdown-menu" role="menu">';    				    	
 					             foreach ($this->option as $option){

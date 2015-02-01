@@ -148,7 +148,8 @@ class TbPedido extends DataBase
 		$query = ("select ped_numero, ped_cliente,
 					date_format(ped_data_venda,'%d/%m/%Y %H:%i:%s') AS ped_data_venda
 					from tb_pedido
-					where stp_codigo = ?;");
+					where stp_codigo = ?
+					LIMIT 5;");
 
 
 		try {

@@ -16,7 +16,8 @@ $Pedidos = new \system\model\TbPedido();
 $Grid = new \system\core\Grid();
 
 $Grid->setDados($Pedidos->listPedidoPainel($stp_codigo));
-$Grid->setCabecalho(array('Pedido','Cliente','Data'));
+$Grid->setCabecalho(array('','Pedido','Cliente','Data'));
 
+$Grid->addOption(\system\core\GridOption::newOption()->setIco('search')->setName('Alterar')->setUrl('alterar.php'));
 
 $Grid->show();

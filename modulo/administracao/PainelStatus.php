@@ -3,7 +3,7 @@ include_once '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'/bootstrap.php';
 include_once 'config.php';
 
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
-include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprincipal.php';
+
 
 ?>
 
@@ -50,9 +50,25 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
                 </div>
             </div>
 
+         <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Ultimos Pedidos: <select class="form-control primary" name="status_terceario">
+                        <?php
+                        $tbTipoProduto = new \system\model\TbStatusPedido();
+                        foreach($tbTipoProduto->listAllAssoc() as $dados):?>
+                            <option value="<?php echo($dados['stp_codigo']);?>"><?php echo($dados['stp_descricao']);?></option>
+                        <?php endforeach; ?>
+                    </select></div>
+                <div class="panel-body">
+                    <span id="terceario"></span>
+                </div>
+         </div>
+
 
         </div>
     </div>
+
+</div>
 
 
 
@@ -79,13 +95,15 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
 
         function timer()
         {
-            $load("#tempo").html(count);
+
+
+            //$load("#tempo").html(count);
 
             if(count > 1)
                 count--;
             else
 
-            setTimeout("timer();", 1000);
+            setTimeout("timer();", 6000);
 
             var codigo = $valor("select[name='status']").val();
 
@@ -103,12 +121,23 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprinci
                     $load("#secundario").html(data);
                 },'html');
 
+            var codigo_terceario = $valor("select[name='status_terceario']").val();
+
+            $load.post('action/statuspedidopainel.php',
+                {stp_codigo: codigo_terceario},
+                function(data){
+                    $load("#terceario").html(data);
+                },'html');
+
 
 
 
 
         }
 
+</script>
+
+<script>
     timer();
 
 </script>
