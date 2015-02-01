@@ -148,4 +148,31 @@ class TbStatusPedido extends DataBase
 
 	}
 
+	/**
+	 * @return array
+	 *
+	 * Lista os status de pedido para o Painel de Pedido
+	 */
+	public function listAllAssoc()
+	{
+		try {
+
+			$query = ("SELECT stp_codigo, stp_descricao
+						FROM $this->tablename");
+
+			$stmt = $this->conexao->prepare($query);
+
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
+
+
+	}
+
+
 }

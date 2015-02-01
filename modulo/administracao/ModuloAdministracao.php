@@ -108,12 +108,14 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li>
-									<a href="PainelBusca.php"><span class="glyphicon glyphicon-list-alt">
-										</span>
+								<li><a href="PainelStatus.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Painel Status
+									</a>
+								</li>
+								<li><a href="PainelBusca.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Buscar Pedido
-										</a>
-										</li>
+									</a>
+								</li>
 								<li><a href="listarValorVendaPorProduto.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Pesquisa de valor de venda por produto</a></li>
 								<li><a href="valordevendapordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>

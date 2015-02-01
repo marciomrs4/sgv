@@ -143,4 +143,28 @@ class TbPedido extends DataBase
 
 	}
 
+	public function listPedidoPainel($stp_codigo)
+	{
+		$query = ("select ped_numero, ped_cliente,
+					date_format(ped_data_venda,'%d/%m/%Y %H:%i:%s') AS ped_data_venda
+					from tb_pedido
+					where stp_codigo = ?;");
+
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1, $stp_codigo, \PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
+		}
+
+	}
+
 }
