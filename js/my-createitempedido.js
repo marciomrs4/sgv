@@ -30,21 +30,21 @@ $click(document).ready(function(){
 			/* REGRAS DE VALIDA��O DO FORMUL�RIO */
 			
 			rules:{
-				16:{
+				asd:{
 					required: true, /* Campo obrigat�rio */
 					minlength: 1    /* No m�nimo 5 caracteres */
 				},
-				17:{
+				asdf:{
 					required: true
 				}
 			},
 			/* DEFINI��O DAS MENSAGENS DE ERRO */
 			messages:{
-				16:{
+				asd:{
 					required: "Preencha o campo ",
 					minlength: "O campo deve conter no m�nimo 5 caracteres"
 				},
-				17:{
+				asdf:{
 					required: "Campo Departamento � Obrigadorio"
 				}
 			},
