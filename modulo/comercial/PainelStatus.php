@@ -13,23 +13,23 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 
             <div class="panel panel-primary">
                 <div class="panel-heading">Mostrar Pedido:
-                    <div class="form-control primary">
-                        <select name="status">
+                    <div class="form-inline">
+                        <select class="form-control" name="status">
                             <?php
                             $tbTipoProduto = new \system\model\TbStatusPedido();
                             foreach($tbTipoProduto->listAllAssoc() as $dados):?>
                             <option value="<?php echo($dados['stp_codigo']);?>"><?php echo($dados['stp_descricao']);?></option>
                             <?php endforeach; ?>
                         </select>
-                        <button id="painelprincipal">Atualizar</button>
+                        <button class="form-control" id="painelprincipal">Atualizar</button>
                     </div>
                 </div>
                 <div class="panel-body">
 
 
-                    <div class="jumbotron">
+
                         <p id="principal">...</p>
-                    </div>
+
 
                 </div>
             </div>
@@ -159,8 +159,6 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
             var pedido = $load(this).val();
             var status = $load(this).next().val();
 
-                //alert('Pedido: '+pedido+' Status: '+status);
-
             $load.post('action/alterarstatuspedidopainel.php',
                     {stp_codigo: status,
                      ped_codigo: pedido},
@@ -173,7 +171,7 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 
                 var codigo = $valor("select[name='status']").val();
 
-                $load.post('action/statuspedidopainel.php',
+            $load.post('action/statuspedidopainel.php',
                     {stp_codigo: codigo},
                     function (data) {
                         $load("#principal").html(data);
