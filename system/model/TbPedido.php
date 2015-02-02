@@ -168,4 +168,31 @@ class TbPedido extends DataBase
 
 	}
 
+	/**
+	 * @param $dados
+	 * @return \PDOStatement
+	 * Usado para alterar o status do pedido
+	 */
+	public function updaStatus($dados)
+	{
+		$query = ("UPDATE tb_pedido
+					SET stp_codigo = ?
+					WHERE ped_codigo = ?");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1,$dados['stp_codigo'],\PDO::PARAM_INT);
+			$stmt->bindParam(2,$dados['ped_codigo'],\PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt;
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
+	}
+
 }

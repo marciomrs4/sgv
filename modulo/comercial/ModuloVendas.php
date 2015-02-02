@@ -47,13 +47,27 @@
 							</ul>
 						</div>
 					</li>
-					
-										
+
 					<li class="dropdown">
 						<div class="btn-group">
-						<a href="PainelBusca.php" class="btn btn-primary pull-right">
-							<span class="glyphicon glyphicon-search"></span> Pesquisar
-						</a>
+							<button type="button" class="btn btn-primary">
+								<span class="glyphicon glyphicon-list-alt"></span> Relat&oacute;rios
+							</button>
+							<button type="button" class="btn btn-primary dropdown-toggle"
+									data-toggle="dropdown">
+								<span class="caret"></span> <span class="sr-only">Toggle
+									Dropdown</span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="PainelBusca.php"><span class="glyphicon glyphicon-list-alt"></span>
+										Pesquisar
+									</a>
+								</li>
+								<li><a href="PainelStatus.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
+										Painel
+									</a>
+								</li>
+							</ul>
 						</div>
 					</li>
 					
