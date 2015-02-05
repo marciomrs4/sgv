@@ -36,7 +36,7 @@ $Grid->colunaoculta = 1;
 $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                             ->setName('Editar')
                                             ->setUrl(\system\core\ActionController::actionUrl()
-                                                                                    ->setProjecName($_SESSION['projeto'])
+                                                                                    ->setProjecName($configGlobal['projectName'])
                                                                                     ->setUrlModulo('administracao')
                                                                                     ->setUrlAction('alterar/statuspedido')
                                                                                     ->setValue()

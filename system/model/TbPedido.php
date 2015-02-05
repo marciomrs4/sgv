@@ -40,7 +40,7 @@ class TbPedido extends DataBase
 			return $this->conexao->lastInsertId();
 			
 		} catch (\Exception $e) {
-			throw new \Exception('Erro ao inserir na tabela '.$dados['ped_cliente'].' - '.$cliente. ' - ' .get_class($this).$e->getMessage());
+			throw new \Exception('Erro ao inserir na tabela ' . get_class($this) .' - '. $e->getMessage());
 		}
 
 		
@@ -116,10 +116,16 @@ class TbPedido extends DataBase
 		
 	}
 
+	/**
+	 * @param $ped_codigo
+	 * @return array
+	 * Lista pedido nas telas de buscar pedido: Comercial ou Adm
+	 */
 	public function getListarPedido($ped_codigo)
 	{
 		$query = ("select ped_codigo, ped_numero, ped_cliente,
-						  usu_codigo, ped_data_venda, ped_valor_total,
+						  (SELECT usu_nome FROM tb_usuario WHERE usu_codigo = PED.usu_codigo) AS usu_codigo,
+						  date_format(ped_data_venda,'%d/%m/%Y %h:%i:%s') AS ped_data_venda, ped_valor_total,
 						 (SELECT stp_descricao FROM tb_status_pedido WHERE stp_codigo = PED.stp_codigo) as stp_codigo,
     			         (SELECT uve_nome FROM tb_unidade_venda WHERE uve_codigo = PED.uve_codigo) AS uve_codigo
 					from tb_pedido AS PED
@@ -143,6 +149,11 @@ class TbPedido extends DataBase
 
 	}
 
+	/**
+	 * @param $stp_codigo
+	 * @return array
+	 * Pedidos painel por status
+	 */
 	public function listPedidoPainel($stp_codigo)
 	{
 		$query = ("select ped_numero, ped_cliente,

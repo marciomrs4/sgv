@@ -2,6 +2,10 @@
 include_once '../../bootstrap.php';
 include_once 'config.php';
 
+#Valida se existe uma unidade selecionada
+$ValidateUnidadeVenda = new \system\app\ValidadeUnidadeVenda();
+$ValidateUnidadeVenda->validateUnidadeVenda();
+
 include '../../componente/topo.php';
 include '../../componente/menuprincipal.php';
 
@@ -10,8 +14,6 @@ include '../../modulo/comercial/ModuloVendas.php';
 
 use system\core\FormController;
 
-$ValidateUnidadeVenda = new \system\app\ValidadeUnidadeVenda();
-$ValidateUnidadeVenda->validateUnidadeVenda();
 
 #Classe que fica responsavel por mostrar mensagens de erros
 $erros = new \system\core\Error();
@@ -20,17 +22,17 @@ $erros->showMessages();
 
 $controler = new FormController();
 
-
-/* echo '<pre>';
+/*
+echo '<pre>';
 	print_r($_SESSION);
-echo '</pre>'; */
+echo '</pre>';*/
 
 $controler->setForm()
           ->getForm();
 
-/* echo '<pre>';
+/*echo '<pre>';
 print_r($_SESSION);
-echo '</pre>'; */
+echo '</pre>';*/
 
 
 

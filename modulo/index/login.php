@@ -2,14 +2,10 @@
 include_once '../../bootstrap.php';
 
 
-if($_POST['usuario'] == 'marcio' or $_POST['usuario'] == 'clay'){
-	echo "<script>
-			window.document.location.href = '../comercial';		
-		  </script>";
-//	header('location: /sgp/modulo/portaria');
-}else{
-	
-	echo 'Seu usuario esta incorreto!';
-}
+
+$login = new \system\app\AcceptFormUsuario();
+
+$login->setpost($_POST)->doLogin();
+
 
 ?>

@@ -54,6 +54,14 @@
 										Status Pedido
 									</a>
 								</li>
+
+								<li><a href="<?php
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/usuario')->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Usuario
+									</a>
+								</li>
+
 							</ul>
 						</div>
 					</li>
@@ -91,6 +99,12 @@
 									<a href="listarStatusPedido.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										Listar Status Pedido
+									</a>
+								</li>
+								<li>
+									<a href="listarUsuario.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										Listar Usuario
 									</a>
 								</li>
 							</ul>

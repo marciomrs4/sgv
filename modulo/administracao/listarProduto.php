@@ -38,7 +38,7 @@ $Grid->addFunctionColumn(function($var) use ($Number){return('R$ '.$Number->numb
 $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                             ->setName('Editar')
                                             ->setUrl(\system\core\ActionController::actionUrl()
-                                                                                    ->setProjecName($_SESSION['projeto'])
+                                                                                    ->setProjecName($configGlobal['projectName'])
                                                                                     ->setUrlModulo('administracao')
                                                                                     ->setUrlAction('alterar/produto')
                                                                                     ->setValue()

@@ -36,7 +36,7 @@ class AcceptFormPedidoToque extends PostController
 
 				unset($this->post['ped_cliente']); // = $_SESSION['pedido']['ped_cliente'];
 	
-				$dados['usu_codigo'] = 1; //User da sessao
+				$dados['usu_codigo'] = $_SESSION['usu_codigo']; //User da sessao
 				$dados['ped_valor_total'] = $totalPedido; //Valor total j� vem do form
 				$dados['stp_codigo'] = 1; // Status do pedido
 				$dados['ped_numero'] = $tbPedido->getPedNumber();

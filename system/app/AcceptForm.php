@@ -50,16 +50,16 @@ class AcceptForm extends PostController
 		try{
 		v::string()->notEmpty()
 				   ->setName('Cliente')
-				   ->setTemplate('O campo {{name}} � obrigat�rio')
+				   ->setTemplate('O campo {{name}} &eacute; obrigat&oacute;rio')
 				   ->assert($this->post['ped_cliente']);
 
 		v::notEmpty()->setName('Valor')
-					 ->setTemplate('O campo {{name}} é obrigatorio')
+					 ->setTemplate('O campo {{name}} &eacute; obrigat&oacute;rio')
 					 ->assert($this->post['valor']);
 
 		v::notEmpty()->int()
 					 ->setName('Quantidade')
-					 ->setTemplate('O campo {{name}} é obrigatorio')
+					 ->setTemplate('O campo {{name}} &eacute; obrigat&oacute;rio')
 					 ->assert($this->post['quantidade']);
 
 
@@ -108,7 +108,7 @@ class AcceptForm extends PostController
 	public function finalizarPedido()
 	{
 		if(empty($_SESSION['itens_pedido'])){
-			throw new \Exception('N�o h� itens no Pedido');
+			throw new \Exception('Sem itens no Pedido');
 		}
 
  		try {
@@ -119,7 +119,7 @@ class AcceptForm extends PostController
 
 			$this->post['ped_numero'] = $tbPedido->getPedNumber();
 			$this->post['ped_cliente']; // = $_SESSION['pedido']['ped_cliente']; 
-			$this->post['usu_codigo'] = 1; //User da sessao
+			$this->post['usu_codigo'] = $_SESSION['usu_codigo']; //User da sessao
 			$this->post['ped_valor_total']; //Valor total j� vem do form
 			$this->post['stp_codigo'] = 1; // Status do pedido
 			$this->post['uve_codigo'] = $_SESSION['uve_codigo']; //Unidade de venda

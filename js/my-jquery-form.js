@@ -39,6 +39,9 @@ $(document).ready(function(){
 					
 					error: function(){
 						alert("Houve um erro na Requisicao");
+						$(icone).remove();
+						$(".btn-primary").show();
+
 					}
 				});
 			

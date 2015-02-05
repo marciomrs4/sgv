@@ -23,6 +23,9 @@ class ValidadeUnidadeVenda extends PostController
             header('location: '.$this->rota);
         }
 
+        $User = new ValidateUser();
+        $User->validateUser();
+
     }
 
     public function setUnidadeVenda()

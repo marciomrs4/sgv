@@ -11,19 +11,23 @@
 		
 		<nav class="navbar navbar-default navbar-static-top" role="navigation"></nav>
 
-		<div class="panel panel-primary">
-			<div class="panel-heading panel-title">
-				SGV - Login
-			</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading panel-title">
+		SGV - Login
+		</div>
 			<div class="panel-body well">
 				<div class="row">
 					<div class="col-sm-4 col-sm-offset-1">
 						<form class="form-horizontal" id="formlogin" method="post" role="form">
 							<div class="form-group">
-								<label for="inputUsuario">Usu&aacute;rio</label> <input type="text" name="usuario"
-									class="form-control" id="inputUsuario" placeholder="Usu&aacute;rio"><br>
-								<label for="inputSenha">Senha</label> <input type="password" name="senha"
-									class="form-control" id="inputSenha" placeholder="Senha"> <br>
+					<label for="inputUsuario">Login</label>
+	<input type="text" name="usu_login" class="form-control" id="inputUsuario" placeholder="Login" required>
+								</div>
+							<div class="form-group">
+	<label for="inputSenha">Senha</label>
+	<input type="password" name="usu_senha" class="form-control" id="inputSenha" placeholder="Senha" required>
+						</div>
+							<div class="form-group">
 								<button type="submit" class="btn btn-primary">
 									<span class="glyphicon glyphicon-log-in"></span> Acessar
 								</button>

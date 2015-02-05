@@ -16,18 +16,21 @@ $erros = new \system\core\Error();
 $erros->showErrors();
 $erros->showMessages();
 
-#Instancia do repositorio que armazena tipo de produto
-$tbTipoProduto = new \system\model\TbTipoProduto();
+#Instancia do repositorio que armazena usuario
+$tbUsuario = new \system\model\TbUsuario();
 
 #Classe que monta o grid
 $Grid = new Grid();
-
-$Grid->setDados($tbTipoProduto->listAll());
-$Grid->setCabecalho(array('','Descricao'));
+try {
+    $Grid->setDados($tbUsuario->listAll());
+}catch (Exception $e){
+    echo $e->getMessage();
+}
+$Grid->setCabecalho(array('','Nome','Senha','Login','Permiss&abreve;o'));
 
 $Grid->colunaoculta = 1;
 
-
+$Grid->addFunctionColumn(function($var){return('$$$$$$$$$$$$$$');},2);
 
 #Classe grid que recebe o $option, onde se nao houve uma acao lista os dados
 $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
@@ -35,7 +38,7 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                             ->setUrl(\system\core\ActionController::actionUrl()
                                                                                     ->setProjecName($configGlobal['projectName'])
                                                                                     ->setUrlModulo('administracao')
-                                                                                    ->setUrlAction('alterar/tipoproduto')
+                                                                                    ->setUrlAction('alterar/usuario')
                                                                                     ->setValue()
                                                                                     ->getUrl()))
      ->show(!isset($_SESSION['action']));

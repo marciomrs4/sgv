@@ -2,6 +2,11 @@
 include_once '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'/bootstrap.php';
 include_once 'config.php';
 
+#Valida se existe uma unidade selecionada
+$ValidateUnidadeVenda = new \system\app\ValidadeUnidadeVenda();
+$ValidateUnidadeVenda->validateUnidadeVenda();
+
+
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/menuprincipal.php';
 
