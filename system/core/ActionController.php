@@ -46,7 +46,7 @@ class ActionController
 		return $this;
 	}
 	
-	private function __get($propName)
+	public function __get($propName)
 	{
 	    return $this->$propName;
 	}
