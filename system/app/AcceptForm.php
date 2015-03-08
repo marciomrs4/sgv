@@ -122,7 +122,7 @@ class AcceptForm extends PostController
  			
 			$tbPedido = new TbPedido();
 
-			$this->post['ped_numero'] = $tbPedido->getPedNumber();
+			$this->post['ped_numero'] = $tbPedido->getPedNumber($_SESSION['uve_codigo']);
 			$this->post['ped_cliente']; // = $_SESSION['pedido']['ped_cliente']; 
 			$this->post['usu_codigo'] = $_SESSION['usu_codigo']; //User da sessao
 			$this->post['ped_valor_total']; //Valor total j� vem do form

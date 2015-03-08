@@ -72,19 +72,24 @@ class TbPedido extends DataBase
 	 * @use Obtem o numero do pedido gerado da unidade de venda e data do dia
 	 *
 	 */
-	public function getPedNumber()
+	public function getPedNumber($unidadeVenda)
 	{
-		$query = ("SELECT MAX(ped_codigo) FROM tb_pedido ");
+		$query = ("SELECT MAX(ped_numero)
+					FROM tb_pedido
+					WHERE date_format(ped_data_venda,'%Y-%m-%d') = curdate()
+					AND uve_codigo = ?;");
 		
 		try {
 			
 			$stmt = $this->conexao->prepare($query);
-			
+
+			$stmt->bindParam(1,$unidadeVenda,\PDO::PARAM_INT);
+
 			$stmt->execute();
 			
 			$number = $stmt->fetch(\PDO::FETCH_NUM);
 			
-			return $number[0] + 1;
+			return $number['0'] + 1;
 			
 		} catch (\PDOException $e) {
 			throw new \PDOException($e->getMessage());

@@ -32,7 +32,7 @@ class AcceptFormPedidoToque extends PostController
 				throw new \Exception('Selecione a forma de pagamento');
 			}
 
-			$tpa_codigo = $this->post['tpa_codigo'];
+			$dados['tpa_codigo'] = $this->post['tpa_codigo'];
 
 			$this->validateCreatePedidoToque();
 			
@@ -47,7 +47,7 @@ class AcceptFormPedidoToque extends PostController
 				$dados['usu_codigo'] = $_SESSION['usu_codigo']; //User da sessao
 				$dados['ped_valor_total'] = $totalPedido; //Valor total j� vem do form
 				$dados['stp_codigo'] = 1; // Status do pedido
-				$dados['ped_numero'] = $tbPedido->getPedNumber();
+				$dados['ped_numero'] = $tbPedido->getPedNumber($_SESSION['uve_codigo']);
 				$dados['uve_codigo'] = $_SESSION['uve_codigo'];
 
 
@@ -77,14 +77,13 @@ class AcceptFormPedidoToque extends PostController
 
 				$tbPedido->updateValorTotal($dados);
 
-				$dados['tpa_codigo'] = $tpa_codigo;
 				$dados['ppe_valor'] = $dados['ped_valor_total'];
 
 				$tbPagamentoPedido->save($dados);
 
 				$this->conexao->commit();
 				
-				return($dados['ped_codigo']);
+				return($dados['ped_numero']);
 					
 			}catch (\PDOException $e){
 				

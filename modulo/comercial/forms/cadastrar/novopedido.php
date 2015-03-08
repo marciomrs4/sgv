@@ -19,7 +19,7 @@
 				<label for="inputEmail3" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-1">
 
-					<input type="text" name="ped_codigo" value="<?php echo $tbPedido->getPedNumber(); ?>"  class="form-control" id="inputEmail3"
+					<input type="text" name="ped_codigo" value="<?php echo $tbPedido->getPedNumber($_SESSION['uve_codigo']); ?>"  class="form-control" id="inputEmail3"
 						placeholder="Pedido" readonly="readonly">
 				</div>
 			
