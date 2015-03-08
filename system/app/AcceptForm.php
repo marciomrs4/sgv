@@ -3,6 +3,7 @@ namespace system\app;
 
 use Respect\Validation\Validator as v;
 use system\core\PostController;
+use system\model\TbPagamentoPedido;
 use system\model\TbUsuario;
 use system\model\TbPedido;
 use Respect\Validation\Validator;
@@ -111,6 +112,10 @@ class AcceptForm extends PostController
 			throw new \Exception('Sem itens no Pedido');
 		}
 
+		if($this->post['tpa_codigo'] == ''){
+			throw new \Exception('Selecione a forma de pagamento');
+		}
+
  		try {
  			
  			$this->conexao->beginTransaction();
@@ -126,6 +131,12 @@ class AcceptForm extends PostController
 			
 
 			$this->post['ped_codigo'] = $tbPedido->save($this->post); //Codigo do produto
+
+			//Registra a forma de pagamento
+			$tbPagamentoPedido = new TbPagamentoPedido();
+			//tpa_codigo
+			$this->post['ppe_valor'] = $this->post['ped_valor_total'];
+			$tbPagamentoPedido->save($this->post);
 			
 			$tbProduto = new TbProduto();
 			

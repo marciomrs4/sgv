@@ -5,6 +5,7 @@ use Respect\Validation\Validator as v;
 use system\core\PostController;
 use Respect\Validation\Validator;
 use system\core\NumberFormat;
+use system\model\TbPagamentoPedido;
 use system\model\TbProduto;
 use system\model\TbPedido;
 use system\model\TbItemPedido;
@@ -18,6 +19,7 @@ class AcceptFormPedidoToque extends PostController
 		$tbProduto = new TbProduto();
 		$tbPedido = new TbPedido();
 		$tbItemPedido = new TbItemPedido();
+		$tbPagamentoPedido = new TbPagamentoPedido();
 		
 		$totalPedido = 0;
 		$dados = array();
@@ -25,6 +27,12 @@ class AcceptFormPedidoToque extends PostController
 		try {
 
 			$dados['ped_cliente'] = filter_var($this->post['ped_cliente'],FILTER_SANITIZE_STRING);
+
+			if($this->post['tpa_codigo'] == ''){
+				throw new \Exception('Selecione a forma de pagamento');
+			}
+
+			$tpa_codigo = $this->post['tpa_codigo'];
 
 			$this->validateCreatePedidoToque();
 			
@@ -34,14 +42,15 @@ class AcceptFormPedidoToque extends PostController
 				$this->conexao->beginTransaction();
 
 
-				unset($this->post['ped_cliente']); // = $_SESSION['pedido']['ped_cliente'];
+				unset($this->post['ped_cliente'], $this->post['tpa_codigo']); // = $_SESSION['pedido']['ped_cliente'];
 	
 				$dados['usu_codigo'] = $_SESSION['usu_codigo']; //User da sessao
 				$dados['ped_valor_total'] = $totalPedido; //Valor total j� vem do form
 				$dados['stp_codigo'] = 1; // Status do pedido
 				$dados['ped_numero'] = $tbPedido->getPedNumber();
 				$dados['uve_codigo'] = $_SESSION['uve_codigo'];
-				
+
+
 				$dados['ped_codigo'] = $tbPedido->save($dados); //grava o pedido no banco
 				
 	
@@ -65,10 +74,14 @@ class AcceptFormPedidoToque extends PostController
 					}
 					
 				}
-				
+
 				$tbPedido->updateValorTotal($dados);
-	
-				
+
+				$dados['tpa_codigo'] = $tpa_codigo;
+				$dados['ppe_valor'] = $dados['ped_valor_total'];
+
+				$tbPagamentoPedido->save($dados);
+
 				$this->conexao->commit();
 				
 				return($dados['ped_codigo']);

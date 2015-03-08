@@ -162,6 +162,21 @@
 				</table>
 			
 			<div class="form-group">
+
+				<label for="" class="col-sm-1 control-label">Pagamento:</label>
+				<div class="col-sm-2">
+					<select class="form-control" name="tpa_codigo">
+						<option value="">Selecione</option>
+
+						<?php
+						$tbTipoPgamento = new \system\model\TbTipoPagamento();
+						foreach ($tbTipoPgamento->listAll() as $campo): ?>
+							<option value="<?php echo($campo['tpa_codigo']); ?>"><?php echo($campo['tpa_descricao']); ?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+
+
 				<div class="col-sm-offset-0 col-sm-1">
 					<button type="submit" class="btn btn-primary">
 						<span class="glyphicon glyphicon-floppy-saved"></span> Salvar

@@ -42,7 +42,23 @@
 		  </div>
   		</div>
 		<?php endforeach; ?>
-		  		  		  
+
+			<div class="form-group">
+
+				<label for="" class="col-sm-1 control-label">Pagamento:</label>
+				<div class="col-sm-2">
+					<select class="form-control" name="tpa_codigo">
+						<option value="">Selecione</option>
+
+						<?php
+						$tbTipoPgamento = new \system\model\TbTipoPagamento();
+						foreach ($tbTipoPgamento->listAll() as $campo): ?>
+							<option value="<?php echo($campo['tpa_codigo']); ?>"><?php echo($campo['tpa_descricao']); ?></option>
+						<?php endforeach;?>
+					</select>
+				</div>
+			</div>
+
 		<div class="form-group">	
 			<div class="col-md-2 col-md-offset-1">
 			     <button id="button2id" name="button2id" class="btn btn-primary">

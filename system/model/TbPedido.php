@@ -67,7 +67,11 @@ class TbPedido extends DataBase
 			throw new \PDOException($e->getMessage(), $e->getCode());
 		}
 	}
-	
+
+	/*
+	 * @use Obtem o numero do pedido gerado da unidade de venda e data do dia
+	 *
+	 */
 	public function getPedNumber()
 	{
 		$query = ("SELECT MAX(ped_codigo) FROM tb_pedido ");
