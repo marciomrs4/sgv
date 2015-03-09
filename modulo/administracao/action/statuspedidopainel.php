@@ -18,6 +18,8 @@ $Grid = new \system\core\Grid();
 $Grid->setDados($Pedidos->listPedidoPainel($stp_codigo));
 $Grid->setCabecalho(array('Pedido','Cliente','Data'));
 
+$Grid->colunaoculta = 1;
+
 
 $Grid->show();
 

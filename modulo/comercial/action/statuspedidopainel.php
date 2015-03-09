@@ -40,7 +40,7 @@ require_once '../../../bootstrap.php';
 
 
 <a class="btn btn-primary" data-toggle="collapse" href="#<?php echo($Pedido['0']); ?>" aria-expanded="false" aria-controls="collapseExample">
-    <?php echo('Pedido: '.$Pedido['0'].' Cliente: '.$Pedido['1'].' Data: '.$Pedido['2']); ?>
+    <?php echo('Pedido: '.$Pedido['1'].' Cliente: '.$Pedido['2'].' Data: '.$Pedido['3']); ?>
 </a>
 
 </div>
