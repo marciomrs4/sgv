@@ -26,7 +26,7 @@
 								
 			<label for="" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-2">
-					<input type="text" name="" value="<?php echo $tbPedido->getPedNumber(); ?>" class="form-control" readonly="readonly">
+					<input type="text" name="" value="<?php echo $tbPedido->getPedNumber($_SESSION['uve_codigo']); ?>" class="form-control" readonly="readonly">
 				</div>
 		</div>			
 		
