@@ -22,10 +22,6 @@ $erros->showMessages();
 
 $controler = new FormController();
 
-/*
-echo '<pre>';
-	print_r($_SESSION);
-echo '</pre>';*/
 
 $controler->setForm()
           ->getForm();

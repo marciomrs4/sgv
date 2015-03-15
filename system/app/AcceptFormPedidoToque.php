@@ -106,21 +106,27 @@ class AcceptFormPedidoToque extends PostController
 		
 		#Removendo itens que nao precisao ser contados fo form
 		unset($this->post['ped_cliente']);
+		unset($this->post['tpa_codigo']);
 		unset($this->post['button2id']);
 		
 		$QtdItens = count($this->post);
 		
 		#Passando por cada campo que foi enviado
 		foreach ($this->post as $campo=> $valor){
-			
-			echo 'Campo: ',$campo, ' Valor: ',$valor,'<br>';
+
+			//Mostrando os campos que existem no formulario
+			//echo 'Campo: ',$campo, ' Valor: ',$valor,'<br>';
 			
 			#Verficando cada valor se foi preenchido
 			if(($valor == '') or ($valor == 0)){
 				$TotalCampo++;
 			}
-			
+
 		}
+
+		#Verificando a quantidade de campos enviados
+		//echo $QtdItens . ' - ' . $TotalCampo;
+
 		#Verificando se a quantidade de campos vazios e o mesmo de itens enviados
 		if($TotalCampo == $QtdItens){
 			throw new \Exception(utf8_decode('É necessário informar um valor diferente de zero em ao menos um item'));

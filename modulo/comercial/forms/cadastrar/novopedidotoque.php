@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" xmlns:div="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 	<div class="panel-heading">
 		<h3 class="panel-title">Novo Pedido</h3>
 	</div>
@@ -38,7 +38,8 @@
 		  <div class="col-md-4">
 		    <div class="btn btn-info"><?php echo($product['pro_titulo']); ?></div>
 		    	<input name="<?php echo($product['pro_codigo']);?>" value="" size="3" class="">
-		    	<?php echo('R$ '.NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?>
+			  R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?>
+			  <span style="display: none"><?php echo $tbProduto->getPriceProduct($product['pro_codigo']); ?></span>
 		  </div>
   		</div>
 		<?php endforeach; ?>
@@ -56,6 +57,13 @@
 							<option value="<?php echo($campo['tpa_codigo']); ?>"><?php echo($campo['tpa_descricao']); ?></option>
 						<?php endforeach;?>
 					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="" class="col-sm-1 control-label">Total: R$ </label>
+				<div class="col-sm-2">
+					<span id="valor" readonly="readonly" class="form-control"></span>
 				</div>
 			</div>
 

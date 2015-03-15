@@ -14,13 +14,16 @@ $post = new AcceptFormPedidoToque();
 
  	$_SESSION['valueTemp'] = $post->setpost($_POST)->createPedido();
 
+
+	//$post->setpost($_POST)->validateCreatePedidoToque();
+
 	$post->clearPost("Pedido {$_SESSION['valueTemp']} Criado com sucesso");
 
 $form = new FormController();
 $form->setModulo($_SESSION['moduloTemp'])
 	 ->setAction('alterar/resultadoPedidoToque')
 	 ->setValue($_SESSION['valueTemp']);
- 	
+
 	
 } catch (Exception $e) {
 
