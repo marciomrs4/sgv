@@ -5,7 +5,7 @@ require_once '../../../bootstrap.php';
 
     $Pedidos = new \system\model\TbPedido();
 
-    foreach($Pedidos->listPedidoPainel($stp_codigo) as $Pedido):
+    foreach($Pedidos->listPedidoPainel($stp_codigo, $_SESSION['uve_codigo']) as $Pedido):
 
 ?>
 <div class="painel panel-primary">

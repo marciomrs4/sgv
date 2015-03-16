@@ -55,7 +55,7 @@ class TbUnidadeVenda extends DataBase
 	}
 
 	#Utilizado para listar unidade de venda na tela de
-	#Selecionar unidade de venda
+	#Selecionar unidade de venda e painel de busca de pedido
 	public function listUnidadeVendaByName()
 	{
 		$query = ("SELECT uve_codigo, uve_nome

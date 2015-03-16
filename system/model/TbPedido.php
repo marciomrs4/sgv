@@ -128,9 +128,9 @@ class TbPedido extends DataBase
 	/**
 	 * @param $ped_codigo
 	 * @return array
-	 * Lista pedido nas telas de buscar pedido: Comercial ou Adm
+* Lista pedido nas telas de buscar pedido: Comercial ou Adm
 	 */
-	public function getListarPedido($ped_codigo)
+	public function getListarPedido($dados)
 	{
 		$query = ("select ped_codigo, ped_numero, ped_cliente,
 						  (SELECT usu_nome FROM tb_usuario WHERE usu_codigo = PED.usu_codigo) AS usu_codigo,
@@ -138,14 +138,20 @@ class TbPedido extends DataBase
 						 (SELECT stp_descricao FROM tb_status_pedido WHERE stp_codigo = PED.stp_codigo) as stp_codigo,
     			         (SELECT uve_nome FROM tb_unidade_venda WHERE uve_codigo = PED.uve_codigo) AS uve_codigo
 					from tb_pedido AS PED
-					where ped_codigo = ?;
+					where PED.uve_codigo LIKE ?
+                    AND PED.stp_codigo LIKE ?
+                    AND ped_data_venda >= ?
 				 ");
 
 		try {
 
+			$dados['ped_data_venda'] = $dados['ped_data_venda'].' 00:00:01';
+
 			$stmt = $this->conexao->prepare($query);
 
-			$stmt->bindParam(1, $ped_codigo, \PDO::PARAM_INT);
+			$stmt->bindParam(1, $dados['uve_codigo'], \PDO::PARAM_INT);
+			$stmt->bindParam(2, $dados['stp_codigo'], \PDO::PARAM_INT);
+			$stmt->bindParam(3, $dados['ped_data_venda'], \PDO::PARAM_STR);
 
 			$stmt->execute();
 
@@ -163,12 +169,13 @@ class TbPedido extends DataBase
 	 * @return array
 	 * Pedidos painel por status
 	 */
-	public function listPedidoPainel($stp_codigo)
+	public function listPedidoPainel($stp_codigo, $uve_codigo = '%')
 	{
 		$query = ("select ped_codigo, ped_numero, ped_cliente,
 					date_format(ped_data_venda,'%d/%m/%Y %H:%i:%s') AS ped_data_venda
 					from tb_pedido
 					where stp_codigo = ?
+					AND uve_codigo LIKE ?
 					LIMIT 5;");
 
 
@@ -177,6 +184,7 @@ class TbPedido extends DataBase
 			$stmt = $this->conexao->prepare($query);
 
 			$stmt->bindParam(1, $stp_codigo, \PDO::PARAM_INT);
+			$stmt->bindParam(2, $uve_codigo, \PDO::PARAM_INT);
 
 			$stmt->execute();
 

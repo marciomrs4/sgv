@@ -15,7 +15,7 @@ $Pedidos = new \system\model\TbPedido();
 
 $Grid = new \system\core\Grid();
 
-$Grid->setDados($Pedidos->listPedidoPainel($stp_codigo));
+$Grid->setDados($Pedidos->listPedidoPainel($stp_codigo, $_SESSION['uve_codigo']));
 $Grid->setCabecalho(array('Pedido','Cliente','Data'));
 
 $Grid->colunaoculta = 1;

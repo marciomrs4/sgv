@@ -33,6 +33,9 @@
 
 			<div class="nav navbar-left collapse navbar-collapse">
 				<p class="navbar-text"><?php echo($configGlobal['systemName']);?></p>
+				<p class="navbar-text"><?php
+					$tbUnidadeVenda = new \system\model\TbUnidadeVenda();
+					echo('Unidade Venda: '.$tbUnidadeVenda->getUnidadeVendaForm($_SESSION['uve_codigo'])['uve_nome']);?></p>
 			</div>
 			<div class="nav navbar-right collapse navbar-collapse"
 				id="navbar-collapse-1">
