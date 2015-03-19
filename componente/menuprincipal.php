@@ -34,8 +34,16 @@
 			<div class="nav navbar-left collapse navbar-collapse">
 				<p class="navbar-text"><?php echo($configGlobal['systemName']);?></p>
 				<p class="navbar-text"><?php
+				
+				if(!empty($_SESSION['uve_codigo'])){
+ 					
 					$tbUnidadeVenda = new \system\model\TbUnidadeVenda();
-					echo('Unidade Venda: '.$tbUnidadeVenda->getUnidadeVendaForm($_SESSION['uve_codigo'])['uve_nome']);?></p>
+ 					$Unidade = $tbUnidadeVenda->getUnidadeVendaForm($_SESSION['uve_codigo']);
+ 					
+						echo('Unidade Venda: '.$Unidade['uve_nome']);
+					}	
+			?>
+					</p>
 			</div>
 			<div class="nav navbar-right collapse navbar-collapse"
 				id="navbar-collapse-1">
