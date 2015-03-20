@@ -36,7 +36,7 @@
 		<div class="form-group">		
 		<label class="col-md-1 control-label" for="<?php echo $product['pro_titulo'] ?>"></label>
 		  <div class="col-md-4">
-		    <div class="btn btn-info"><?php echo($product['pro_titulo']); ?></div>
+		    <div class="btn btn-primary"><?php echo($product['pro_titulo']); ?></div>
 		    	<input name="<?php echo($product['pro_codigo']);?>" value="" size="3" class="">
 			  R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?>
 			  <span style="display: none"><?php echo $tbProduto->getPriceProduct($product['pro_codigo']); ?></span>
