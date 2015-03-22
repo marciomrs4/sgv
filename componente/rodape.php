@@ -17,7 +17,12 @@
 				</div>
 				<div class="nav navbar-right collapse navbar-collapse" id="este">
 					<button class="btn btn-default btn-lg">
-						<span class="glyphicon glyphicon-user"></span> Usu&aacute;rio
+						<span class="glyphicon glyphicon-user"></span>
+							<?php
+							$tbUsuario = new \system\model\TbUsuario();
+							$Usuario = $tbUsuario->getFormUser($_SESSION['usu_codigo']);
+							echo $Usuario['usu_nome'];
+							?>
 					</button>
 				</div>
 
