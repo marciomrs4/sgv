@@ -5,7 +5,7 @@ $click(document).ready(function(){
 
 
 
-	$click('div.btn-info').click(function(){
+	$click('div.btn-primary').click(function(){
 
 		var novototal = 0;
 
@@ -21,7 +21,7 @@ $click(document).ready(function(){
 
 
 
-		$click('div.btn-info').next().each(function(){
+		$click('div.btn-primary').next().each(function(){
 
 			var quantidade = $click(this).val();
 			console.log('Quantidade: '+quantidade);
@@ -45,11 +45,11 @@ $click(document).ready(function(){
 
 	});
 
-	$click('div.btn-info').next().blur(function(){
+	$click('div.btn-primary').next().blur(function(){
 
 		var novototal = 0;
 
-		$click('div.btn-info').next().each(function(){
+		$click('div.btn-primary').next().each(function(){
 
 			var quantidade = $click(this).val();
 			//console.log('Quantidade: '+quantidade);

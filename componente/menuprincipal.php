@@ -20,6 +20,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="../comercial/"><span class="glyphicon glyphicon-sort"></span> <?php echo $configGlobal['comercial']?></a></li>
 						<li><a href="../administracao/"><span class="glyphicon glyphicon-flash"></span> <?php echo $configGlobal['administracao']?></a></li>
+						<li><a href="../relatorio/"><span class="glyphicon glyphicon-th-list"></span> Relatorio</a></li>
 						<li class="divider"></li>
 						<li><a href="../index/unidadevenda.php"><span class="glyphicon glyphicon-home"></span> Alterar Unidade Venda</a></li>
 						<li class="divider"></li>

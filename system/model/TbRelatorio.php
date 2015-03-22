@@ -124,7 +124,215 @@ class TbRelatorio extends DataBase
 	
 	
 	}
-		
-	
+
+	/**
+	 * @return array
+	 * @throws \Exception
+	 *
+	 * Quantidade de Pedidos e Valor Total do dia
+	 ***************************************************
+	Select	"Numero de Pedidos",
+	count(*),
+	"Valor Faturado" ,
+	sum(ped_valor_total)
+	from 	tb_pedido
+	where 	date(ped_data_venda) =?
+	and 	uve_codigo =?
+	 */
+
+	public function quantidadePedidosValorTotaldia($dados)
+	{
+		$query = ("SELECT 'Numero de Pedidos', COUNT(*),
+						  'Valor Faturado', SUM(ped_valor_total)
+					FROM	tb_pedido
+					WHERE 	DATE(ped_data_venda) = ?
+					AND 	uve_codigo = ?");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$dados['data'] = date('Y-m-d');
+
+			$stmt->bindParam(1,$dados['data'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['uve_codigo'],\PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		} catch (Exception $e) {
+			throw new \Exception();
+		}
+
+
+	}
+
+	/**
+	 * @param $dados
+	 * @return array
+	 * @throws \Exception
+	 *
+	 *  Totais por produto
+	 **********************
+
+	select	b.vpr_titulo_produto,
+	count(b.vpr_quantidade),
+	sum(b.vpr_valor_total)
+	from 	tb_pedido a,
+	tb_itens_pedido b
+	where  	date(a.ped_data_venda) =?
+	and 	a.uve_codigo =?
+	and 	a.ped_codigo = b.ped_codigo
+	group by b.vpr_titulo_produto
+	order by sum(b.vpr_valor_total) desc
+	 *
+	 */
+	public function totalPorProduto($dados)
+	{
+		$query = ("	select	b.vpr_titulo_produto,
+					count(b.vpr_quantidade),
+					sum(b.vpr_valor_total)
+					from 	tb_pedido a,
+					tb_itens_pedido b
+					where  	date(a.ped_data_venda) = ?
+					and 	a.uve_codigo = ?
+					and 	a.ped_codigo = b.ped_codigo
+					group by b.vpr_titulo_produto
+					order by sum(b.vpr_valor_total) desc");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$dados['data'] = date('Y-m-d');
+
+			$stmt->bindParam(1,$dados['data'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['uve_codigo'],\PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		} catch (Exception $e) {
+			throw new \Exception();
+		}
+
+
+	}
+
+
+	/**
+	 * @param $dados
+	 * @return array
+	 * @throws \Exception
+	 *
+	 * Totais por tipo de pagamento
+	 **********************************
+
+	Select 	c.tpa_descricao,
+	count(b.ped_codigo),
+	sum(b.ped_valor_total)
+	from 	tb_pedido b ,
+	tb_pagamento_pedido a ,
+	tb_tipo_pagamento c
+	where  	date(b.ped_data_venda) =?
+	and 	b.uve_codigo =?
+	and 	a.ped_codigo=b.ped_codigo
+	and 	a.tpa_codigo = c.tpa_codigo
+	group by c.tpa_descricao
+	order by sum(b.ped_valor_total) desc
+	 */
+
+	public function totaisPorTipoPagamento($dados)
+	{
+		$query = ("Select 	c.tpa_descricao,
+					count(b.ped_codigo),
+					sum(b.ped_valor_total)
+					from 	tb_pedido b ,
+					tb_pagamento_pedido a ,
+					tb_tipo_pagamento c
+					where  	date(b.ped_data_venda) = ?
+					and 	b.uve_codigo = ?
+					and 	a.ped_codigo=b.ped_codigo
+					and 	a.tpa_codigo = c.tpa_codigo
+					group by c.tpa_descricao
+					order by sum(b.ped_valor_total) desc");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$dados['data'] = date('Y-m-d');
+
+			$stmt->bindParam(1,$dados['data'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['uve_codigo'],\PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		} catch (Exception $e) {
+			throw new \Exception();
+		}
+	}
+
+	/**
+	 * @param $dados
+	 * @return array
+	 * @throws \Exception
+	 *
+	Lista de Pedidos
+	 ********************
+	Select 	a.ped_numero,
+	a.ped_cliente,
+	a.ped_valor_total,
+	c.tpa_descricao
+	from 	tb_pedido a,
+	tb_pagamento_pedido b,
+	tb_tipo_pagamento c
+	where  	date(a.ped_data_venda) =?
+	and 	a.uve_codigo =?
+	and 	a.ped_codigo=b.ped_codigo
+	and 	b.tpa_codigo = c.tpa_codigo
+	order by 1
+	 *
+	 */
+
+	public function listaDePedido($dados)
+	{
+		$query = ("Select 	a.ped_numero,
+						a.ped_cliente,
+						a.ped_valor_total,
+						c.tpa_descricao
+					from 	tb_pedido a,
+					tb_pagamento_pedido b,
+					tb_tipo_pagamento c
+					where  	date(a.ped_data_venda) =?
+					and 	a.uve_codigo =?
+					and 	a.ped_codigo=b.ped_codigo
+					and 	b.tpa_codigo = c.tpa_codigo
+					order by 1");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$dados['data'] = date('Y-m-d');
+
+			$stmt->bindParam(1,$dados['data'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['uve_codigo'],\PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		} catch (Exception $e) {
+			throw new \Exception();
+		}
+
+
+	}
+
 	
 }

@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-Quantidade de Pedidos e Valor Total do dia
-***************************************************
+# Quantidade de Pedidos e Valor Total do dia
+# ***************************************************
 Select	"Numero de Pedidos",
 
 count(*),
@@ -18,8 +10,8 @@ where 	date(ped_data_venda) =?
 and 	uve_codigo =?
 
 
-Totais por produto
-**********************
+# Totais por produto
+# **********************
 
 select	b.vpr_titulo_produto,
 count(b.vpr_quantidade),
@@ -33,8 +25,8 @@ group by b.vpr_titulo_produto
 order by sum(b.vpr_valor_total) desc
 
 
-Totais por tipo de pagamento
-**********************************
+# Totais por tipo de pagamento
+# **********************************
 
 Select 	c.tpa_descricao,
 count(b.ped_codigo),
@@ -51,8 +43,8 @@ order by sum(b.ped_valor_total) desc
 
 
 
-Lista de Pedidos
-********************
+# Lista de Pedidos
+# ********************
 Select 	a.ped_numero,
 a.ped_cliente,
 a.ped_valor_total,
@@ -65,7 +57,3 @@ and 	a.uve_codigo =?
 and 	a.ped_codigo=b.ped_codigo
 and 	b.tpa_codigo = c.tpa_codigo
 order by 1
-
-
-</body>
-</html>

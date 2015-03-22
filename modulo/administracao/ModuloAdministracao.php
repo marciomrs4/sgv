@@ -114,7 +114,7 @@
 					<li class="dropdown">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">
-								<span class="glyphicon glyphicon-list-alt"></span> Relatorio
+								<span class="glyphicon glyphicon-list-alt"></span> Paineis
 							</button>
 							<button type="button" class="btn btn-primary dropdown-toggle"
 								data-toggle="dropdown">
@@ -130,14 +130,14 @@
 										Buscar Pedido
 									</a>
 								</li>
-								<li><a href="listarValorVendaPorProduto.php"><span class="glyphicon glyphicon-list-alt"></span>
+<!--								<li><a href="listarValorVendaPorProduto.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Pesquisa de valor de venda por produto</a></li>
 								<li><a href="valordevendapordatavenda.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Valor. de venda por Data de venda</a></li>
 								<li><a href="listarPedidoPorUnidadeVenda.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Pequisa de pedidos por unidade de venda</a></li>
 								<li><a href="listarValorVendaByUnidadeVendaData.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Pesquisa de valor de venda por unidade de venda e data de venda</a></li>
+										Pesquisa de valor de venda por unidade de venda e data de venda</a></li>-->
 							</ul>
 						</div>
 					</li>

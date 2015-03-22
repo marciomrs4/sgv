@@ -31,7 +31,6 @@
 		</div>			
 		
 
-
 		<?php foreach ($tbProduto->listProductScreenSale() as $product):?>
 		<div class="form-group">		
 		<label class="col-md-1 control-label" for="<?php echo $product['pro_titulo'] ?>"></label>
