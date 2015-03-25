@@ -30,7 +30,10 @@ $Grid->addFunctionColumn(function($var) use ($Number){
     return 'R$ ' . $Number->numberClient($var);
 },2);
 
-$Grid->show();
+
+$Painel = new \system\core\Painel();
+$Painel->setPainelColor('primary');
+$Painel->setPainelTitle('Lista de Pedido')->addGrid($Grid)->show();
 
 include '../../componente/rodape.php';
 

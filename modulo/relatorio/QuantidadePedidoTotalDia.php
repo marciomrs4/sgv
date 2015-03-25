@@ -23,7 +23,9 @@ $Grid->addFunctionColumn(function($var) use ($Number){
     return 'R$ ' . $Number->numberClient($var);
 },3);
 
-$Grid->show();
+$Painel = new \system\core\Painel();
+$Painel->setPainelColor('primary');
+$Painel->setPainelTitle('Quantidade e Total de Pedidos do Dia')->addGrid($Grid)->show();
 
 include '../../componente/rodape.php';
 

@@ -26,7 +26,9 @@ try {
         return 'R$ ' . $Number->numberClient($var);
     },2);
 
-    $Grid->show();
+    $Painel = new \system\core\Painel();
+    $Painel->setPainelColor('primary');
+    $Painel->setPainelTitle('Totais por Tipo de Pagamento')->addGrid($Grid)->show();
 
 }catch (Exception $e)
 {
