@@ -11,13 +11,20 @@ include '../../modulo/relatorio/ModuloRelatorio.php';
 
 try {
 
-    $tbRelatorio = new \system\model\TbRelatorio();
 
-    $dados['uve_codigo'] = $_SESSION['uve_codigo'];
+    #Instancia da Class AcceptRelatorio
+    $acceptForm = new \system\app\AcceptRelatorio();
+    $acceptForm->setpost($_POST);
+
+    $RelatorioName = 'Totais por Tipo de Pagamento';
+
+    #Form usado para Filtro de Busca
+    include 'forms/BuscarPainelBusca.php';
+
 
     $Grid = new \system\core\Grid();
 
-    $Grid->setDados($tbRelatorio->totaisPorTipoPagamento($dados));
+    $Grid->setDados($acceptForm->getTotaisPorTipoPagamento());
     $Grid->setCabecalho(array('Forma de Pagamento','Quantidade','Valor'));
 
 
@@ -28,7 +35,7 @@ try {
 
     $Painel = new \system\core\Painel();
     $Painel->setPainelColor('primary');
-    $Painel->setPainelTitle('Totais por Tipo de Pagamento')->addGrid($Grid)->show();
+    $Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
 
 }catch (Exception $e)
 {

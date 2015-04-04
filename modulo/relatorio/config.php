@@ -1,8 +1,6 @@
 <?php
 $config = array();
 
-$config['moduloName'] = 'Relatorio';
-
-
+$config['moduloName'] = 'Relat&oacute;rio';
 
 ?>

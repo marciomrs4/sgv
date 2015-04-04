@@ -33,7 +33,8 @@ class AcceptFormProduto extends PostController
                     'pro_valor' => FILTER_SANITIZE_STRING,
                     'tpr_codigo' => FILTER_SANITIZE_STRING,
                     'tpr_codigo' => FILTER_SANITIZE_NUMBER_INT,
-                    'pro_codigo' => FILTER_SANITIZE_NUMBER_INT);
+                    'pro_codigo' => FILTER_SANITIZE_NUMBER_INT,
+                    'pro_status' => FILTER_SANITIZE_STRING);
 
     private function validate()
     {
@@ -77,6 +78,8 @@ class AcceptFormProduto extends PostController
             $money = new NumberFormat();
             $this->post['pro_valor'] = $money->numberDataBase($this->post['pro_valor']);
 
+            $this->post['pro_status'] = '1';
+
             $this->validate();
 
             try{
@@ -105,6 +108,8 @@ class AcceptFormProduto extends PostController
 
             $money = new NumberFormat();
             $this->post['pro_valor'] = $money->numberDataBase($this->post['pro_valor']);
+
+            $this->post['pro_status'] = ($this->post['pro_status'] != '') ? '1' : '0';
 
             $this->validate();
 

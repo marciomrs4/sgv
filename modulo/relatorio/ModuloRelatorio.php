@@ -47,7 +47,7 @@
 					</li>
 <!--Fim Primeiro botao-->
 
-<!--					<li class="dropdown">
+					<li class="dropdown">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">
 								<span class="glyphicon glyphicon-list-alt"></span> Graficos
@@ -58,7 +58,7 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
+								<li><a href="GraficoTopProdutoVendido.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Produtos Mais Vendidos
 									</a>
 								</li>
@@ -69,7 +69,7 @@
 							</ul>
 						</div>
 					</li>
--->
+
 
 				</ul>
 			</div>

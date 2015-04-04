@@ -13,8 +13,9 @@ class TbProduto extends DataBase
 
 			$query = ("INSERT INTO $this->tablename
 						(pro_titulo, pro_valor,
-						 pro_descricao, tpr_codigo)
-						VALUES(?, ?, ?, ?)");
+						 pro_descricao, tpr_codigo,
+						 pro_status)
+						VALUES(?, ?, ?, ?, ?)");
 
 			$stmt = $this->conexao->prepare($query);
 
@@ -22,6 +23,7 @@ class TbProduto extends DataBase
 			$stmt->bindParam(2,$dados['pro_valor']);
 			$stmt->bindParam(3,$dados['pro_descricao'],\PDO::PARAM_STR);
 			$stmt->bindParam(4,$dados['tpr_codigo'],\PDO::PARAM_INT);
+			$stmt->bindParam(5,$dados['pro_status'],\PDO::PARAM_STR);
 
 			$stmt->execute();
 			
@@ -36,7 +38,8 @@ class TbProduto extends DataBase
 	
 	public function listProductScreenSale()
 	{
-		$query = ("SELECT * FROM tb_produto");
+		$query = ("SELECT * FROM tb_produto
+				   WHERE pro_status = '1'");
 		
 		try {
 			
@@ -86,7 +89,8 @@ class TbProduto extends DataBase
 	{
 		$query = (" SELECT pro_codigo, pro_titulo,
  						   pro_valor,pro_descricao,
-        				   tpr.tpr_descricao
+        				   tpr.tpr_descricao,
+        				   (CASE WHEN pro_status = 1 THEN 'ATIVO' ELSE 'INATIVO' END)
 					FROM tb_produto AS PRO
 					INNER JOIN tb_tipo_produto AS tpr
 					ON tpr.tpr_codigo = PRO.tpr_codigo
@@ -114,7 +118,7 @@ class TbProduto extends DataBase
 	public function getProdutoForm($pro_codigo)
 	{
 		$query = ("SELECT pro_codigo, pro_titulo, pro_valor,
-			       		  pro_descricao, tpr_codigo
+			       		  pro_descricao, tpr_codigo, pro_status
 					FROM $this->tablename
 					WHERE pro_codigo = ?");
 
@@ -145,7 +149,8 @@ class TbProduto extends DataBase
 					SET  pro_titulo = ?,
 						 pro_valor = ?,
 			       		 pro_descricao = ?,
-			       		 tpr_codigo = ?
+			       		 tpr_codigo = ?,
+			       		 pro_status = ?
 					WHERE pro_codigo = ?");
 		try{
 
@@ -155,7 +160,8 @@ class TbProduto extends DataBase
 		$stmt->bindParam(2,$dados['pro_valor'],\PDO::PARAM_STR);
 		$stmt->bindParam(3,$dados['pro_descricao'],\PDO::PARAM_STR);
 		$stmt->bindParam(4,$dados['tpr_codigo'],\PDO::PARAM_INT);
-		$stmt->bindParam(5,$dados['pro_codigo'],\PDO::PARAM_INT);
+		$stmt->bindParam(5,$dados['pro_status'],\PDO::PARAM_STR);
+		$stmt->bindParam(6,$dados['pro_codigo'],\PDO::PARAM_INT);
 
 
 		$stmt->execute();

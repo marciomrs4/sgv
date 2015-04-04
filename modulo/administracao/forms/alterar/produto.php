@@ -69,7 +69,12 @@ $Produto = $tbProduto->getProdutoForm($_SESSION['administracao/alterar/produto']
 				</div>
 			</div>
 
-
+			<div class="form-group">
+				<label class="col-sm-1 control-label"> Status</label>
+				<div class="col-sm-4">
+					<input type="checkbox" name="pro_status" <?php echo ($Produto['pro_status'] == '1' ? 'checked' : '') ?> class="">
+				</div>
+			</div>
 
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-1">

@@ -9,13 +9,19 @@ include '../../componente/menuprincipal.php';
 
 include '../../modulo/relatorio/ModuloRelatorio.php';
 
-$tbRelatorio = new \system\model\TbRelatorio();
 
-$dados['uve_codigo'] = $_SESSION['uve_codigo'];
+#Instancia da Class AcceptRelatorio
+$acceptForm = new \system\app\AcceptRelatorio();
+$acceptForm->setpost($_POST);
+
+$RelatorioName = 'Quantidade e Total de Pedidos do Dia';
+#Form usado para Filtro de Busca
+include 'forms/BuscarPainelBusca.php';
+
 
 $Grid = new \system\core\Grid();
 
-$Grid->setDados($tbRelatorio->quantidadePedidosValorTotaldia($dados));
+$Grid->setDados($acceptForm->getQuantidadePedidoTotalDia());
 //$Grid->setCabecalho(array('Numero de Pedido'));
 
 $Number = new \system\core\NumberFormat();
@@ -25,7 +31,7 @@ $Grid->addFunctionColumn(function($var) use ($Number){
 
 $Painel = new \system\core\Painel();
 $Painel->setPainelColor('primary');
-$Painel->setPainelTitle('Quantidade e Total de Pedidos do Dia')->addGrid($Grid)->show();
+$Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
 
 include '../../componente/rodape.php';
 

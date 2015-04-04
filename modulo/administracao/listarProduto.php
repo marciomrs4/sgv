@@ -26,7 +26,7 @@ try {
 }catch (Exception $e){
     echo $e->getMessage();
 }
-$Grid->setCabecalho(array('','Titulo','Valor','Descricao','Tipo de Produto'));
+$Grid->setCabecalho(array('','Titulo','Valor','Descricao','Tipo de Produto','Status'));
 
 $Grid->colunaoculta = 1;
 

@@ -9,13 +9,22 @@ include '../../componente/menuprincipal.php';
 
 include '../../modulo/relatorio/ModuloRelatorio.php';
 
-$tbRelatorio = new \system\model\TbRelatorio();
+#Instancia da Class AcceptRelatorio
+$acceptForm = new \system\app\AcceptRelatorio();
+$acceptForm->setpost($_POST);
+
+$RelatorioName = 'Total por Produto';
+
+#Form usado para Filtro de Busca
+include 'forms/BuscarPainelBusca.php';
+
+
 
 $dados['uve_codigo'] = $_SESSION['uve_codigo'];
 
 $Grid = new \system\core\Grid();
 
-$Grid->setDados($tbRelatorio->totalPorProduto($dados));
+$Grid->setDados($acceptForm->getTotalPorProduto());
 $Grid->setCabecalho(array('Produto','Quantidade','Valor'));
 
 $Number = new \system\core\NumberFormat();
@@ -25,7 +34,7 @@ $Grid->addFunctionColumn(function($var) use ($Number){
 
 $Painel = new \system\core\Painel();
 $Painel->setPainelColor('primary');
-$Painel->setPainelTitle('Total por Produto')->addGrid($Grid)->show();
+$Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
 
 include '../../componente/rodape.php';
 

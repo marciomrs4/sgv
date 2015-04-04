@@ -1,7 +1,7 @@
 <?php
 $config = array();
 
-$config['moduloName'] = 'Administração';
+$config['moduloName'] = 'Administra&ccedil;&atilde;o';
 
 
 

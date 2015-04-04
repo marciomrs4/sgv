@@ -7,7 +7,7 @@ $tbStatusPedido = new \system\model\TbStatusPedido();
 ?>
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Busca</h3>
+		<h3 class="panel-title">Busca Pedido</h3>
 	</div>
 	<div class="panel-body">
 

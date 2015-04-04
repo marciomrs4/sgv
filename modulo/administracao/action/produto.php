@@ -9,10 +9,10 @@ try {
 
 $post = new \system\app\AcceptFormProduto();
 
-$post->setPost($_POST)
-	 ->AcceptForm();
+echo $post->setPost($_POST)
+	      ->AcceptForm();
 
-$post->clearPost('Cadastrado mesmo com sucesso ?');
+$post->clearPost('Cadastrado com sucesso');
 
 } catch (Exception $e) {
 

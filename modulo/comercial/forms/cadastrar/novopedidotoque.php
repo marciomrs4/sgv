@@ -21,12 +21,12 @@
 		<div class="form-group">		
 			<label for="inputEmail3" class="col-sm-1 control-label">Cliente:</label>
 				<div class="col-sm-2">
-					<input type="text" name="ped_cliente" value="" class="form-control" placeholder="Cliente">
+					<input type="text" name="ped_cliente" value="" class="form-control input-lg" placeholder="Cliente">
 				</div>
 								
 			<label for="" class="col-sm-1 control-label">Pedido:</label>
 				<div class="col-sm-2">
-					<input type="text" name="" value="<?php echo $tbPedido->getPedNumber($_SESSION['uve_codigo']); ?>" class="form-control" readonly="readonly">
+					<input type="text" name="" value="<?php echo $tbPedido->getPedNumber($_SESSION['uve_codigo']); ?>" class="form-control input-lg" readonly="readonly">
 				</div>
 		</div>			
 		
@@ -35,9 +35,9 @@
 		<div class="form-group">		
 		<label class="col-md-1 control-label" for="<?php echo $product['pro_titulo'] ?>"></label>
 		  <div class="col-md-4">
-		    <div class="btn btn-primary"><?php echo($product['pro_titulo']); ?></div>
-		    	<input name="<?php echo($product['pro_codigo']);?>" value="" size="3" class="">
-			  R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?>
+		    <div class="btn btn-primary btn-lg"><?php echo($product['pro_titulo']); ?></div>
+		    	<input name="<?php echo($product['pro_codigo']);?>" value="" size="3" class="input-lg">
+			 R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?>
 			  <span style="display: none"><?php echo $tbProduto->getPriceProduct($product['pro_codigo']); ?></span>
 		  </div>
   		</div>
@@ -47,7 +47,7 @@
 
 				<label for="" class="col-sm-1 control-label">Pagamento:</label>
 				<div class="col-sm-2">
-					<select class="form-control" name="tpa_codigo">
+					<select class="form-control input-lg" name="tpa_codigo">
 						<option value="">Selecione</option>
 
 						<?php
@@ -62,13 +62,13 @@
 			<div class="form-group">
 				<label for="" class="col-sm-1 control-label">Total: R$ </label>
 				<div class="col-sm-2">
-					<span id="valor" readonly="readonly" class="form-control"></span>
+					<span id="valor" readonly="readonly" class="form-control input-lg"></span>
 				</div>
 			</div>
 
 		<div class="form-group">	
 			<div class="col-md-2 col-md-offset-1">
-			     <button id="button2id" name="button2id" class="btn btn-primary">
+			     <button id="button2id" name="button2id" class="btn btn-primary btn-lg">
 			     	<span class="glyphicon glyphicon-floppy-saved"></span> Salvar
 			     </button>
 			</div>
