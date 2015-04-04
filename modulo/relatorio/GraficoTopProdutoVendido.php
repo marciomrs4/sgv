@@ -41,7 +41,7 @@ $Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
     </div>
     <div class="panel-body">
 
-        <img src="teste.php" />
+        <!--<img src="teste.php" />-->
 
     </div>
 </div>
