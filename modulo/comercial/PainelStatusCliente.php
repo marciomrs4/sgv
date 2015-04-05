@@ -20,7 +20,14 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
                         <option value="<?php echo($dados['stp_codigo']);?>"><?php echo($dados['stp_descricao']);?></option>
                         <?php endforeach; ?>
                     </select>
+
+                    <select class="form-inline" name="ordem">
+                            <option value="1">Order Crescente</option>
+                            <option value="2">Order Decrescente</option>
+                    </select>
+
                 </div>
+
                 <div class="panel-body">
 
 
@@ -43,7 +50,14 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
                         foreach($tbTipoProduto->listAllAssoc() as $dados):?>
                             <option value="<?php echo($dados['stp_codigo']);?>"><?php echo($dados['stp_descricao']);?></option>
                         <?php endforeach; ?>
-                    </select></div>
+                    </select>
+
+                    <select class="form-inline" name="ordem_secundario">
+                        <option value="1">Order Crescente</option>
+                        <option value="2">Order Decrescente</option>
+                    </select>
+
+                </div>
                 <div class="panel-body">
                     <span id="secundario"></span>
                 </div>
@@ -56,7 +70,14 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
                         foreach($tbTipoProduto->listAllAssoc() as $dados):?>
                             <option value="<?php echo($dados['stp_codigo']);?>"><?php echo($dados['stp_descricao']);?></option>
                         <?php endforeach; ?>
-                    </select></div>
+                    </select>
+
+                    <select class="form-inline" name="ordem_terceario">
+                        <option value="1">Order Crescente</option>
+                        <option value="2">Order Decrescente</option>
+                    </select>
+
+                </div>
                 <div class="panel-body">
                     <span id="terceario"></span>
                 </div>
@@ -104,25 +125,28 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
             setTimeout("timer();", 6000);
 
             var codigo = $valor("select[name='status']").val();
+            var ordem = $valor("select[name='ordem']").val();
 
-            $load.post('action/statuspedidopainel.php',
-                    {stp_codigo: codigo},
+            $load.post('action/statuspedidopainelcliente.php',
+                    {stp_codigo: codigo, ordenacao: ordem},
                     function(data){
                         $load("#principal").html(data);
                     },'html');
 
             var codigo_secundario = $valor("select[name='status_secundario']").val();
+            var ordem_secundario = $valor("select[name='ordem_secundario']").val();
 
-            $load.post('action/statuspedidopainel.php',
-                {stp_codigo: codigo_secundario},
+            $load.post('action/statuspedidopainelcliente.php',
+                {stp_codigo: codigo_secundario, ordenacao: ordem_secundario},
                 function(data){
                     $load("#secundario").html(data);
                 },'html');
 
             var codigo_terceario = $valor("select[name='status_terceario']").val();
+            var ordem_terceario = $valor("select[name='ordem_terceario']").val();
 
-            $load.post('action/statuspedidopainel.php',
-                {stp_codigo: codigo_terceario},
+            $load.post('action/statuspedidopainelcliente.php',
+                {stp_codigo: codigo_terceario, ordenacao: ordem_terceario},
                 function(data){
                     $load("#terceario").html(data);
                 },'html');

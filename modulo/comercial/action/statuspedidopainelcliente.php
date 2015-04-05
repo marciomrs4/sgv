@@ -9,13 +9,18 @@ require_once '../../../bootstrap.php';
 }*/
 
 $stp_codigo = filter_var($_POST['stp_codigo'],FILTER_SANITIZE_STRING);
+$ordem = filter_var($_POST['ordenacao'],FILTER_SANITIZE_STRING);
+
+$ordem = ($ordem == 1) ? 'ASC' : 'DESC';
+
+//$ordem = 'DESC';
 
 $Pedidos = new \system\model\TbPedido();
 
 
 $Grid = new \system\core\Grid();
 
-$Grid->setDados($Pedidos->listPedidoPainel($stp_codigo, $_SESSION['uve_codigo']));
+$Grid->setDados($Pedidos->listPedidoPainel($stp_codigo, $_SESSION['uve_codigo'], $ordem));
 $Grid->setCabecalho(array('Pedido','Cliente','Data'));
 
 $Grid->colunaoculta = 1;

@@ -51,7 +51,7 @@
 					<li class="dropdown">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">
-								<span class="glyphicon glyphicon-list-alt"></span> Relat&oacute;rios
+								<span class="glyphicon glyphicon-list-alt"></span> Paineis
 							</button>
 							<button type="button" class="btn btn-primary dropdown-toggle"
 									data-toggle="dropdown">
@@ -59,12 +59,14 @@
 									Dropdown</span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="PainelBusca.php"><span class="glyphicon glyphicon-list-alt"></span>
-										Pesquisar
+								<li>
+									<a href="PainelStatus.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
+										Acompanhamento de Pedidos
 									</a>
 								</li>
-								<li><a href="PainelStatus.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
-										Painel
+								<li>
+									<a href="PainelStatusCliente.php" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>
+										Painel Acompanhamento do Cliente
 									</a>
 								</li>
 							</ul>

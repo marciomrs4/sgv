@@ -169,13 +169,14 @@ class TbPedido extends DataBase
 	 * @return array
 	 * Pedidos painel por status
 	 */
-	public function listPedidoPainel($stp_codigo, $uve_codigo = '%')
+	public function listPedidoPainel($stp_codigo, $uve_codigo = '%', $ordem = 'ASC')
 	{
 		$query = ("select ped_codigo, ped_numero, ped_cliente,
 					date_format(ped_data_venda,'%d/%m/%Y %H:%i:%s') AS ped_data_venda
 					from tb_pedido
 					where stp_codigo = ?
 					AND uve_codigo LIKE ?
+					ORDER BY 2 $ordem
 					LIMIT 5;");
 
 
@@ -185,6 +186,7 @@ class TbPedido extends DataBase
 
 			$stmt->bindParam(1, $stp_codigo, \PDO::PARAM_INT);
 			$stmt->bindParam(2, $uve_codigo, \PDO::PARAM_INT);
+
 
 			$stmt->execute();
 

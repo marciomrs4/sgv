@@ -123,7 +123,7 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 
             var codigo_secundario = $valor("select[name='status_secundario']").val();
 
-            $load.post('../administracao/action/statuspedidopainel.php',
+            $load.post('action/statuspedidopainelcliente.php',
                 {stp_codigo: codigo_secundario},
                 function (data) {
                     $load("#secundario").html(data);
@@ -131,7 +131,7 @@ include '..'.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'componente/topo.php';
 
             var codigo_terceario = $valor("select[name='status_terceario']").val();
 
-            $load.post('../administracao/action/statuspedidopainel.php',
+            $load.post('action/statuspedidopainelcliente.php',
                 {stp_codigo: codigo_terceario},
                 function (data) {
                     $load("#terceario").html(data);
