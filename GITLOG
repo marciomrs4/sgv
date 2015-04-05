@@ -1,0 +1,66 @@
+82d2d45a4d048eb9ba14e7ae645f767e687df3bc Add Painale aos cadastros do sistema
+1109f46be0a762d986384b0bc695f08e2c64cae9 Add Ordem nos pedidos Organizacao dos Menus em Adm e Comercial
+40f48ca4d0526e46a204ab55191809ddb070470f Relatorio com graficos finalizados, Top Produto e Top undidade
+23048607e61d3a0f1a688661f8bd82f678c1e87f Ajustes nos graficos parte 1
+e74a381343986ad91e5ff55c8a24dd333d3acb3f Relatorios Criados e Status produtos
+d83dbc064384ffeffcc0c883a15aae9e64a30db1 Add README.txt control version
+c3630fb172275daaa4dcc249a044e8089447013e Inserido o nome dos relatorios
+6ad714e6e2a44793544b95ee326381a100ff98ec Criacao do modulo de relatorio
+f4915711fe7e8ad64538ef124e2fd07655d11bbf Create sqlRelatorio and name user footer
+7b1ad9982df5bd7af1f2ae956993f16be80ab539 Alteracao da cor dos botoes da tela de pedidotoque
+5fdda0346dfc469b5f5b6489a8b1aecdf7213e8b #BugFix correcao do erro de selecao de unidade
+e95fc8eff1b337f1dbb9984e4745be9a6d73c963 Add Estrura base de dados
+dfd75f1df2450a51f9433f6974f81a62357eeb25 Add Base Estrutura, PainelBusca Pedido com novo filtro
+646620f17b658698dd88560b88dd900a17c481e1 Ajustes finais no modulo de pedido toque
+9ea228946db12e049aa4af925d48e080b010fa89 #Correcao do numero pedido tela de toque
+047ba647d52aa693a081c63f372e7fe96f2c356b Alteracao do Painel de status
+22176c0646ce7f93a709cafdff2a04410810b602 Add nova base de dados
+4889e9d9da19ae59c1bfc08c735ac93267cbb323 Alteracao Numero do Pedido
+b62d7ecbb2f8315c5e23ae40d81cd910b60491b2 Criacao do modulo de pagamento #Alteracao na base de dados
+646041dd9434e8892921b66b2ef6d0305d6c0393 #BugFix Class ActionController magic method alter to public
+3c7ac18ea0941ad7091c65f4d82fc769fba97ec0 Criado o modulo de cadastro usuario - Corrigido bugs: Validacao de usuario, informacoes de erros do sistem e validacao da criacao do pedido
+8dff10a4655b8663231dbc2eb1c112913f004dca Melhorias no Painel de Status modulo vendas
+5edba99bc8659fda23f885b485307c8449b0e7ec Criado painel de status dos pedidos com opcoes para alterar os status
+751cb848e756a67f42f0612a4cfae8c8582efc0e #BugFix Criacao do pedido toque
+97cfa8a9e68f10e4b38c9532888cdd07d50d0140 Alterado o Painel para mostrar em 3 partes e add botoes de alteracao de status
+f972d165408fd419daa35214780061eeb597bfad Criado painel que mostra os pedidos por status
+cd1c44510fccd51e9a837f25ecc4dcb8a5107ea3 Add news files js
+1438ea7f83d36dac9453898371ac05c2c8666e00 #Criado todos os CRUDs dos cadastros - #Criado o carregamento dinamico do valor do item na tela de pedido
+401214f5646569a810b918e8c4c88e8ff0bfe89a Update database 28/01/2015
+0a074970985b2891f3a4fae29616d2e077c5a36b #BugFix: Correcao dos forms ao utiliza dentro da tela de busca
+b5932bb68bf60170502233a5e24983d4db40a427 Merge branch 'master' of https://github.com/marciomrs4/sgv
+6a2f5ca3132919f08f9e4b965ecc8773608327cb Criado dos modulos de cadastros de produto, tipoproduto, unidade de venda e validacao da unidade de venda
+88a3dddf994f3ba25a6f905e2ae5e358f7cd7fa2 Criado o CRUD da Unidade de venda
+2edc50f184f24fcefb3e09352c3bf1092c646b61 Merge branch 'master' of https://github.com/marciomrs4/sgv
+935c699ff9bd82e03758cec94a4f6c56a2f5f5af Criando a funcionalidade de alterar unidade e cadastros gerais (produtos,tipoproduto,unidadevenda)
+ab2df62e2d7d2b952138b1f49b1f6390568d3e16 Painel de Busca no modulo de venda
+d7324c5c918a076a1cb9bd0985c4f7bf76e0e9c2 Criado formato de impressao, PainelBusca do Adm com valores em Real
+7841f487a10ce00e31de4fb0f9d5c29052c3bd2f Criado relatorio, tela de pedido de toque separada, busca de pedido em vendas
+0863a70feae0c21ef08ea281582fcf44bc28a034 Add Script de backup
+3f7e06c742d0eabac6763837c78cc9f09b12c43b Merge branch 'master' of https://github.com/marciomrs4/sgv
+371502afb6c09f12acdab62cfcc2f8750e726ebb Add new DataBase backup
+c7137c84ed77f3672a2ac7aba4bd50f9f747efb7 Criado tela de buscar pedido no modulo adm
+199d8cdaba08b55e35887e77dc61f79e817f38fd Iniciado com PhpStorm
+ba0e193f92d4d2f5eb669efc93764029429c5703 Rename resultadoPedidoToque.php to resultadopedidotoque.php
+52d94aed5a6063b1eb18f909678d7ee2f498629d Rename NovoPedidoToque.php to novopedidotoque.php
+a724460fb877a423e75b87cbdd1297d775e00cd3 Rename NovoPedido.php to novopedido.php
+7396ce6a3377a6f74609bd756d9d8803d5d79189 Merge branch 'master' of https://github.com/marciomrs4/sgv
+cbd096e3e6f71513433f5e386a0bb1dd5a0b2eb0 Data base modificado
+6dd7a62f864d8877d525927ebabc87206a186e75 Correcao no relatorios titulo
+76bdd180925c080406ae504b06afa7781055f842 Criacao dos relatorios fase 1
+c1965b2bf4ab1b5a4f666435177ed5656c6f5957 validacao do form de pedido por toque
+1afb00e09377a064c9f0e4ec9defecfc3c09250d Add database mer
+5989439aa3e4aa0ec6e3a49f76c2f2fe95644fc9 Merge branch 'master' of https://github.com/marciomrs4/sgv
+192f58d3beeb98270c915a78567b10585d52ab7f Finalizado o modulo de criacao de pedidos
+debcda06a5dfb889e03e8818a99b3920e92d46cb Update DataBase.php
+14a8d6b900cd4d7b6daba753ec8ceeca27055a78 Merge branch 'master' of https://github.com/marciomrs4/sgv
+4a0fbef4b2e7034c8ac25734289a7e2a167b13b2 Finalizado o funcinamento de cadastro
+0350256f4743dbea8ce68f023ceda4db17635448 Implementado a funcionalidade da criação do pedido
+dd675ec6e9870088cb882cc05f94a52814e0cc14 Correcao no carregamento de forms no Linux
+b7970b34c6250952712440485850b102324084d3 Atualizao das funcionalidades
+bee33613efc505237508834f28dc6651ee6e2618 Feito
+ce80d49b16d2fa10fa7f7bbf7afd40df973d56fb Finalizacao do funcionamento da lista de pedidos
+2c334595bb9cb5bc8760271bf83cde4c95600fbc Criacao de pedidos adds lista
+4b524928a2b28dc1f44b3848a8c0fcdf0c3fb8ca Create first module of system
+448b74514a5de005ba91e4f34fc18e1297c4940e Create first module of system
+318aca91c59a3420b8f30aaf909cf79d7d7272fa Commit Inicial do Projeto
