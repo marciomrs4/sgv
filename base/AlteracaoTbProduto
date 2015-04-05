@@ -1,0 +1,5 @@
+ALTER TABLE `sgv`.`tb_produto` ADD COLUMN `pro_status` VARCHAR(45) NULL  AFTER `tpr_codigo` ;
+
+ALTER TABLE `sgv`.`tb_produto` CHANGE COLUMN `pro_status` `pro_status` CHAR(1) NULL DEFAULT NULL  ;
+
+update tb_produto set pro_status = '1' where pro_codigo != 0;
