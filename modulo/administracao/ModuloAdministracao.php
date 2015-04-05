@@ -62,6 +62,13 @@
 									</a>
 								</li>
 
+								<li><a href="<?php
+									echo A::actionUrl()->setProjecName($configGlobal['projectName'])->setUrlModulo('administracao')->setUrlAction('cadastrar/tipopagamento')->getUrl();
+									?>"><span class="glyphicon glyphicon-list-alt"></span>
+										Tipo Pagamento
+									</a>
+								</li>
+
 							</ul>
 						</div>
 					</li>
@@ -105,6 +112,12 @@
 									<a href="listarUsuario.php"><span class="glyphicon glyphicon-list-alt">
 										</span>
 										Listar Usuario
+									</a>
+								</li>
+								<li>
+									<a href="listarTipoPagamento.php"><span class="glyphicon glyphicon-list-alt">
+										</span>
+										Listar Tipo Pagamento
 									</a>
 								</li>
 							</ul>

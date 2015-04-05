@@ -13,12 +13,13 @@ class TbTipoPagamento extends DataBase
 		try {
 
 			$query = ("INSERT INTO $this->tablename
-						(tpr_descricao)
-						VALUES(?)");
+						(tpa_descricao, tpa_status )
+						VALUES(?, ?)");
 
 			$stmt = $this->conexao->prepare($query);
 
-			$stmt->bindParam(1,$dados['tpr_descricao'],\PDO::PARAM_STR);
+			$stmt->bindParam(1,$dados['tpa_descricao'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['tpa_status'],\PDO::PARAM_STR);
 
 			$stmt->execute();
 			
@@ -35,8 +36,32 @@ class TbTipoPagamento extends DataBase
 	{
 		try {
 
-			$query = ("SELECT tpa_codigo, tpa_descricao
+			$query = ("SELECT tpa_codigo, tpa_descricao,
+								(CASE WHEN tpa_status = 1 THEN 'ATIVO' ELSE 'INATIVO' END)
 						FROM $this->tablename");
+
+			$stmt = $this->conexao->prepare($query);
+
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
+
+
+	}
+
+	public function listScreenSale()
+	{
+		try {
+
+			$query = ("SELECT tpa_codigo, tpa_descricao,
+								(CASE WHEN tpa_status = 1 THEN 'ATIVO' ELSE 'INATIVO' END)
+						FROM $this->tablename
+						WHERE tpa_status = 1");
 
 			$stmt = $this->conexao->prepare($query);
 
@@ -80,13 +105,15 @@ class TbTipoPagamento extends DataBase
 		try {
 
 			$query = ("UPDATE $this->tablename
-						SET tpr_descricao = ?
-						WHERE tpr_codigo = ?");
+						SET tpa_descricao = ?,
+							tpa_status = ?
+						WHERE tpa_codigo = ?");
 
 			$stmt = $this->conexao->prepare($query);
 
-			$stmt->bindParam(1,$dados['tpr_descricao'],\PDO::PARAM_STR);
-			$stmt->bindParam(2,$dados['tpr_codigo'],\PDO::PARAM_INT);
+			$stmt->bindParam(1,$dados['tpa_descricao'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['tpa_status'],\PDO::PARAM_STR);
+			$stmt->bindParam(3,$dados['tpa_codigo'],\PDO::PARAM_INT);
 
 			$stmt->execute();
 
@@ -100,17 +127,17 @@ class TbTipoPagamento extends DataBase
 	}
 
 
-	public function getForm($tpr_codigo)
+	public function getForm($tpa_codigo)
 	{
 		try {
 
-			$query = ("SELECT tpr_codigo, tpr_descricao
+			$query = ("SELECT tpa_codigo, tpa_descricao, tpa_status
 						FROM $this->tablename
-						WHERE tpr_codigo = ?");
+						WHERE tpa_codigo = ?");
 
 			$stmt = $this->conexao->prepare($query);
 
-			$stmt->bindParam(1,$tpr_codigo,\PDO::PARAM_INT);
+			$stmt->bindParam(1,$tpa_codigo,\PDO::PARAM_INT);
 
 			$stmt->execute();
 

@@ -170,7 +170,7 @@
 
 						<?php
 						$tbTipoPgamento = new \system\model\TbTipoPagamento();
-						foreach ($tbTipoPgamento->listAll() as $campo): ?>
+						foreach ($tbTipoPgamento->listScreenSale() as $campo): ?>
 							<option value="<?php echo($campo['tpa_codigo']); ?>"><?php echo($campo['tpa_descricao']); ?></option>
 						<?php endforeach;?>
 					</select>
