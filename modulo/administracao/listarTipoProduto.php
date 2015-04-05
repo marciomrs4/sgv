@@ -37,8 +37,13 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                                                                     ->setUrlModulo('administracao')
                                                                                     ->setUrlAction('alterar/tipoproduto')
                                                                                     ->setValue()
-                                                                                    ->getUrl()))
-     ->show(!isset($_SESSION['action']));
+                                                                                    ->getUrl()));
+
+$Painel = new \system\core\Painel();
+$Painel->addGrid($Grid)
+    ->setPainelTitle('Lista de Tipo de Produto')
+    ->setPainelColor('primary')
+    ->show(!isset($_SESSION['action']));
 
 #Form controle onde carrega dinamicamente os forms
 $FormController = new FormController();

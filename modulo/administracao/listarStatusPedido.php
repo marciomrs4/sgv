@@ -47,7 +47,12 @@ $Grid->addOption(\system\core\GridOption::newOption()->setIco('remove-circle')
                                                         ->setName('Deletar')
                                                         ->setUrl("action/statuspedido.php?stp_codigo"));
 
-$Grid->show(!isset($_SESSION['action']));
+
+$Painel = new \system\core\Painel();
+$Painel->addGrid($Grid)
+    ->setPainelTitle('Lista de Status de Pedido')
+    ->setPainelColor('primary')
+    ->show(!isset($_SESSION['action']));
 
 #Form controle onde carrega dinamicamente os forms
 $FormController = new FormController();

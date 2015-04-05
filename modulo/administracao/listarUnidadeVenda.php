@@ -41,8 +41,14 @@ $Grid->addOption(\system\core\GridOption::newOption('')->setIco('edit')
                                                                                     ->setUrlModulo('administracao')
                                                                                     ->setUrlAction('alterar/unidadevenda')
                                                                                     ->setValue()
-                                                                                    ->getUrl()))
-     ->show(!isset($_SESSION['action']));
+                                                                                    ->getUrl()));
+
+
+$Painel = new \system\core\Painel();
+$Painel->addGrid($Grid)
+    ->setPainelTitle('Lista de Unidade de Venda')
+    ->setPainelColor('primary')
+    ->show(!isset($_SESSION['action']));
 
 #Form controle onde carrega dinamicamente os forms
 $FormController = new FormController();
