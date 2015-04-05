@@ -334,10 +334,10 @@ class TbRelatorio extends DataBase
 
 	}
 
-
+#Usadso para criar graficos de produto mais vendido
 	public function getGraficTopProdutoVendido($dados)
 	{
-		$query = ("SELECT count(*), vpr_titulo_produto
+		$query = ("SELECT vpr_titulo_produto, count(*)
 					FROM tb_itens_pedido
 					WHERE ped_codigo
 						IN (SELECT ped_codigo FROM tb_pedido
@@ -366,5 +366,36 @@ class TbRelatorio extends DataBase
 
 
 	}
-	
+
+	#Usado para criar graficos de unidade mais rentavel
+	public function getGraficTopUnidadeVenda($dados)
+	{
+		$query = ("SELECT (SELECT uve_nome
+							FROM tb_unidade_venda
+							WHERE PED.uve_codigo = uve_codigo) AS unidade_venda,
+    					sum(ped_valor_total)
+					FROM tb_pedido AS PED
+					WHERE date(ped_data_venda) BETWEEN ? AND ?
+					GROUP BY 1
+					ORDER BY 2 DESC;");
+
+		try{
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1,$dados['data1'],\PDO::PARAM_STR);
+			$stmt->bindParam(2,$dados['data2'],\PDO::PARAM_STR);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll(\PDO::FETCH_NUM);
+
+		}catch (\PDOException $e){
+			throw new \PDOException($e->getMessage(), $e->getCode());
+		}
+
+
+	}
+
+
 }

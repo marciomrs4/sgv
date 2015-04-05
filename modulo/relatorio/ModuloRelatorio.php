@@ -62,7 +62,7 @@
 										Produtos Mais Vendidos
 									</a>
 								</li>
-								<li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>
+								<li><a href="GraficoUnidadeDeVenda.php"><span class="glyphicon glyphicon-list-alt"></span>
 										Unidade de venda: Top Vendas
 									</a>
 								</li>

@@ -1,5 +1,4 @@
 <?php
-
 require_once '../../bootstrap.php';
 
 include_once 'config.php';
@@ -13,27 +12,33 @@ include '../../modulo/relatorio/ModuloRelatorio.php';
 $acceptForm = new \system\app\AcceptRelatorio();
 $acceptForm->setpost($_POST);
 
-$RelatorioName = 'Top Produto Vendido';
+$RelatorioName = 'Top Unidade de Venda';
 
 #Form usado para Filtro de Busca
-include 'forms/BuscarPainelBusca.php';
+include 'forms/BuscarPainelBuscaDate.php';
 
 
 $Grid = new \system\core\Grid();
 
-$Grid->setDados($acceptForm->getGrafic());
-$Grid->setCabecalho(array('Produto','Quantidade'));
+$Grid->setDados($acceptForm->getGraficTopUnidadeVenda());
+$Grid->setCabecalho(array('Unidade','Valor'));
+
+$Number = new \system\core\NumberFormat();
+$Grid->addFunctionColumn(function($var) use ($Number){
+    return 'R$ ' . $Number->numberClient($var);
+},1);
 
 $Painel = new \system\core\Painel();
 $Painel->setPainelColor('primary');
-$Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
+$Painel->setPainelTitle('Resultado')
+       ->addGrid($Grid)->show();
 
 
 ?>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Produtos Mais Vendidos</h3>
+        <h3 class="panel-title">Top Unidade de Venda</h3>
     </div>
     <div class="panel-body">
 
@@ -119,9 +124,9 @@ $Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
             },
             series: [{
                 type: 'pie',
-                name: 'Quantidade',
+                name: 'Valor',
                 data: [
-                    <?php foreach($acceptForm->getGrafic() as $value){
+                    <?php foreach($acceptForm->getGraficTopUnidadeVenda() as $value){
 
                     echo '[',"'",$value[0],"'",',',$value[1],'],';
 

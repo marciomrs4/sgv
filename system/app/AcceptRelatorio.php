@@ -103,4 +103,12 @@ class AcceptRelatorio extends PostController
 
     }
 
+    public function getGraficTopUnidadeVenda()
+    {
+        $this->getCamposForm();
+        $tbRelatorio = new \system\model\TbRelatorio();
+        return $tbRelatorio->getGraficTopUnidadeVenda($this->post);
+
+    }
+
 }
