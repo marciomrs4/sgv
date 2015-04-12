@@ -82,8 +82,11 @@ class AcceptFormPedidoToque extends PostController
 				$tbPagamentoPedido->save($dados);
 
 				$this->conexao->commit();
-				
-				return($dados['ped_numero']);
+
+				#Retornoa o numero do pedido e o codigo do pedido
+				#Usado em dois lugares, impressao do pedido e tela separada
+				#onde o ped_numero é necessario
+				return(array('ped_numero' => $dados['ped_numero'], 'ped_codigo' =>$dados['ped_codigo']));
 					
 			}catch (\PDOException $e){
 				

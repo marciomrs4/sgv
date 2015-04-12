@@ -17,7 +17,7 @@ $post = new AcceptFormPedidoToque();
 
 	//$post->setpost($_POST)->validateCreatePedidoToque();
 
-	$post->clearPost("Pedido {$_SESSION['valueTemp']} Criado com sucesso");
+	$post->clearPost("Pedido {$_SESSION['valueTemp']['ped_numero']} Criado com sucesso");
 
 $form = new FormController();
 $form->setModulo($_SESSION['moduloTemp'])
