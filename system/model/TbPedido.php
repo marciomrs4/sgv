@@ -126,6 +126,33 @@ class TbPedido extends DataBase
 	}
 
 	/**
+	 * Usado no modal na alteração de status no painel de status de venda
+	 */
+	public function getNumberPedido($ped_codigo)
+	{
+		$query = ("SELECT ped_numero
+ 					FROM tb_pedido
+					WHERE ped_codigo = ?");
+
+		try {
+
+			$stmt = $this->conexao->prepare($query);
+
+			$stmt->bindParam(1, $ped_codigo, \PDO::PARAM_INT);
+
+			$stmt->execute();
+
+			return $stmt->fetch(\PDO::FETCH_ASSOC);
+
+		} catch (\PDOException $e) {
+			throw new \PDOException($e->getMessage());
+		}
+
+
+	}
+
+
+	/**
 	 * @param $ped_codigo
 	 * @return array
 * Lista pedido nas telas de buscar pedido: Comercial ou Adm

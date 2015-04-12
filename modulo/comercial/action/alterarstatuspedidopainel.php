@@ -14,9 +14,11 @@ try {
     $tbPedido = new \system\model\TbPedido();
     $tbPedido->updaStatus($dados);
 
+    $Pedido = $tbPedido->getNumberPedido($ped_codigo);
+
     $tbStatus = new \system\model\TbStatusPedido();
 
-    echo 'Pedido: ', $ped_codigo,'<br /> Alterado para status: ',$tbStatus->getForm($stp_codigo)['stp_descricao'];
+    echo 'Pedido: ', $Pedido['ped_numero'],'<br /> Alterado para status: ',$tbStatus->getForm($stp_codigo)['stp_descricao'];
 
 }catch(\PDOException $e){
     echo $e->getMessage();
