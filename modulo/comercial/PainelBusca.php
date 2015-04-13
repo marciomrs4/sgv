@@ -21,7 +21,7 @@ if((isset($_SESSION['ped_codigo']))  or (!isset($_SESSION['action']))){
 
     $ped_codigo = ($_POST['ped_codigo'] == '') ? $_SESSION['ped_codigo'] : $_POST['ped_codigo'];
 
-include_once "forms/BuscarPainelBusca.php";
+//include_once "forms/BuscarPainelBusca.php";
 
     unset($_SESSION['ped_codigo']);
 
@@ -34,7 +34,7 @@ $gridPedido = new \system\core\Grid();
 $gridPedido->colunaoculta = 1;
 $gridPedido->id = null;
 
-$gridPedido->setDados($tbPedido->getListarPedido($ped_codigo))
+$gridPedido->setDados($tbPedido->listarPedidoBusca($ped_codigo))
            ->setCabecalho(array('Numero','Cliente','Usuario','Data','Valor Total','Status','Unidade Venda'))
            ->addFunctionColumn(function ($var) use ($Number){
                 return 'R$ '.$Number->numberClient($var);},5)
