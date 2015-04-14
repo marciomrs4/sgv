@@ -26,7 +26,7 @@ $Grid->setDados($acceptForm->getQuantidadePedidoTotalDia());
 
 $Number = new \system\core\NumberFormat();
 $Grid->addFunctionColumn(function($var) use ($Number){
-    return 'R$ ' . $Number->numberClient($var);
+    return $Number->numberClient($var);
 },3);
 
 $Painel = new \system\core\Painel();

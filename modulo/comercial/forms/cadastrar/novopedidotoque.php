@@ -37,8 +37,8 @@
 		  <div class="col-md-4">
 		    <div class="btn btn-primary btn-lg"><?php echo($product['pro_titulo']); ?></div>
 		    	<input name="<?php echo($product['pro_codigo']);?>" value="" size="3" class="input-lg">
-			 <h4>R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?></h4>
 			  <span style="display: none"><?php echo $tbProduto->getPriceProduct($product['pro_codigo']); ?></span>
+			  <h4>R$ <?php echo(NumberFormat::builder()->numberClient($tbProduto->getPriceProduct($product['pro_codigo'])));?></h4>
 		  </div>
   		</div>
 		<?php endforeach; ?>

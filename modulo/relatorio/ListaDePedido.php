@@ -31,7 +31,7 @@ $Grid->setCabecalho(array('Numero de Pedido','Cliente','Valor Total','Tipo De Pa
 
 $Number = new \system\core\NumberFormat();
 $Grid->addFunctionColumn(function($var) use ($Number){
-    return 'R$ ' . $Number->numberClient($var);
+    return $Number->numberClient($var);
 },2);
 
 

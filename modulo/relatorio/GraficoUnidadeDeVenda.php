@@ -25,7 +25,7 @@ $Grid->setCabecalho(array('Unidade','Valor'));
 
 $Number = new \system\core\NumberFormat();
 $Grid->addFunctionColumn(function($var) use ($Number){
-    return 'R$ ' . $Number->numberClient($var);
+    return $Number->numberClient($var);
 },1);
 
 $Painel = new \system\core\Painel();
