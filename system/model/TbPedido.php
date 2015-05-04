@@ -20,13 +20,14 @@ class TbPedido extends DataBase
 	{
 		$query = ("INSERT INTO tb_pedido
 					(ped_numero, ped_cliente, usu_codigo,
-					 ped_valor_total, stp_codigo, uve_codigo)
-					VALUES(?, ?, ?, ?, ?, ?)");
+					 ped_valor_total, stp_codigo, uve_codigo, ped_data_venda)
+					VALUES(?, ?, ?, ?, ?, ?, ?)");
 		try {
 			
 			$stmt = $this->conexao->prepare($query);
 			
 			$cliente = $dados['ped_cliente'];
+			$dados['ped_data_venda'] = date('Y-m-d H:i:s');
 			
 			$stmt->bindParam(1, $dados['ped_numero'],\PDO::PARAM_INT);
 			$stmt->bindParam(2, $cliente);
@@ -34,6 +35,7 @@ class TbPedido extends DataBase
 			$stmt->bindParam(4, $dados['ped_valor_total'],\PDO::PARAM_STR);
 			$stmt->bindParam(5, $dados['stp_codigo'],\PDO::PARAM_INT);															
 			$stmt->bindParam(6, $dados['uve_codigo'],\PDO::PARAM_INT);
+			$stmt->bindParam(7, $dados['ped_data_venda'],\PDO::PARAM_INT);
 						
 			$stmt->execute();
 			
