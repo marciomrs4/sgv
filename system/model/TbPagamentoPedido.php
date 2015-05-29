@@ -60,5 +60,30 @@ class TbPagamentoPedido extends DataBase
 			throw new \Exception($e->getMessage());
 		}
 	}
+
+    public function getTipoPagamento($ped_codigo)
+    {
+        try {
+
+            $query = ("SELECT (SELECT tpa_descricao
+                                  FROM tb_tipo_pagamento
+                                  WHERE tpa_codigo = PAG.tpa_codigo) AS tipo_pagamento
+                       FROM tb_pagamento_pedido AS PAG
+                       WHERE ped_codigo = ?");
+
+            $stmt = $this->conexao->prepare($query);
+
+            $stmt->bindParam(1,$ped_codigo,\PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            $tipoPagamento = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            return $tipoPagamento['tipo_pagamento'];
+
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
 	
 }

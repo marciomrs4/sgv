@@ -22,14 +22,8 @@ $erros->showMessages();
 
 $controler = new FormController();
 
-
 $controler->setForm()
           ->getForm();
-
-/*echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';*/
-
 
 
 include '../../componente/rodape.php';
