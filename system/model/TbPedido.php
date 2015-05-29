@@ -78,14 +78,15 @@ class TbPedido extends DataBase
 	{
 		$query = ("SELECT MAX(ped_numero)
 					FROM tb_pedido
-					WHERE date_format(ped_data_venda,'%Y-%m-%d') = curdate()
+					WHERE date_format(ped_data_venda,'%Y-%m-%d') = ?
 					AND uve_codigo = ?;");
 		
 		try {
-			
+
 			$stmt = $this->conexao->prepare($query);
 
-			$stmt->bindParam(1,$unidadeVenda,\PDO::PARAM_INT);
+            $stmt->bindParam(1,date('Y-m-d'),\PDO::PARAM_STR);
+            $stmt->bindParam(2,$unidadeVenda,\PDO::PARAM_INT);
 
 			$stmt->execute();
 			
