@@ -1,4 +1,4 @@
 #Controle e Anotacoes
 
-@Version: 2.95.9
+@Version: 2.96.0
 
