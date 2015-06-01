@@ -337,7 +337,7 @@ class TbRelatorio extends DataBase
 #Usadso para criar graficos de produto mais vendido
 	public function getGraficTopProdutoVendido($dados)
 	{
-		$query = ("SELECT vpr_titulo_produto, count(*)
+		$query = ("SELECT vpr_titulo_produto, sum(vpr_quantidade)
 					FROM tb_itens_pedido
 					WHERE ped_codigo
 						IN (SELECT ped_codigo FROM tb_pedido
