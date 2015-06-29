@@ -38,7 +38,7 @@ $Painel->setPainelTitle('Resultado')->addGrid($Grid)->show();
     <div class="panel-body">
 
         <div id="container" style="height: 400px"></div>
-
+ca
     </div>
 </div>
 

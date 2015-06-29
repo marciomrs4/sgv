@@ -18,7 +18,6 @@
 
             $numberFormat = new \system\core\NumberFormat();
 
-
 			echo 'Pedido: ', $_SESSION['value']['ped_numero'],'<br>';
 
 				$DadosPedido = $tbPedido->getPedidoInformacao($_SESSION['value']['ped_codigo']);
@@ -37,10 +36,10 @@
 				foreach($DadosItensPedido as $linha){
 					echo  $linha['vpr_quantidade'],' - ',
                           $linha['vpr_titulo_produto'],' - ',
-						  $linha['vpr_valor_total'],'<br>';
+						  $numberFormat->numberClient($linha['vpr_valor_total']),'<br>';
 				}
 
-                echo '<br><br><br>';
+/*                echo '<br><br><br>';
 
                 //Segunda parte que é enviado para cozinha
                echo 'Pedido: ', $_SESSION['value']['ped_numero'],'<br>',
@@ -51,7 +50,7 @@
                     echo  $linha['vpr_quantidade'],' - ',
                           $linha['vpr_titulo_produto'],' - ',
                           $linha['vpr_valor_total'],'<br>';
-        }
+        }*/
 
 		?>
 	</div>
