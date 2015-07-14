@@ -49,10 +49,10 @@ class AcceptForm extends PostController
 	public function createPedido()
 	{
 		try{
-		v::string()->notEmpty()
+/*		v::string()->notEmpty()
 				   ->setName('Cliente')
 				   ->setTemplate('O campo {{name}} &eacute; obrigat&oacute;rio')
-				   ->assert($this->post['ped_cliente']);
+				   ->assert($this->post['ped_cliente']);*/
 
 		v::notEmpty()->setName('Valor')
 					 ->setTemplate('O campo {{name}} &eacute; obrigat&oacute;rio')
@@ -155,7 +155,9 @@ class AcceptForm extends PostController
 			
 			$this->conexao->commit();
 
-			return $this->post['ped_codigo'];
+			//return $this->post['ped_codigo'];
+
+            return(array('ped_numero' => $this->post['ped_numero'], 'ped_codigo' =>$this->post['ped_codigo']));
 			
  		} catch (\Exception $e) {
  			$this->conexao->rollBack();

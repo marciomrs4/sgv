@@ -19,13 +19,24 @@ try {
 		return false;		
 	}
 
-	$_SESSION['ped_codigo'] = $post->finalizarPedido();
+/*	$_SESSION['ped_codigo'] = $post->finalizarPedido();
  	unset($_SESSION['pedido']);
 	unset($_SESSION['itens_pedido']);
 
- 	$post->clearPost('Pedido Efetuado com sucesso!','../PainelBusca.php');
+ 	$post->clearPost('Pedido Efetuado com sucesso!','../PainelBusca.php');*/
 
-	
+    $_SESSION['valueTemp'] = $post->finalizarPedido();
+    unset($_SESSION['pedido']);
+    unset($_SESSION['itens_pedido']);
+
+
+    $post->clearPost("Pedido {$_SESSION['valueTemp']['ped_numero']} Criado com sucesso");
+
+    $form = new FormController();
+    $form->setModulo($_SESSION['moduloTemp'])
+        ->setAction('alterar/resultadoPedidoToque')
+        ->setValue($_SESSION['valueTemp']);
+
 } catch (Exception $e) {
 
 	$_SESSION['erro'] = $e->getMessage();

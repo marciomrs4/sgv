@@ -39,7 +39,8 @@ class TbProduto extends DataBase
 	public function listProductScreenSale()
 	{
 		$query = ("SELECT * FROM tb_produto
-				   WHERE pro_status = '1'");
+				   WHERE pro_status = '1'
+				   ORDER BY tpr_codigo, pro_titulo ");
 		
 		try {
 			

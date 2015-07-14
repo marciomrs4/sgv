@@ -16,7 +16,7 @@
 		$tbProduto = new TbProduto();
 		
 		?>
-		<form class="form-horizontal" id="pedidotoque" method="post" action="action/createPedidoToque.php">
+		<form class="form-inline" id="pedidotoque" method="post" action="action/createPedidoToque.php">
 
 		<div class="form-group">		
 			<label for="inputEmail3" class="col-sm-1 control-label">Cliente:</label>
