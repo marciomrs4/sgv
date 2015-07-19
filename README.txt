@@ -1,4 +1,4 @@
-(https://travis-ci.org/marciomrs4/sgv.svg?branch=master)
+[!Build Status](https://travis-ci.org/marciomrs4/sgv.svg?branch=master)
 
 #Controle e Anotacoes
 
