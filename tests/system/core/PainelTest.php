@@ -2,7 +2,7 @@
 
 namespace system\core;
 
-class Painel
+class PainelTest extends \PHPUnit_Framework_TestCase
 {
 	
 	private $painelTitle;
@@ -24,9 +24,15 @@ class Painel
 				danger -
 				default
 	 */
-	public function setPainelColor($painelColor='default')
+	public function testsetPainelColor($painelColor='default')
 	{
 		$this->painelColor = $painelColor;
+
+        $this->assertInternalType('string',$painelColor);
+
+        $this->assertContains($painelColor,array('primary','success','info',
+                                                 'warning','danger','default')
+                            );
 		return $this;
 	}
 	
@@ -35,9 +41,12 @@ class Painel
 		return $this->painelColor;
 	}
 	
-	public function setPainelTitle($title='')
+	public function test_setPainelTitle($title='')
 	{
 		$this->painelTitle = $title;
+
+        $this->assertInternalType('string',$title);
+
 		return $this;
 	}
 	
@@ -48,8 +57,10 @@ class Painel
 
 	public function addGrid(IGrid $grid)
 	{
-		$this->grid = $grid;
-		return $this;	
+
+        $grid = new Grid();
+        $this->grid = $grid;
+		return $this;
 	}
 	
 	private function validateGrid($show)

@@ -2,8 +2,9 @@
 
 namespace system\model;
 
-use system\core\DataBase;
-class TbItemPedido extends DataBase
+use system\core\DataBaseTest;
+
+class TbItemPedido extends DataBaseTest
 {
 	
 	private $table = 'tb_itens_pedido';
@@ -34,8 +35,9 @@ class TbItemPedido extends DataBase
 			$stmt->bindParam(5, $dados['vpr_valor_total'],\PDO::PARAM_STR);															
 			
 			$stmt->execute();
-			
+
 			return $this->conexao->lastInsertId();
+
 			
 		} catch (\PDOException $e) {
 			throw new \PDOException('Erro ao inserir em: '.get_class($this).' Erro: '.$e->getMessage());
