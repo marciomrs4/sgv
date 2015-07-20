@@ -1,7 +1,7 @@
 <?php
 include_once 'configGlobal.php';
 
-define('DOCROOT',dirname(__FILE__));
+/*define('DOCROOT',dirname(__FILE__));
 define('DS',DIRECTORY_SEPARATOR);
 
 function autoload($class){
@@ -14,5 +14,7 @@ function autoload($class){
 		echo 'Erro ao Carregar a Classe '.$file;
 	}
 }
-spl_autoload_register('autoload');
+spl_autoload_register('autoload');*/
+
+require 'vendor/autoload.php';
 ?>

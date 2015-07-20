@@ -1,5 +1,7 @@
 <?php
-include_once '../../bootstrap.php';
+//include_once '../../bootstrap.php';
+
+include_once '../../vendor/autoload.php';
 
 
 use system\core\FormController as Form;
