@@ -25,19 +25,25 @@ class FormController
 	
 	public function setModulo($modulo=null)
 	{
-		$form_modulo = null;
-		extract($_SESSION,EXTR_PREFIX_ALL,'form');
-		$this->modulo = ($modulo != null) ? $modulo : $form_modulo;
-		$_SESSION['modulo'] = $this->modulo;
+        if(!empty($_SESSION)) {
+
+            $form_modulo = null;
+            extract($_SESSION, EXTR_PREFIX_ALL, 'form');
+            $this->modulo = ($modulo != null) ? $modulo : $form_modulo;
+            $_SESSION['modulo'] = $this->modulo;
+        }
 		return $this;
 	}
 	
 	public function setAction($action=null)
 	{
-		$form_action = null;
-		extract($_SESSION,EXTR_PREFIX_ALL,'form');
-		$this->action = ($action != null) ? $action : $form_action;
-		$_SESSION['action'] = $this->action;
+        if(!empty($_SESSION)) {
+
+            $form_action = null;
+            extract($_SESSION, EXTR_PREFIX_ALL, 'form');
+            $this->action = ($action != null) ? $action : $form_action;
+            $_SESSION['action'] = $this->action;
+        }
 		return $this;
 	}
 	
@@ -58,10 +64,13 @@ class FormController
 			echo 'Arquivo nao encontrado';
 		}
 
-		unset($_SESSION['action'], $_SESSION['modulo'],
+        if(!empty($_SESSION)) {
+
+            unset($_SESSION['action'], $_SESSION['modulo'],
 			  $_SESSION['value'],$_SESSION['erro'],
 			  $_SESSION['erros']);
-	}
+	    }
+    }
 
 	
 	public function setForm($form = null)
