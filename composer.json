@@ -1,7 +1,9 @@
 {
-    "name": "mrs/sgv",
+  "name": "mrs/sgv",
   "description" : "Sistema de vendas para Web",
-    "authors": [
+  "license": "MIT",
+  "homepage": "http://marciomrs4.github.io/sgv/",
+  "authors": [
         {
             "name": "Márcio Ramos",
             "email": "marciomrs4@hotmail.com"
