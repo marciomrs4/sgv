@@ -1,3 +1,35 @@
+8c15ae7fb7825250419a97028034a9ddf9245d28 Add license
+0f13255d81e6e0c2e48f2f32811c488fe5976201 Add Json for packgist
+7c39dab44ad357797b5c8c102abc22d225735254 Created news tests
+d9e285c01ba0729e324af00e4b53509dcb7825b3 Add travis.yml
+07287bc3abd574a15d7a432d5af72d83fc32877c Add suit de tests
+5628143d1e475923b344a60d4a6c03bc22af0a3c Update README.md
+166b90fc1903a37c506191b02941139f94c1ef67 Update README.md
+ebc4ae034b762993707fd8c177163ed9de297e05 Rename README.txt to README.md
+d3ab0ccbda013bd803e199bb38ae5cc13d21741b Update README.txt
+aa83ae81d11b940eac76eda18ac6fc75bf59d6c9 Update README.txt
+4b2abcccd60428256ee0f0f1255a04a5a0518d8c Update README.txt
+9656a7f18b163d2290bd795012db74794ef9ab46 Update README.txt
+20ac9c89a76105aa416ab065a96031bb08a77205 Criado a versao de impressao na tela de Novo Pedido
+a2d6f01cc656997ae851c66a912a985468fbb36c Result pedido toque, valor em reais
+ceee32e024fd67348a2a5f31435584d945f72cb0 Alteracao no tempo do alerta de gravação com sucesso
+48a24a2c421380e79c9f58ff434fc2dcb72bba58 #BugFix Relatório Grafico top por produto, erro na quantidade corrigido
+f388c40fe0e73e39e0716298b37f2db8227c43be #BugFix Correcao na criacao do numero do pedido, validando pela data do PHP
+eff2b0d4996ac73dc144dad2b1b4d4b56ee7d71f Alteracao de versao
+8a0b09e3996f93443c560e069d7d6ff91127ff13 Ajustes na tela de impressão
+75939d6fac03111ae7b5309c558ec440669b112f #BugFix: Criado a solucao da data na insercao do pedido
+efceaf8676ba73653d546cc992908103bdde925c Nova Base de dados
+72279fbaa83fb0b4c820a8725584b8cdfd547fd7 Alteracao de versao
+4de240011a978298c5c0bd4cc289563a0bbeebf3 #Bug Fix: Correcao da somatoria e Remocao do R cifrao
+e59a43518588035006ac21a2f28e118e039748f1 Add dev
+fbf77a54ee5411ba1f6ff8465ab41eead1e2ac7d Add git dev
+862e9466a302db942a8abf2a34db82a66b2beb6d #Bug Fix: Tela de busca do pedido de add car, no retorno da criacao do pedido
+b5d8cf756bb83e1016daa1589f91d5bfd3965bb3 #Bug Fix: Numero do pedido na cricao do pedido toque em tela separacao e impressao
+83b3e9c56469223e0dd903143918d47c6a49a540 #Bug Fix: Numero do pedido no Modal ao alterar status no painel de vendas
+904b81d480586cf37d3cc99d0611a7d8227a2e9c Nova versao e Nova Estrutura da Base de dados
+4fc2bda78241bce9a09c1815bedc111932c8cf6e Add Cadastro de Tipo de Pagamento e correcao de bug do status pedido
+a92729ad7ae2cbda4df74e2bff6077cc1c968691 Ajustes nos arquivos de base de dados e criacao da estrutura vazia
+5105be1366bfa34691baa42ae97275675fff9554 Versao do Sistema e Log de Criacao
 82d2d45a4d048eb9ba14e7ae645f767e687df3bc Add Painale aos cadastros do sistema
 1109f46be0a762d986384b0bc695f08e2c64cae9 Add Ordem nos pedidos Organizacao dos Menus em Adm e Comercial
 40f48ca4d0526e46a204ab55191809ddb070470f Relatorio com graficos finalizados, Top Produto e Top undidade
